@@ -7,7 +7,8 @@ const Login = (props) => {
     <section className={styles.loginPage}>
       <div className={styles.loginForm} >
         <div className={styles.banner}>
-          <span className={styles.gra}>나만의 선생님을 만나는 곳</span> 매티</div>
+          <div className={styles.gra}>나만의 선생님을 만나는 곳</div>
+        </div>
         <input className={styles.form} placeholder="아이디" />
         <input
           className={styles.form}
