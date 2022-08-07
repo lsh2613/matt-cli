@@ -21,14 +21,18 @@ const Header = ({ onLogout }) => {
             로그아웃
           </button>
         ) : (
-          <button className={hover ? `${styles.btn} ${styles.hover}` : styles.btn}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            onClick={() => {
-              navigate("/login")
-            }}>
-            로그인
-          </button>
+          <div className={styles.floatRight}>
+            <span className={styles.signUpBtn}
+              onClick={() => {
+                navigate("/signup")
+              }}> 회원가입</span>
+            <button className={styles.btn}
+              onClick={() => {
+                navigate("/login")
+              }}>
+              로그인
+            </button>
+          </div>
         )}
       </header>
     </Container >

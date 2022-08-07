@@ -27,12 +27,9 @@
   color: #999;
   font-weight: 600;
   cursor:pointer;
-  position:absolute;
-  right: 1em;
-
 }
 
-.hover{
+.btn:hover{
   background-color:#B39CD0;
   color : #fff;
 }
@@ -44,4 +41,19 @@
 .menuList{
   margin-right: 1.5em;
   cursor:pointer
+}
+
+.signUpBtn{
+  cursor: pointer;
+  color : #bbb;
+  margin-right: 1em;
+  font-size: 14px;
+}
+.signUpBtn:hover{
+  font-weight: 600;
+}
+
+.floatRight{
+  position: absolute;
+  right: 1em;
 }
