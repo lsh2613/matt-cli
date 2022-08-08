@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './signup.module.css';
 import {signup} from '../../api/user/user';
 const Signup = (props) => {
@@ -21,6 +21,16 @@ const Signup = (props) => {
       [name]: value,
     });
   }
+
+  const postSignup = () =>{
+    console.log("?")
+    try {
+       signup(user).then(res => {
+        console.log(res);
+      })
+    } catch (e) { console.log(e) }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>회원가입</div>
@@ -67,7 +77,7 @@ const Signup = (props) => {
           <div className={styles.label}>패스워드 확인</div>
           <input type="password" className={styles.inpuForm} ></input>
         </div>
-
+        <button className={`${styles.form} ${styles.loginBtn}`} onClick={postSignup}>로그인</button>
       </div>
     </div>
   )
