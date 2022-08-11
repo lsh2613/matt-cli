@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './signup.module.css';
 import {signup} from '../../api/user/user';
+import { useNavigate } from "react-router-dom";
 const Signup = (props) => {
   const [user, setUser] = useState({
     "birthDate": "",
@@ -14,6 +15,7 @@ const Signup = (props) => {
   });
 
   const { birthDate, email, gender, loginId, name, nickname, password, phoneNumber } = user;
+  const navigate= useNavigate();
   const onChange = e => {
     const { name, value } = e.target;
     setUser({
@@ -21,6 +23,16 @@ const Signup = (props) => {
       [name]: value,
     });
   }
+
+  const postSignup = () =>{
+    try {
+       signup(user).then(res => {
+        //alert창 추가하기
+         if (res.status === 200){ navigate("/login")}
+      })
+    } catch (e) { console.log(e) }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>회원가입</div>
@@ -67,7 +79,7 @@ const Signup = (props) => {
           <div className={styles.label}>패스워드 확인</div>
           <input type="password" className={styles.inpuForm} ></input>
         </div>
-
+        <button className={styles.signupBtn} onClick={postSignup}>로그인</button>
       </div>
     </div>
   )
