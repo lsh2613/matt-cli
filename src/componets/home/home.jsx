@@ -1,11 +1,13 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
+import styles from './home.module.css'
 import Search from './components/search';
+import RecommClass from './components/recommClass';
 const Home = (props) => {
   return (
-    <Container>
+    <div className={styles.container}>
       <Search/>
-    </Container>
+      <RecommClass /> 
+    </div>
   )
 }
 export default Home;

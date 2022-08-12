@@ -1,9 +1,8 @@
 .container{
-  width:100%;
+  width:96%;
   background-color: #eee;
   border-radius: 20px;
   padding: 10px 10px;
-
 }
 .filterDiv{
   padding: 5px 10px;

@@ -1,0 +1,49 @@
+.container{
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  background-color: #F7F0FC;
+}
+.cardContainer {  position: relative;
+  background-color: #fff;
+  min-width: 32%;
+  height: 180px;
+  border-radius: 13px;
+  box-shadow: 5px 4px 13px 1px rgba(0, 0, 0, 0.14);
+  padding: 16px 16px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+}
+
+.cardContainer:hover {
+background: rgb(103, 78, 149);
+  background: linear-gradient(330deg, rgba(103, 78, 149, 1) 6%, rgba(179, 156, 208, 1) 72%);
+  color: #fff;
+}
+
+.cardContainer:hover .etc {
+  color: #ddd;
+}
+
+.etc {
+  font-size: 13px;
+  color: #999;
+}
+
+.bold{
+  font-weight: 600;
+}
+
+.classSt {
+  width: fit-content;
+  right: 20px;
+  padding: 2px 8px;
+  position: absolute;
+  background-color: #4E88FC;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+
+
+}
