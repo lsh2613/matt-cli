@@ -1,3 +1,4 @@
+@value orangeColor, blueColor from './common/colors.css';
 @font-face {
   font-family: 'InfinitySans-RegularA1';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
@@ -13,10 +14,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fff;
+  background-color: blueColor;
 }
 
 code {
   font-family: 'InfinitySans-RegularA1',source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+
 }

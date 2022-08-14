@@ -44,7 +44,7 @@
 
 .signupBtn {
   margin-top: 2em;
-  background-color: #B39CD0;
+  background-color: var(--color-primary);
   opacity: 0.5;
   cursor: pointer;
   border: 1px solid #eee;
@@ -81,7 +81,7 @@ input[type=radio]+label {
 }
 
 input[type=radio]:checked+label {
-  background-color: #B39CD0;
+  background-color: var(--color-primary);
   color: #fff;
 }
 

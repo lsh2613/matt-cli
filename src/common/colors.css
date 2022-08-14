@@ -1,6 +1,10 @@
-@value orangeColor : #ff4e00;
-@value blueColor : #3481ef;
-@value blackColor : #222429;
-@value yellowColor : #f7df1e;
-@value grayColor : #979797;
-@value whiteColor : #f5f6f6;
+:root {
+  --color-primary : #B39CD0;
+  --color-primary-darker : #7E6999;
+  --color-blue : #3A8FC5;
+  --color-red : #ffa3b6;
+  --color-yellow : #ffd476;
+
+  --box-shadow : 5px 4px 13px 1px rgba(0, 0, 0, 0.14);
+  --drop-shadow : 
+}

@@ -1,59 +1,64 @@
-@value grayColor, blueColor,whiteColor from '../../../common/colors.css';
 @font-face {
   font-family: 'SEBANG_Gothic_Bold';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
-.header{
+
+.header {
   height: 60px;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   padding: 0 1em;
   position: relative;
 }
-.logo{
+
+.logo {
   width: 80px;
   height: 80px;
   margin-right: 1em;
+  z-index: -1;
 }
-.btn{
+
+.btn {
   font-family: 'InfinitySans-RegularA1';
   width: 80px;
-  height : 40px;
-  background-color:transparent;
-  border: 2.5px solid #B39CD0;
+  height: 40px;
+  background-color: transparent;
+  border: 2.5px solid var(--color-primary);
   border-radius: 4px;
   color: #999;
   font-weight: 600;
-  cursor:pointer;
-}
-
-.btn:hover{
-  background-color:#B39CD0;
-  color : #fff;
-}
-
-.menu{
-  list-style: none;
-  display:flex;
-}
-.menuList{
-  margin-right: 1.5em;
-  cursor:pointer
-}
-
-.signUpBtn{
   cursor: pointer;
-  color : #bbb;
+}
+
+.btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menuList {
+  margin-right: 1.5em;
+  cursor: pointer
+}
+
+.signUpBtn {
+  cursor: pointer;
+  color: #bbb;
   margin-right: 1em;
   font-size: 14px;
 }
-.signUpBtn:hover{
+
+.signUpBtn:hover {
   font-weight: 600;
 }
 
-.floatRight{
+.floatRight {
   position: absolute;
   right: 1em;
 }

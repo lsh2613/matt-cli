@@ -25,7 +25,7 @@
 box-shadow: 2px 2px 15px 2px rgba(179,156,208,0.3);
 }
 .loginBtn{
-  background-color:  #B39CD0;
+  background-color:  var(--color-primary);
   opacity: 0.5;
   cursor: pointer;
 }
@@ -43,7 +43,7 @@ box-shadow: 2px 2px 15px 2px rgba(179,156,208,0.3);
 }
 .banner .gra{ 
   font-size: 20px;
-  background: linear-gradient(to right top, #B39CD0, #ffa69e);
+  background: linear-gradient(to right top, var(--color-primary), #ffa69e);
     color: transparent;
     -webkit-background-clip: text;
   

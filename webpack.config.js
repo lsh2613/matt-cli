@@ -7,4 +7,11 @@ module.exports = {
       extensions: ['.ts', '.tsx', '.js', '.json'],
     }
   },
+  module: {
+    loaders: [
+      {
+        loader: 'source-map',
+      }
+    ],
+  }
 }

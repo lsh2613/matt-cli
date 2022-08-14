@@ -1,7 +1,11 @@
+import './common/colors.css'
+
 * {
   box-sizing: border-box;
 }
-.app{
+
+.app {
   margin-top: 10px;
+  background-color: #fff;
 
 }

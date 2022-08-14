@@ -5,8 +5,8 @@ import RecommClass from './components/recommClass';
 const Home = (props) => {
   return (
     <div className={styles.container}>
-      <Search/>
-      <RecommClass /> 
+      <Search />
+      <RecommClass />
     </div>
   )
 }

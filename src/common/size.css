@@ -1,1 +1,3 @@
-@value mediaQuery: 62rem;
+:root{
+  --media-query : 62em;
+}
