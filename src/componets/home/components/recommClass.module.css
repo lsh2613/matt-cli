@@ -1,15 +1,19 @@
 .container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
   margin-top: 40px;
-  background-color: orangeColor;
+  background-color : #F7F0FC;
+  padding: 3rem 0rem;
 }
 
 .cardContainer {
+  display:flex;
+  flex-wrap :wrap;
   position: relative;
-  background-color: #fff;
-  min-width: 32%;
+}
+
+.card {
+  position:relative;
+  background-color : #fff;
+  min-width: 30%;
   height: 180px;
   border-radius: 13px;
   box-shadow: var(--box-shadow);
@@ -18,13 +22,13 @@
   margin-right: 1%;
 }
 
-.cardContainer:hover {
+.card:hover {
   background: rgb(103, 78, 149);
   background: linear-gradient(330deg, rgba(103, 78, 149, 1) 6%, rgba(179, 156, 208, 1) 72%);
   color: #fff;
 }
 
-.cardContainer:hover .etc {
+.card:hover .etc {
   color: #ddd;
 }
 
@@ -40,12 +44,15 @@
 .classSt {
   width: fit-content;
   right: 20px;
-  padding: 2px 8px;
+  padding: 4px 8px;
   position: absolute;
   background-color: var(--color-blue);
   color: #fff;
   font-size: 12px;
   border-radius: 5px;
+}
 
-
+.card:hover .classSt {
+  color: var(--color-blue);
+  background-color : #fff;
 }
