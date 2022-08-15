@@ -4,6 +4,7 @@
   --color-blue : #3A8FC5;
   --color-red : #ffa3b6;
   --color-yellow : #ffd476;
+  --color-gray-bright : rgba(238, 238, 238, 0.5);
 
   --box-shadow : 5px 4px 13px 1px rgba(0, 0, 0, 0.14);
   --drop-shadow : 

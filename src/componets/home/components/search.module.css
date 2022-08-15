@@ -1,13 +1,14 @@
 .container{
   width:100%;
-  background-color: #f0f0f3;
+  background-color: var(--color-gray-bright);
   border-radius: 20px;
+  padding: 1em 0em;
 
 }
 .filterDiv{
   padding: 5px 10px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: transparent;
   margin-bottom: 5px;
 }
 .filterDiv:nth-child(3){

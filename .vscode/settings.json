@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "emmet.syntaxProfiles": {
+    "postcss": "css"
+  }
+}

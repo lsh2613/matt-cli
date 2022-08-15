@@ -1,12 +1,18 @@
 .container {
+  width : 100%;
   margin-top: 40px;
-  background-color : #F7F0FC;
-  padding: 3rem 0rem;
+  padding: 2 rem 0rem;
+}
+.title{
+  font-size : 1.1rem;
+  font-weight : 600;
+  padding: 1rem 1rem;
 }
 
 .cardContainer {
   display:flex;
   flex-wrap :wrap;
+  justify-content:space-between;
   position: relative;
 }
 

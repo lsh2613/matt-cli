@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './header.module.css';
+import button from '../../../common/button.module.css'
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ onLogout }) => {
@@ -27,7 +28,7 @@ const Header = ({ onLogout }) => {
             onClick={() => {
               navigate("/signup")
             }}> 회원가입</span>
-          <button className={styles.btn}
+          <button className={button.fullBtn}
             onClick={() => {
               navigate("/login")
             }}>
