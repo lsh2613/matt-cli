@@ -38,7 +38,7 @@
 .borderGrayBtn {
   font-family: 'InfinitySans-RegularA1';
   background-color: transparent;
-  border: 2px solid #BEC0BE;
+  border: 2px solid var(--color-gray);
   border-radius: 4px;
   padding:  0.5rem 0.5rem;
   color: #999;
@@ -47,6 +47,6 @@
   font-size: 12px;
 }
 .borderGrayBtn:hover{
-  background-color: #BEC0BE;
+  background-color: var(--color-gray);
   color:#fff;
 }
