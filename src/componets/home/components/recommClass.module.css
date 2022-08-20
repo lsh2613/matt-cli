@@ -7,6 +7,7 @@
   font-size : 1.1rem;
   font-weight : 600;
   padding: 1rem 1rem;
+  
 }
 
 .cardContainer {
@@ -26,20 +27,25 @@
   padding: 16px 16px;
   margin-bottom: 20px;
   margin-right: 1%;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
 }
 
 .card:hover {
   background: rgb(103, 78, 149);
-  background: linear-gradient(330deg, rgba(103, 78, 149, 1) 6%, rgba(179, 156, 208, 1) 72%);
+  background: linear-gradient(330deg, rgba(133, 108, 179, 1) 6%, rgba(179, 156, 208, 1) 72%);
   color: #fff;
 }
 
 .card:hover .etc {
   color: #ddd;
 }
-
+.classTitle{
+  max-width: 80%;
+}
 .etc {
-  font-size: 13px;
+  font-size: 14px;
   color: #999;
 }
 
