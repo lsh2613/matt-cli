@@ -3,7 +3,7 @@ import styles from './makeclass.module.css'
 const MakeClass = (props) => {
   return (
     <div className={styles.container}>
-      <section className={styles.section}>
+      <section className={styles.section1}>
 
         <div className={styles.form}>
           <div className={styles.label}>클래스명</div>
@@ -31,7 +31,7 @@ const MakeClass = (props) => {
           <input type="date" className={styles.inpuForm} ></input>
         </div>
       </section>
-      <section className={styles.section}>
+      <section className={styles.section2}>
 
         <div className={styles.form}>
           <div className={styles.label}>요일</div>
