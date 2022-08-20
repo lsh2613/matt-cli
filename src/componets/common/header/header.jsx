@@ -17,11 +17,14 @@ const Header = ({ onLogout }) => {
         <li className={styles.menuList}>멘토조회</li>
       </div>
       {onLogout ? (
-        <button
-
-          onClick={onLogout}>
-          로그아웃
-        </button>
+        <div className={styles.floatRight}>
+          <span className={styles.signUpBtn}
+            onClick={onLogout}> 마이페이지</span>
+          <button className={button.fullBtn}
+            onClick={onLogout}>
+            로그아웃
+          </button>
+        </div>
       ) : (
         <div className={styles.floatRight}>
           <span className={styles.signUpBtn}

@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './mypage.module.css';
 import button from '../../common/button.module.css';
+import CreateClass from './components/createclass';
 const MyPage = (props) => {
   return (
     <div className={styles.container}>
-      <section className={styles.profile}>
+      <section className={styles.section}>
         <img src="img/profile.png" alt="프로필" className={styles.profileImg} />
         <div className={styles.userInfo}>
           <div className={styles.nicknm}>👤 김가궁</div>
@@ -16,12 +17,12 @@ const MyPage = (props) => {
       </section>
 
       <div className={styles.class}>
-        <section className={styles.notCertify}>
+        <section className={styles.section}>
           <div className={styles.title}>선생님 인증하기</div>
           <p>나의 클래스를 창설하고 싶다면, 선생님 인증을 진행해 주세요 :)</p>
         </section>
-        <section className={styles.certify}>
-          <div className={styles.title}>내가 개설한 클래스</div>
+        <section className={styles.section}>
+          <CreateClass />
         </section>
       </div>
     </div>

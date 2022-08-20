@@ -4,8 +4,10 @@ import styles from './search.module.css';
 const Search = (props) => {
   return (
     <div className={styles.container}>
+
       <div className={styles.filterDiv}>
-        <div className={styles.filterTitle}>태그별</div>
+
+        <div className={styles.filterTitle}>카테고리 태그</div>
         <div className={styles.filterGroup}>
           <li className={styles.item}>연애</li>
           <li className={styles.item}>게임</li>
@@ -16,7 +18,7 @@ const Search = (props) => {
       </div>
 
       <div className={styles.filterDiv}>
-        <div className={styles.filterTitle}>요일별</div>
+        <div className={styles.filterTitle}>요일</div>
         <div className={styles.filterGroup}>
           <li className={styles.item}>월</li>
           <li className={styles.item}>화</li>

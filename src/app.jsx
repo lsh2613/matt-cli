@@ -3,6 +3,7 @@ import Login from './componets/login/login';
 import Signup from './componets/signup/signup';
 import MyPage from './componets/mypage/mypage';
 import Home from './componets/home/home';
+import MakeClass from './componets/instructor/class/makeclass';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -22,6 +23,9 @@ function App() {
         />
         <Route path="mypage"
           element={<MyPage />}
+        />
+        <Route path="/makeclass"
+          element={<MakeClass />}
         />
       </Routes>
 
