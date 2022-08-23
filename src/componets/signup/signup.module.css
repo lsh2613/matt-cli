@@ -32,7 +32,7 @@
 .inpuForm {
   border: 1px solid #eee;
   padding: 13px 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 20em;
 }
 
@@ -49,7 +49,7 @@
   cursor: pointer;
   border: 1px solid #eee;
   padding: 13px 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 27em;
 }
 
@@ -69,8 +69,8 @@ input[type=radio]+label {
   display: inline-block;
   cursor: pointer;
   border: 1px solid #eee;
-  padding: 13px 20px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
   font-size: 0.8em;
   width: 10em;
 }
