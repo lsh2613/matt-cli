@@ -2,11 +2,16 @@ import React from 'react';
 import styles from './createclass.module.css'
 import button from '../../../common/button.module.css'
 import float from '../../../common/float.module.css'
+import { useNavigate } from "react-router-dom";
 const CreateClass = (props) => {
+
+  const navigate = useNavigate();
   return (
     <>
       <span className={styles.title}>내가 개설한 클래스</span>
-      <button className={`${button.fullBtn} ${float.floatRight}`}>창설하기</button>
+      <button className={`${button.fullBtn} ${float.floatRight}`} onClick={() => {
+        navigate("/makeclass")
+      }}>창설하기</button>
       <div className={styles.classList}>
         <div className={styles.class}>
           <article className={styles.classNm}>JAVA 튼튼</article>
