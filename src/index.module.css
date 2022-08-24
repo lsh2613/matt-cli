@@ -1,4 +1,5 @@
-@value orangeColor, blueColor from './common/colors.css';
+@import './common/colors.css';
+@import './common/size.css';
 @font-face {
   font-family: 'InfinitySans-RegularA1';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');

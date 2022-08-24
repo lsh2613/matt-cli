@@ -10,3 +10,4 @@ function createInstance(url) {
 
 export const user = createInstance("/user");
 export const login = createInstance("/login");
+export const class_ = createInstance("/class");

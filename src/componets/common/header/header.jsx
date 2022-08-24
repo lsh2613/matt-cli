@@ -31,7 +31,7 @@ const Header = ({ onLogout }) => {
             onClick={() => {
               navigate("/signup")
             }}> 회원가입</span>
-          <button className={button.fullBtn}
+          <button className={button.borderBtn}
             onClick={() => {
               navigate("/login")
             }}>

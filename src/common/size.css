@@ -1,3 +1,6 @@
 :root{
   --media-query : 62em;
+  --font-lg : 1.4rem;
+  --font-md : 1rem;
+  --font-sm : 0.8rem;
 }

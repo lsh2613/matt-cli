@@ -4,6 +4,7 @@ import Signup from './componets/signup/signup';
 import MyPage from './componets/mypage/mypage';
 import Home from './componets/home/home';
 import MakeClass from './componets/instructor/class/makeclass';
+import ClassInfoPage from './componets/class/classInfoPage';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -26,6 +27,9 @@ function App() {
         />
         <Route path="/makeclass"
           element={<MakeClass />}
+        />
+        <Route path="/classInfo"
+          element={<ClassInfoPage />}
         />
       </Routes>
 
