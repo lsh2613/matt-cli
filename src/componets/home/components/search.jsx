@@ -11,51 +11,40 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    //tag 정보 Dom 입력에 편리하도록 커스텀
     fetchTag().then((res) => {
-      this.setState({
-        tags: res.data,
+      const data = res.data
+      let cus_data = []
+      let idx = -1
+      data.forEach((el) => {
+        if (el.tagInfoId % 100 === 0) {
+          idx += 1
+          let obj = el
+          obj['items'] = []
+          cus_data.push(obj)
+        } else {
+          cus_data[idx].items.push(el)
+        }
       })
+      this.setState({ tags: cus_data })
     })
   }
 
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.filterDiv}>
-          <div className={styles.filterTitle}>카테고리 태그</div>
-          <div className={styles.filterGroup}>
-            {/* {this.state.tags.map((tag) => (
-              <li className={styles.item}>{tag.tagName}</li>
-            ))} */}
-            <li className={styles.item}>오케</li>
-            <li className={styles.item}>게임</li>
-            <li className={styles.item}>코딩</li>
-            <li className={styles.item}>음악</li>
-            <li className={styles.item}>축구</li>
+        {this.state.tags.map((tag, idx) => (
+          <div className={styles.filterDiv} key={tag.tagInfoId}>
+            <div className={styles.filterTitle}>{tag.tagName}</div>
+            <div className={styles.filterGroup}>
+              {tag.items.map((item, idx) => (
+                <li className={styles.item} key={item.tagInfoId}>
+                  {item.tagName}
+                </li>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className={styles.filterDiv}>
-          <div className={styles.filterTitle}>요일</div>
-          <div className={styles.filterGroup}>
-            <li className={styles.item}>월</li>
-            <li className={styles.item}>화</li>
-            <li className={styles.item}>수</li>
-            <li className={styles.item}>목</li>
-            <li className={styles.item}>금</li>
-          </div>
-        </div>
-
-        <div className={styles.filterDiv}>
-          <div className={styles.filterTitle}>장소</div>
-          <div className={styles.filterGroup}>
-            <li className={styles.item}>서울</li>
-            <li className={styles.item}>부산</li>
-            <li className={styles.item}>인천</li>
-            <li className={styles.item}>경기</li>
-            <li className={styles.item}>전라도</li>
-          </div>
-        </div>
+        ))}
       </div>
     )
   }
