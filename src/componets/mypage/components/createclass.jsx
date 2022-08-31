@@ -9,7 +9,9 @@ import { useEffect } from 'react'
 const CreatedClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
-
+  const toClassInfo = (classId) => {
+    navigate(`/classInfo/${classId}`, { state: { classId: classId } })
+  }
   useEffect(() => {
     fetchClassByInsId(localStorage.getItem('instructor')).then((res) =>
       setClasses(res.data)
@@ -35,7 +37,10 @@ const CreatedClass = (props) => {
               {classes.startTime} ~ {classes.endTime}
             </aside>
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
-            <button className={`${button.borderGrayBtn} ${styles.showDetails}`}>
+            <button
+              className={`${button.borderGrayBtn} ${styles.showDetails}`}
+              onClick={() => toClassInfo(classes.classId)}
+            >
               상세보기
             </button>
           </div>

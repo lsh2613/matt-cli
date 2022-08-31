@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './header.module.css'
 import button from '../../../common/button.module.css'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +6,7 @@ import { log_out } from '../../../api/login/login'
 
 const Header = () => {
   const [hover, setHover] = useState(false)
-  const [login, setLogin] = useState('')
+  const [login, setLogin] = useState(localStorage.getItem('id'))
   const navigate = useNavigate()
 
   const onLogout = () => {
@@ -17,10 +17,6 @@ const Header = () => {
   const toMypage = () => {
     navigate('/mypage')
   }
-
-  // useEffect(() => {
-  //   setLogin(localStorage.getItem('id'))
-  // }, [])
 
   return (
     <header className={styles.header}>

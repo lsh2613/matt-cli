@@ -45,7 +45,7 @@
   background-color: transparent;
   border: 2px solid var(--color-gray);
   border-radius: 4px;
-  padding: 0.4rem 0.4rem;
+  padding: 0.4rem 0.2rem;
   color: #999;
   font-weight: 400;
   cursor: pointer;
