@@ -6,6 +6,7 @@ import Home from './componets/home/home'
 import MakeClass from './componets/instructor/class/makeclass'
 import Waiting from './componets/instructor/class/wating'
 import ClassInfoPage from './componets/class/classInfoPage'
+import AuthInstructor from './componets/instructor/auth/authInstructor'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         <Route path='mypage' element={<MyPage />} />
         <Route path='/makeclass' element={<MakeClass />} />
         <Route path='/classInfo/:classId' element={<ClassInfoPage />} />
-        <Route path='/class/:classId/waiting' element={<ClassInfoPage />} />
+        <Route path='/class/:classId/waiting' element={<Waiting />} />
+        <Route path='/instructor/auth' element={<AuthInstructor />} />
       </Routes>
     </div>
   )

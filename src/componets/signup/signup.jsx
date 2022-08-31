@@ -153,7 +153,7 @@ const Signup = (props) => {
           <input type='password' className={styles.inpuForm}></input>
         </div>
         <button className={styles.signupBtn} onClick={postSignup}>
-          로그인
+          회원가입
         </button>
       </div>
     </div>

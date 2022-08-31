@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'SEBANG_Gothic_Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -11,23 +12,23 @@
   border: 2.5px solid var(--color-primary);
   border-radius: 4px;
   padding: 0.35rem 1em;
-  transition : 0.2s;
+  transition: 0.2s;
   height: fit-content;
   color: #999;
   font-weight: 400;
   cursor: pointer;
 }
-.borderBtn:hover{
+.borderBtn:hover {
   background-color: var(--color-primary);
-  color:#fff;
+  color: #fff;
 }
 
-.fullBtn{
+.fullBtn {
   font-family: 'InfinitySans-RegularA1';
   background-color: var(--color-primary);
   padding: 0.5rem 1rem;
   height: fit-content;
-  transition : 0.2s;
+  transition: 0.2s;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -35,8 +36,8 @@
   cursor: pointer;
 }
 
-.fullBtn:hover{
-  background-color:var(--color-primary-darker);
+.fullBtn:hover {
+  background-color: var(--color-primary-darker);
 }
 
 .borderGrayBtn {
@@ -44,14 +45,13 @@
   background-color: transparent;
   border: 2px solid var(--color-gray);
   border-radius: 4px;
-  padding:  0.5rem 0.5rem;
+  padding: 0.4rem 0.4rem;
   color: #999;
   font-weight: 400;
   cursor: pointer;
   font-size: 12px;
 }
-.borderGrayBtn:hover{
+.borderGrayBtn:hover {
   background-color: var(--color-gray);
-  color:#fff;
+  color: #fff;
 }
-

@@ -1,28 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react'
 import styles from './createclass.module.css'
 import button from '../../../common/button.module.css'
 import float from '../../../common/float.module.css'
-import { useNavigate } from "react-router-dom";
-const CreateClass = (props) => {
+import { useNavigate } from 'react-router-dom'
+import { fetchClassByInsId } from '../../../api/class/class'
+import { useEffect } from 'react'
 
-  const navigate = useNavigate();
+const CreatedClass = (props) => {
+  const navigate = useNavigate()
+  const [classes, setClasses] = useState([])
+
+  useEffect(() => {
+    fetchClassByInsId(localStorage.getItem('instructor')).then((res) =>
+      setClasses(res.data)
+    )
+  }, [])
   return (
     <>
       <span className={styles.title}>내가 개설한 클래스</span>
-      <button className={`${button.fullBtn} ${float.floatRight}`} onClick={() => {
-        navigate("/makeclass")
-      }}>창설하기</button>
+      <button
+        className={`${button.fullBtn} ${float.floatRight}`}
+        onClick={() => {
+          navigate('/makeclass')
+        }}
+      >
+        창설하기
+      </button>
       <div className={styles.classList}>
-        <div className={styles.class}>
-          <article className={styles.classNm}>JAVA 튼튼</article>
-          <aside className={styles.days}>화, 목</aside>
-          <aside className={styles.time}>17:00 ~ 19:00</aside>
-          <aside className={styles.cnt}>7명</aside>
-          <button className={`${button.borderGrayBtn} ${styles.showDetails}`}> 상세보기</button>
-        </div>
+        {classes.map((classes) => (
+          <div className={styles.class}>
+            <article className={styles.classNm}>{classes.title}</article>
+            <aside className={styles.days}>화, 목</aside>
+            <aside className={styles.time}>
+              {classes.startTime} ~ {classes.endTime}
+            </aside>
+            <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
+            <button className={`${button.borderGrayBtn} ${styles.showDetails}`}>
+              상세보기
+            </button>
+          </div>
+        ))}
       </div>
     </>
   )
 }
 
-export default CreateClass;
+export default CreatedClass

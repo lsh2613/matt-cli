@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './classInfo.module.css'
 import { fetchClass } from '../../../api/class/class'
-import { useState } from 'react'
 import button from '../../../common/button.module.css'
+
 class ClassInfo extends React.Component {
   constructor(props) {
     super(props)

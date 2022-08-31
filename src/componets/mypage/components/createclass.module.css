@@ -1,35 +1,32 @@
-.title{
+.title {
   display: inline-block;
   padding: 1rem 0rem;
 }
 
-.class{
-  display:flex;
+.class {
+  display: flex;
   align-items: center;
-  background : #fff;
+  background: #fff;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   width: 100%;
   font-size: 14px;
   cursor: pointer;
+  margin-bottom: 0.8rem;
 }
 
-
-.classNm{
+.classNm {
   flex: 1 1 30%;
 }
-.days{
+.days {
   flex: 1 1 20%;
-  
 }
-.time{
+.time {
   flex: 1 1 20%;
-  
 }
-.cnt{
+.cnt {
   flex: 1 1 10%;
-  
 }
-.showDetails{
+.showDetails {
   flex: 1 1 10%;
 }

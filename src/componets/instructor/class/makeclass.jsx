@@ -2,15 +2,18 @@ import React, { useState } from 'react'
 import styles from './makeclass.module.css'
 import button from '../../../common/button.module.css'
 import float from '../../../common/float.module.css'
+import { postClass } from '../../../api/class/class'
+import { useNavigate } from 'react-router-dom'
+
 const MakeClass = (props) => {
+  const navigate = useNavigate()
   const [classInfo, setClassInfo] = useState({
     category: '',
     classId: 0,
-    daysId: 0,
     descriptions: '',
     endDate: '',
     endTime: '',
-    instructorId: 0,
+    instructorId: localStorage.getItem('instructor'),
     numberOfStudents: 0,
     place: '',
     startDate: '',
@@ -20,12 +23,9 @@ const MakeClass = (props) => {
 
   const {
     category,
-    classId,
-    daysId,
     descriptions,
     endDate,
     endTime,
-    instructorId,
     numberOfStudents,
     place,
     startDate,
@@ -40,6 +40,13 @@ const MakeClass = (props) => {
       [name]: value,
     })
   }
+
+  const postData = () => {
+    postClass(classInfo).then((res) => {
+      if (res.status === 200) navigate('/mypage')
+    })
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.container}>
@@ -111,7 +118,6 @@ const MakeClass = (props) => {
               name='daysId'
               className={styles.inpuForm}
               onChange={onChange}
-              value={daysId}
             ></input>
           </div>
           <div className={styles.form}>
@@ -157,7 +163,10 @@ const MakeClass = (props) => {
           </div>
         </section>
       </div>
-      <button className={` ${button.fullBtn} ${float.floatRight}`}>
+      <button
+        className={` ${button.fullBtn} ${float.floatRight}`}
+        onClick={postData}
+      >
         제출하기
       </button>
     </div>
