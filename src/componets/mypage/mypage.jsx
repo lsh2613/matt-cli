@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './mypage.module.css'
 import button from '../../common/button.module.css'
-import CreateClass from './components/createclass'
+import CreatedClass from './components/createclass'
 
 const MyPage = (props) => {
   const [user, setUser] = useState({
@@ -41,7 +41,7 @@ const MyPage = (props) => {
           </section>
         ) : (
           <section className={styles.section}>
-            <CreateClass />
+            <CreatedClass />
           </section>
         )}
       </div>

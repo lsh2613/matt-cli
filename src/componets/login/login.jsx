@@ -11,7 +11,6 @@ const Login = (props) => {
   })
 
   const postUser = () => {
-    console.log(user)
     try {
       signin(user).then((res) => {
         if (res.status === 200) saveInLocalStorage(res.data)
