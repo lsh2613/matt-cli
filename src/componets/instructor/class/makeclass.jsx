@@ -13,7 +13,7 @@ const MakeClass = (props) => {
     descriptions: '',
     endDate: '',
     endTime: '',
-    instructorId: localStorage.getItem('instructor'),
+    instructorId: localStorage.getItem('instructorId'),
     numberOfStudents: 0,
     place: '',
     startDate: '',

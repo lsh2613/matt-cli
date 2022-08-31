@@ -13,7 +13,7 @@ const CreatedClass = (props) => {
     navigate(`/classInfo/${classId}`, { state: { classId: classId } })
   }
   useEffect(() => {
-    fetchClassByInsId(localStorage.getItem('instructor')).then((res) =>
+    fetchClassByInsId(localStorage.getItem('instructorId')).then((res) =>
       setClasses(res.data)
     )
   }, [])
@@ -30,7 +30,7 @@ const CreatedClass = (props) => {
       </button>
       <div className={styles.classList}>
         {classes.map((classes) => (
-          <div className={styles.class}>
+          <div className={styles.class} key={classes.classId}>
             <article className={styles.classNm}>{classes.title}</article>
             <aside className={styles.days}>화, 목</aside>
             <aside className={styles.time}>

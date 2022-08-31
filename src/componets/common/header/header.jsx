@@ -3,16 +3,21 @@ import styles from './header.module.css'
 import button from '../../../common/button.module.css'
 import { useNavigate } from 'react-router-dom'
 import { log_out } from '../../../api/login/login'
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Header = () => {
   const [hover, setHover] = useState(false)
-  const [login, setLogin] = useState(localStorage.getItem('id'))
+  const [login, setLogin] = useState(localStorage.getItem('studentId'))
+
   const navigate = useNavigate()
+  const location = useLocation()
+
 
   const onLogout = () => {
     log_out().then(localStorage.clear())
     setLogin()
-    navigate('/mypage')
+    navigate('/')
   }
 
   const toMypage = () => {

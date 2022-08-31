@@ -8,7 +8,7 @@ const AuthInstructor = (props) => {
   const [form, setForm] = useState({
     instructorId: 0,
     major: '',
-    userIn: localStorage.getItem('id'),
+    userIn: localStorage.getItem('studentId'),
   })
 
   const { major } = form

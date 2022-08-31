@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './mypage.module.css'
 import button from '../../common/button.module.css'
 import CreatedClass from './components/createclass'
 
 const MyPage = (props) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     id: localStorage.getItem('id'),
     loginId: localStorage.getItem('loginId'),
@@ -13,8 +15,12 @@ const MyPage = (props) => {
     email: localStorage.getItem('email'),
     phoneNumber: localStorage.getItem('phoneNumber'),
     auth: localStorage.getItem('auth'),
-    instructor: localStorage.getItem('instructor'),
+    instructor: localStorage.getItem('instructorId'),
   })
+
+  const toAuth = () => {
+    navigate("/instructor/auth")
+  }
 
   return (
     <div className={styles.container}>
@@ -35,7 +41,7 @@ const MyPage = (props) => {
         {!user.instructor ? (
           <section className={styles.section}>
             <div className={styles.title}>선생님 인증하기</div>
-            <p className={styles.auth}>
+            <p className={styles.auth} onClick={toAuth}>
               나의 클래스를 창설하고 싶다면, 선생님 인증을 진행해 주세요 :)
             </p>
           </section>

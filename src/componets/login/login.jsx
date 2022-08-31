@@ -6,7 +6,7 @@ import styles from './login.module.css'
 const Login = (props) => {
   const navigate = useNavigate()
   const [user, setUser] = useState({
-    loginName: '',
+    loginId: '',
     password: '',
   })
 
@@ -14,6 +14,7 @@ const Login = (props) => {
     try {
       signin(user).then((res) => {
         if (res.status === 200) saveInLocalStorage(res.data)
+
         else alert('로그인 정보를 다시 확인하세요')
       })
     } catch (e) {
@@ -25,10 +26,10 @@ const Login = (props) => {
     for (let [key, value] of Object.entries(user)) {
       localStorage.setItem(key, value)
     }
-    navigate('/')
+    navigate("/")
   }
 
-  const { loginName, password } = user
+  const { loginId, password } = user
   const onChange = (e) => {
     const { name, value } = e.target
     setUser({
@@ -47,8 +48,8 @@ const Login = (props) => {
           className={styles.form}
           placeholder='아이디'
           onChange={onChange}
-          name='loginName'
-          value={loginName}
+          name='loginId'
+          value={loginId}
         />
         <input
           className={styles.form}
