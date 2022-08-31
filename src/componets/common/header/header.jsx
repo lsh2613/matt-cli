@@ -12,6 +12,7 @@ const Header = () => {
   const onLogout = () => {
     log_out().then(localStorage.clear())
     setLogin()
+    navigate('/mypage')
   }
 
   const toMypage = () => {

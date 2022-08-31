@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+h3 {
+  text-align: center;
+  margin: 0.8rem 0;
+}
+
+.container section {
+  flex: 1 1 40%;
+}
+.box {
+  border-radius: 20px;
+
+  padding: 0rem 1rem 1rem 1rem;
+}
+.waiting {
+  background-color: var(--color-yellow-bright);
+  margin-right: 2rem;
+}
+.confirm {
+  background-color: var(--color-blue-bright);
+}
+
+.label {
+  border: none;
+  display: flex;
+  padding: 0.5rem 0rem;
+}
+dd {
+  flex: 1 1;
+  margin-left: 0;
+  text-align: center;
+}
+
+.student {
+  display: flex;
+  padding: 0.5rem 0rem;
+  background-color: #fff;
+  margin-bottom: 4px;
+  border-radius: 8px;
+}
+
+.btn {
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
