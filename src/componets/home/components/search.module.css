@@ -1,37 +1,37 @@
-.container{
-  width:100%;
+.container {
+  width: 100%;
   background-color: var(--color-gray-bright);
   border-radius: 20px;
   padding: 1em 0em;
-
 }
-.filterDiv{
+.filterDiv {
   padding: 5px 10px;
   border-radius: 10px;
   background-color: transparent;
   margin-bottom: 5px;
 }
-.filterDiv:nth-child(3){
+.filterDiv:nth-child(3) {
   margin-bottom: 0px;
 }
-.filterGroup{
-  display:flex
+.filterGroup {
+  display: flex;
 }
-.filterTitle{
+.filterTitle {
   padding: 2px 0px 4px 4px;
   font-size: 14px;
 }
-.item{
+.item {
+  flex-shrink: 0;
   font-size: 13px;
   list-style: none;
-  border : 2px solid none;
-  background-color: #CCB8E2;
+  border: 2px solid none;
+  background-color: #ccb8e2;
   color: #fff;
   border-radius: 30px;
   padding: 5px 10px;
   min-width: 60px;
   text-align: center;
   margin-right: 8px;
-  box-shadow : inset 5px 5px 8px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.4);
   filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4));
 }

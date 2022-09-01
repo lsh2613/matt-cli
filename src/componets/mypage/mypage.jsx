@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import styles from './mypage.module.css'
 import button from '../../common/button.module.css'
 import CreatedClass from './components/createclass'
+import TakeClass from './components/takeClass'
 
 const MyPage = (props) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     id: localStorage.getItem('id'),
     loginId: localStorage.getItem('loginId'),
@@ -19,7 +20,7 @@ const MyPage = (props) => {
   })
 
   const toAuth = () => {
-    navigate("/instructor/auth")
+    navigate('/instructor/auth')
   }
 
   return (
@@ -46,10 +47,16 @@ const MyPage = (props) => {
             </p>
           </section>
         ) : (
+          //강사가 창설한 강의
           <section className={styles.section}>
             <CreatedClass />
           </section>
         )}
+
+        {/* 수강중인 강의  */}
+        <section className={styles.section}>
+          <TakeClass />
+        </section>
       </div>
     </div>
   )

@@ -1,26 +1,25 @@
 .container {
-  width : 100%;
+  width: 100%;
   margin-top: 40px;
   padding: 2 rem 0rem;
 }
-.title{
-  font-size : 1.1rem;
-  font-weight : 600;
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 1rem 1rem;
-  
 }
 
 .cardContainer {
-  display:flex;
-  flex-wrap :wrap;
-  justify-content:space-between;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 
 .card {
-  position:relative;
-  background-color : #fff;
-  min-width: 30%;
+  position: relative;
+  background-color: #fff;
+  width: 31%;
+  margin: 0 12px;
   height: 180px;
   border-radius: 13px;
   box-shadow: var(--box-shadow);
@@ -28,20 +27,24 @@
   margin-bottom: 20px;
   margin-right: 1%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .card:hover {
   background: rgb(103, 78, 149);
-  background: linear-gradient(330deg, rgba(133, 108, 179, 1) 6%, rgba(179, 156, 208, 1) 72%);
+  background: linear-gradient(
+    330deg,
+    rgba(133, 108, 179, 1) 6%,
+    rgba(179, 156, 208, 1) 72%
+  );
   color: #fff;
 }
 
 .card:hover .etc {
   color: #ddd;
 }
-.classTitle{
+.classTitle {
   max-width: 80%;
 }
 .etc {
@@ -66,5 +69,5 @@
 
 .card:hover .classSt {
   color: var(--color-blue);
-  background-color : #fff;
+  background-color: #fff;
 }
