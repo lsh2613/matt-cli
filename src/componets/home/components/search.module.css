@@ -25,13 +25,13 @@
   font-size: 13px;
   list-style: none;
   border: 2px solid none;
-  background-color: #ccb8e2;
+  background-color: #a8a4ce;
   color: #fff;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 5px 10px;
   min-width: 60px;
   text-align: center;
   margin-right: 8px;
-  box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.4);
-  filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4));
+  box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.3);
+  /* filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4)); */
 }

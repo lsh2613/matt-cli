@@ -9,10 +9,10 @@ import { useEffect } from 'react'
 const Header = () => {
   const [hover, setHover] = useState(false)
   const [login, setLogin] = useState(localStorage.getItem('studentId'))
+  const [keyword, setKeyword] = useState('')
 
   const navigate = useNavigate()
   const location = useLocation()
-
 
   const onLogout = () => {
     log_out().then(localStorage.clear())
@@ -20,8 +20,22 @@ const Header = () => {
     navigate('/')
   }
 
+  const onChange = (e) => {
+    const { name, value } = e.target
+    setKeyword(value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') toSearch()
+  }
+
+  const toSearch = () => {
+    navigate('/search', { state: { keyword: keyword } })
+    setKeyword('')
+  }
   const toMypage = () => {
     navigate('/mypage')
+    setKeyword('')
   }
 
   return (
@@ -37,6 +51,21 @@ const Header = () => {
       <div className={styles.menu}>
         <li className={styles.menuList}>카테고리</li>
         <li className={styles.menuList}>멘토조회</li>
+      </div>
+      <div className={styles.searchForm}>
+        <input
+          placeholder='검색어를 입력하세요'
+          onChange={onChange}
+          name={keyword}
+          value={keyword}
+          onKeyPress={handleKeyPress}
+        />
+        <button
+          className={`${styles.fullBtn} ${styles.searchBtn}`}
+          onClick={toSearch}
+        >
+          검색
+        </button>
       </div>
       {login ? (
         <div className={styles.floatRight}>

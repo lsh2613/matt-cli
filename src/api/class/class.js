@@ -38,6 +38,11 @@ function fetchClassByInsId(id) {
   return class_.get(`/instructor/${id}`)
 }
 
+//검색어로 클래스 조회
+function fetchClassByKeyword(keyword) {
+  return class_.get(`/keyword/${keyword}/classesView`)
+}
+
 export {
   fetchAllClasses,
   fetchClass,
@@ -48,4 +53,5 @@ export {
   fetchDoingClass,
   fetchFinishedClass,
   fetchClassByInsId,
+  fetchClassByKeyword,
 }
