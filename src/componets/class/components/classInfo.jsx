@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './classInfo.module.css'
+import ApplyClass from './applyClass'
 import { fetchClass } from '../../../api/class/class'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -8,9 +9,19 @@ const ClassInfo = () => {
   const [classes, setClasses] = useState({
     classes: {},
   })
+  const [visible, setVisible] = useState(false)
+
   const instructorId = localStorage.getItem('instructorId')
 
   const location = useLocation()
+
+  const apply = () => {
+    setVisible(true)
+  }
+
+  const updateVisible = () => {
+    setVisible(false)
+  }
 
   useEffect(() => {
     const classId = location.state.classId
@@ -29,7 +40,7 @@ const ClassInfo = () => {
           {parseInt(classes.classes.instructorId) === parseInt(instructorId) ? (
             ''
           ) : (
-            <button className={button.fullBtn}>클래스 신청</button>
+            <button className={button.fullBtn} onClick={apply}>클래스 신청</button>
           )}
         </section>
 
@@ -67,7 +78,9 @@ const ClassInfo = () => {
               {classes.classes.place}
             </aside>
             <aside>
-              <label>수강생</label>수강신청한 학생 /{' '}
+              <label>수강생</label>수강신청한 학생
+
+              /{' '}
               {classes.classes.numberOfStudents}
             </aside>
           </div>
@@ -78,6 +91,7 @@ const ClassInfo = () => {
           {classes.classes.descriptions}
         </section>
       </div>
+      <ApplyClass visible={visible} updateVisible={updateVisible} />
     </>
   )
 }

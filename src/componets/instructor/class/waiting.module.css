@@ -1,4 +1,5 @@
 .container {
+  margin-top:3rem;
   display: flex;
   justify-content: space-evenly;
 }
@@ -12,12 +13,14 @@ h3 {
 }
 .box {
   border-radius: 20px;
-
   padding: 0rem 1rem 1rem 1rem;
+
+  
 }
 .waiting {
   background-color: var(--color-yellow-bright);
   margin-right: 2rem;
+  
 }
 .confirm {
   background-color: var(--color-blue-bright);
@@ -35,11 +38,17 @@ dd {
 }
 
 .student {
-  display: flex;
   padding: 0.5rem 0rem;
   background-color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   border-radius: 8px;
+}
+
+.info{
+  display:flex;
+}
+.student:nth-last-child(1){
+  margin-bottom : 0px;
 }
 
 .btn {
@@ -48,3 +57,14 @@ dd {
 .btn:hover {
   transform: scale(1.1);
 }
+.comment {
+  margin-left : 4px;
+  line-height : 1.7
+}
+.reason{
+  padding: 0.5rem 0.5rem;
+}
+hr{
+  margin-bottom: 2px;
+}
+

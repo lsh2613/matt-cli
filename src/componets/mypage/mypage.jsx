@@ -8,15 +8,14 @@ import TakeClass from './components/takeClass'
 const MyPage = (props) => {
   const navigate = useNavigate()
   const [user, setUser] = useState({
-    id: localStorage.getItem('id'),
+    id: localStorage.getItem('studentId'),
     loginId: localStorage.getItem('loginId'),
     nickname: localStorage.getItem('nickname'),
     gender: localStorage.getItem('gender'),
     birthday: localStorage.getItem('birthDate'),
     email: localStorage.getItem('email'),
     phoneNumber: localStorage.getItem('phoneNumber'),
-    auth: localStorage.getItem('auth'),
-    instructor: localStorage.getItem('instructorId'),
+    insId: localStorage.getItem('instructorId'),
   })
 
   const toAuth = () => {
@@ -39,7 +38,7 @@ const MyPage = (props) => {
       </section>
 
       <div className={styles.class}>
-        {!user.instructor ? (
+        {!user.insId ? (
           <section className={styles.section}>
             <div className={styles.title}>선생님 인증하기</div>
             <p className={styles.auth} onClick={toAuth}>

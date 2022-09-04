@@ -6,5 +6,6 @@
   "emmet.syntaxProfiles": {
     "postcss": "css"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.snippetSuggestions": "top",
 }

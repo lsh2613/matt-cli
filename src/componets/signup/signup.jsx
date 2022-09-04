@@ -4,6 +4,7 @@ import { signup } from '../../api/user/user'
 import { useNavigate } from 'react-router-dom'
 const Signup = (props) => {
   const [user, setUser] = useState({
+    id: 0,
     birthDate: '',
     email: '',
     gender: '',
