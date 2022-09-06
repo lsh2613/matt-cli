@@ -38,7 +38,7 @@ const MyPage = (props) => {
       </section>
 
       <div className={styles.class}>
-        {!user.insId ? (
+        {user.insId === 'null' ? (
           <section className={styles.section}>
             <div className={styles.title}>선생님 인증하기</div>
             <p className={styles.auth} onClick={toAuth}>

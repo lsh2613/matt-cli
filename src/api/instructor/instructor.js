@@ -4,4 +4,8 @@ function createIns(data) {
   return instructor.post('/new', data)
 }
 
-export { createIns }
+function fetchInstructors() {
+  return instructor.get('')
+}
+
+export { createIns, fetchInstructors }

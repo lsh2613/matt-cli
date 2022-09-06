@@ -9,6 +9,7 @@ import ClassInfoPage from './componets/class/classInfoPage'
 import AuthInstructor from './componets/instructor/auth/authInstructor'
 import { Routes, Route } from 'react-router-dom'
 import SearchPage from './componets/search/searchPage'
+import InstructorPage from './componets/instructor/instructorPage'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/makeclass' element={<MakeClass />} />
         <Route path='/classInfo/:classId' element={<ClassInfoPage />} />
         <Route path='/class/:classId/waiting' element={<Waiting />} />
+        <Route exact path='/instructor' element={<InstructorPage />} />
         <Route path='/instructor/auth' element={<AuthInstructor />} />
         <Route path='/search' element={<SearchPage />} />
       </Routes>

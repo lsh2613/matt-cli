@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.insContainer {
+  background: var(--color-gray-bright);
+  min-width: 47%;
+  max-width: 47%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6%;
+  margin-bottom: 2rem;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+}
+
+.insContainer:hover {
+  position: relative;
+  bottom: 2px;
+  -webkit-box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
+  box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
+}
+
+.insContainer:nth-child(2n) {
+  margin-right: 0;
+}
+
+.imgSection {
+  flex: 1 1 25%;
+}
+
+.infoSection {
+  flex: 1 1 65%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+}
+
+.profileImg {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.insItem {
+  width: 100%;
+  display: flex;
+}
+
+.span {
+  display: block;
+  width: 70%;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+label {
+  width: 50px;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './classInfo.module.css'
 import ApplyClass from './applyClass'
+import Review from './review'
 import { fetchClass } from '../../../api/class/class'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -40,7 +41,9 @@ const ClassInfo = () => {
           {parseInt(classes.classes.instructorId) === parseInt(instructorId) ? (
             ''
           ) : (
-            <button className={button.fullBtn} onClick={apply}>클래스 신청</button>
+            <button className={button.fullBtn} onClick={apply}>
+              클래스 신청
+            </button>
           )}
         </section>
 
@@ -78,9 +81,7 @@ const ClassInfo = () => {
               {classes.classes.place}
             </aside>
             <aside>
-              <label>수강생</label>수강신청한 학생
-
-              /{' '}
+              <label>수강생</label>수강신청한 학생 /{' '}
               {classes.classes.numberOfStudents}
             </aside>
           </div>
@@ -89,6 +90,11 @@ const ClassInfo = () => {
           <h3>강의 소개</h3>
           <hr />
           {classes.classes.descriptions}
+        </section>
+        <section className={styles.reviewContainer}>
+          <h3>클래스 리뷰</h3>
+          <hr />
+          <Review />
         </section>
       </div>
       <ApplyClass visible={visible} updateVisible={updateVisible} />
