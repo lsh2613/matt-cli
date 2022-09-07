@@ -29,11 +29,11 @@
 }
 
 .imgSection {
-  flex: 1 1 25%;
+  flex: 1 1 27%;
 }
 
 .infoSection {
-  flex: 1 1 65%;
+  flex: 1 1 63%;
   background: #fff;
   border-radius: 10px;
   padding: 0.2rem 0.5rem;
@@ -61,4 +61,17 @@
 
 label {
   width: 50px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .insContainer {
+    min-width: 80%;
+    margin-right: 0;
+  }
 }

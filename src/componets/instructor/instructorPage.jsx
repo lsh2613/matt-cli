@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './instructorPage.module.css'
 import { fetchInstructors } from '../../api/instructor/instructor'
+import { useNavigate } from 'react-router-dom'
 
 const InstructorPage = (props) => {
   const fake = [
@@ -9,15 +10,26 @@ const InstructorPage = (props) => {
     'https://www.doolymuseum.or.kr/html/images/sub0104_01.png',
   ]
   const [ins, setIns] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchInstructors().then((res) => setIns(res.data))
   }, [])
 
+  const toClassList = (insId) => {
+    navigate(`/instructor/${insId}/classlist`, {
+      params: { insId: `${insId}` },
+    })
+  }
+
   return (
     <div className={styles.container}>
       {ins.map((ins, index) => (
-        <div className={styles.insContainer} key={index}>
+        <div
+          className={styles.insContainer}
+          key={index}
+          onClick={() => toClassList(ins.instructorId)}
+        >
           <section className={styles.imgSection}>
             <img className={styles.profileImg} src={fake[index]} alt='img' />
             <span className={styles.span}>{ins.name} 멘토</span>
