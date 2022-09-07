@@ -10,7 +10,7 @@ import AuthInstructor from './componets/instructor/auth/authInstructor'
 import { Routes, Route } from 'react-router-dom'
 import SearchPage from './componets/search/searchPage'
 import InstructorPage from './componets/instructor/instructorPage'
-import ClassList from './componets/instructor/class/classList'
+import InstructorInfo from './componets/instructor/components/instructorInfo'
 
 function App() {
   return (
@@ -26,8 +26,8 @@ function App() {
         <Route exact path='/instructor' element={<InstructorPage />} />
         <Route
           exact
-          path='/instructor/:insId/classlist'
-          element={<ClassList />}
+          path='/instructorInfo/:insId'
+          element={<InstructorInfo />}
         />
         <Route path='/instructor/auth' element={<AuthInstructor />} />
         <Route path='/search' element={<SearchPage />} />

@@ -17,38 +17,38 @@ const InstructorPage = (props) => {
   }, [])
 
   const toClassList = (insId) => {
-    navigate(`/instructor/${insId}/classlist`, {
-      params: { insId: `${insId}` },
+    navigate(`/instructorInfo/${insId}`, {
+      state: { insId },
     })
   }
 
   return (
     <div className={styles.container}>
-      {ins.map((ins, index) => (
+      {ins.map((instructor, index) => (
         <div
           className={styles.insContainer}
           key={index}
-          onClick={() => toClassList(ins.instructorId)}
+          onClick={() => toClassList(instructor?.instructorId)}
         >
           <section className={styles.imgSection}>
             <img className={styles.profileImg} src={fake[index]} alt='img' />
-            <span className={styles.span}>{ins.name} 멘토</span>
+            <span className={styles.span}>{instructor.name} 멘토</span>
           </section>
           <section className={styles.infoSection}>
             <dd className={styles.insItem}>
               <label>전공</label>
-              <span className={styles.span}> {ins.major}</span>
+              <span className={styles.span}> {instructor.major}</span>
             </dd>
             <dd className={styles.insItem}>
               <label>성별</label>
               <span className={styles.span}>
                 {' '}
-                {ins.gender === 'MAN' ? '남' : '여'}
+                {instructor.gender === 'MAN' ? '남' : '여'}
               </span>
             </dd>
             <dd className={styles.insItem}>
               <label>이메일</label>
-              <span className={styles.span}> {ins.email}</span>
+              <span className={styles.span}> {instructor.email}</span>
             </dd>
             <dd className={styles.insItem}>
               <label>평점</label>

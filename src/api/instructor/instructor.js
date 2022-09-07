@@ -8,4 +8,8 @@ function fetchInstructors() {
   return instructor.get('')
 }
 
-export { createIns, fetchInstructors }
+function fetchInstructorByInsId(insId) {
+  return instructor.get(`/${insId}`)
+}
+
+export { createIns, fetchInstructors, fetchInstructorByInsId }
