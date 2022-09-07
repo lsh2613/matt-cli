@@ -19,7 +19,6 @@ const Header = () => {
     setLogin()
     navigate('/')
   }
-
   const onChange = (e) => {
     const { name, value } = e.target
     setKeyword(value)
@@ -50,7 +49,9 @@ const Header = () => {
       />
       <div className={styles.menu}>
         <li className={styles.menuList}>카테고리</li>
-        <li className={styles.menuList}>멘토조회</li>
+        <li className={styles.menuList} onClick={() => navigate('/instructor')}>
+          멘토조회
+        </li>
       </div>
       <div className={styles.searchForm}>
         <input

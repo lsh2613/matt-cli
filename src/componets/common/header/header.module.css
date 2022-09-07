@@ -105,3 +105,9 @@ input:focus {
 .fullBtn:hover {
   background-color: var(--color-primary);
 }
+
+@media (max-width: 768px) {
+  .searchForm {
+    display: none;
+  }
+}

@@ -34,6 +34,7 @@ const RecommClass = (props) => {
           <div
             className={styles.card}
             onClick={() => toClassInfo(classes.classId)}
+            key={classes.classId}
           >
             {classSt(classes.startDate, classes.endDate)}
             <div className={styles.classTitle}>{classes.title}</div>

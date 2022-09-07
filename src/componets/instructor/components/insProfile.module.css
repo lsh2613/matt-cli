@@ -1,0 +1,22 @@
+.item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.item dd {
+  width: 20px;
+  color: #aaa;
+  font-size: 90%;
+  text-align: left;
+}
+
+.item dl {
+  flex: 1 1 80%;
+}
+
+.insProfile {
+  margin-top: 2rem;
+  padding: 0 0.5rem;
+}
