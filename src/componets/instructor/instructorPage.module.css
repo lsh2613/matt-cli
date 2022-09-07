@@ -71,7 +71,6 @@ label {
     align-items: center;
   }
   .insContainer {
-    min-width: 80%;
-    margin-right: 0;
+    min-width: 80%; 
   }
 }
