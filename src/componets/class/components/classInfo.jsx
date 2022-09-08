@@ -15,6 +15,7 @@ const ClassInfo = () => {
   const instructorId = localStorage.getItem('instructorId')
 
   const location = useLocation()
+  const classId = location.state.classId
 
   const apply = () => {
     setVisible(true)
@@ -97,7 +98,11 @@ const ClassInfo = () => {
           <Review />
         </section>
       </div>
-      <ApplyClass visible={visible} updateVisible={updateVisible} />
+      <ApplyClass
+        visible={visible}
+        updateVisible={updateVisible}
+        classId={classId}
+      />
     </>
   )
 }
