@@ -82,7 +82,7 @@ const ClassInfo = () => {
               {classes.classes.place}
             </aside>
             <aside>
-              <label>수강생</label>수강신청한 학생 /{' '}
+              <label>수강생</label>수강신청한 학생 0/{' '}
               {classes.classes.numberOfStudents}
             </aside>
           </div>

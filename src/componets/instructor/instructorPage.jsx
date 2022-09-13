@@ -17,7 +17,7 @@ const InstructorPage = (props) => {
   }, [])
 
   const toClassList = (insId) => {
-    navigate(`/instructorInfo/${insId}`, {
+    navigate(`/instructor/${insId}`, {
       state: { insId },
     })
   }

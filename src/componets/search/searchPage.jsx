@@ -11,6 +11,7 @@ const SearchPage = (props) => {
   const [keyword, setKeyword] = useState('')
   const [classes, setClasses] = useState([])
   const [nowDate, setNowDate] = useState(`${date.toISOString().slice(0, 10)}`)
+
   useEffect(() => {
     fetchClassByKeyword(location.state.keyword).then((res) => {
       setKeyword(location.state.keyword)
@@ -19,7 +20,7 @@ const SearchPage = (props) => {
   }, [])
 
   const toClassInfo = (classId) => {
-    navigate(`/classInfo/${classId}`, { state: { classId: classId } })
+    navigate(`/class/${classId}`, { state: { classId: classId } })
   }
 
   const classSt = (startDate, endDate) => {

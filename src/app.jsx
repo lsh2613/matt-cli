@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom'
 import SearchPage from './componets/search/searchPage'
 import InstructorPage from './componets/instructor/instructorPage'
 import InstructorInfo from './componets/instructor/components/instructorInfo'
+import ClassPage from './componets/class/classPage'
 
 function App() {
   return (
@@ -21,14 +22,11 @@ function App() {
         <Route path='signup' element={<Signup />} />
         <Route path='mypage' element={<MyPage />} />
         <Route path='/makeclass' element={<MakeClass />} />
-        <Route path='/classInfo/:classId' element={<ClassInfoPage />} />
-        <Route path='/class/:classId/waiting' element={<Waiting />} />
+        <Route path='/class' element={<ClassPage />} />
+        <Route exact path='/class/:classId' element={<ClassInfoPage />} />
+        <Route exact path='/class/:classId/waiting' element={<Waiting />} />
         <Route exact path='/instructor' element={<InstructorPage />} />
-        <Route
-          exact
-          path='/instructorInfo/:insId'
-          element={<InstructorInfo />}
-        />
+        <Route exact path='/instructor/:insId' element={<InstructorInfo />} />
         <Route path='/instructor/auth' element={<AuthInstructor />} />
         <Route path='/search' element={<SearchPage />} />
       </Routes>

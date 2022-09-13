@@ -19,7 +19,7 @@ const ClassList = (props) => {
   }
 
   const toClassInfo = (classId) => {
-    navigate(`/classInfo/${classId}`, { state: { classId: classId } })
+    navigate(`/class/${classId}`, { state: { classId: classId } })
   }
   return (
     <section className={styles.classList}>

@@ -1,0 +1,44 @@
+h3 {
+  padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.classes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.before .classes .class:hover {
+  background: var(--color-green-bright);
+}
+.doing .classes .class:hover {
+  background-color: var(--color-blue-bright);
+}
+.finished .classes .class:hover {
+  background: var(--color-gray);
+}
+
+dd {
+  text-align: left;
+}
+.class {
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.class:hover {
+  position: relative;
+  bottom: 1px;
+  -webkit-box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
+  box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
+}
+.title {
+  padding: 0rem 0rem 1rem 0rem;
+}
+.number,
+.date {
+  color: #666;
+  font-size: 13px;
+  text-align: right;
+}

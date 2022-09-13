@@ -19,7 +19,7 @@
 
 .insContainer:hover {
   position: relative;
-  bottom: 2px;
+  bottom: 1px;
   -webkit-box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
   box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
 }
@@ -71,6 +71,6 @@ label {
     align-items: center;
   }
   .insContainer {
-    min-width: 80%; 
+    min-width: 80%;
   }
 }

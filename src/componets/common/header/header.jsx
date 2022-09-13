@@ -48,7 +48,9 @@ const Header = () => {
         }}
       />
       <div className={styles.menu}>
-        <li className={styles.menuList}>카테고리</li>
+        <li className={styles.menuList} onClick={() => navigate('/class')}>
+          강좌조회
+        </li>
         <li className={styles.menuList} onClick={() => navigate('/instructor')}>
           멘토조회
         </li>

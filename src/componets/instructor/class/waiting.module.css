@@ -1,26 +1,19 @@
 .container {
-  margin-top:3rem;
-  display: flex;
-  justify-content: space-evenly;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
 h3 {
-  text-align: center;
   margin: 0.8rem 0;
 }
 
-.container section {
-  flex: 1 1 40%;
-}
 .box {
-  border-radius: 20px;
-  padding: 0rem 1rem 1rem 1rem;
-
-  
+  border-radius: 10px;
+  padding: 0rem 0.5rem 0.5rem 0.5rem;
 }
 .waiting {
   background-color: var(--color-yellow-bright);
-  margin-right: 2rem;
-  
 }
 .confirm {
   background-color: var(--color-blue-bright);
@@ -44,11 +37,11 @@ dd {
   border-radius: 8px;
 }
 
-.info{
-  display:flex;
+.info {
+  display: flex;
 }
-.student:nth-last-child(1){
-  margin-bottom : 0px;
+.student:nth-last-child(1) {
+  margin-bottom: 0px;
 }
 
 .btn {
@@ -57,14 +50,13 @@ dd {
 .btn:hover {
   transform: scale(1.1);
 }
-.comment {
-  margin-left : 4px;
-  line-height : 1.7
-}
-.reason{
+
+.reason {
   padding: 0.5rem 0.5rem;
-}
-hr{
-  margin-bottom: 2px;
+  margin-left: 4px;
+  line-height: 1.7;
 }
 
+.hr {
+  margin: 4px 0px;
+}

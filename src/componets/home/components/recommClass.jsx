@@ -14,7 +14,7 @@ const RecommClass = (props) => {
   }, [])
 
   const toClassInfo = (classId) => {
-    navigate(`/classInfo/${classId}`, { state: { classId: classId } })
+    navigate(`/class/${classId}`, { state: { classId: classId } })
   }
 
   const classSt = (startDate, endDate) => {

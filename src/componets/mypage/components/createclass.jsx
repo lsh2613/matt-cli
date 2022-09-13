@@ -10,7 +10,7 @@ const CreatedClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
   const toClassInfo = (classId) => {
-    navigate(`/classInfo/${classId}`, { state: { classId: classId } })
+    navigate(`/class/${classId}`, { state: { classId: classId } })
   }
   useEffect(() => {
     fetchClassByInsId(localStorage.getItem('instructorId')).then((res) =>
