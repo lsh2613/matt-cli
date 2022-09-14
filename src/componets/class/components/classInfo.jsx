@@ -53,7 +53,7 @@ const ClassInfo = () => {
 
         <section className={styles.infoGroup}>
           <div className={styles.instrutorInfo}>
-            <article>👩‍🎓 강사 프로필</article>
+            <article>👩‍🎓 멘토 프로필</article>
             <aside>
               <label>이름</label>김가정
             </aside>

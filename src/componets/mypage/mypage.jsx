@@ -38,7 +38,6 @@ const MyPage = (props) => {
       </section>
 
       <div className={styles.class}>
-
         {user.insId === 'null' ? (
           <section className={styles.section}>
             <div className={styles.title}>선생님 인증하기</div>
@@ -47,7 +46,7 @@ const MyPage = (props) => {
             </p>
           </section>
         ) : (
-          //강사가 창설한 강의
+          //멘토가 창설한 강의
           <section className={styles.section}>
             <CreatedClass />
           </section>

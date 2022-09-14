@@ -55,7 +55,13 @@ const ApplyClass = (props) => {
               onChange={onChange}
             ></textarea>
           </div>
-          <div className={modal.mask}></div>
+          <div
+            className={modal.mask}
+            onClick={() => {
+              setState(false)
+              props.updateVisible(false)
+            }}
+          ></div>
         </>
       ) : (
         ''

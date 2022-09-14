@@ -16,7 +16,7 @@ const InsProfile = (props) => {
       <h3>🧑‍🎓 멘토 프로필</h3>
       <div className={styles.insContainer}>
         <li className={styles.item}>
-          <dd>강사명</dd>
+          <dd>멘토명</dd>
           <dl>{ins.name}</dl>
         </li>
         <li className={styles.item}>

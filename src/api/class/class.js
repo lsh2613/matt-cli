@@ -33,7 +33,7 @@ function fetchFinishedClass() {
   return class_.get('/finished')
 }
 
-//강사 id로 클래스 조회
+//멘토 id로 클래스 조회
 function fetchClassByInsId(id) {
   return class_.get(`/instructor/${id}`)
 }

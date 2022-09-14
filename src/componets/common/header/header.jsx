@@ -40,7 +40,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <img
-        src='img/logo.png'
+        src={require('../../../utils/image/logo.png')}
         alt='logo'
         className={styles.logo}
         onClick={() => {

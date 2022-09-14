@@ -38,7 +38,7 @@ const AuthInstructor = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <h3>강사 인증하기</h3>
+        <h3>멘토 인증하기</h3>
         <button
           className={` ${button.fullBtn} ${float.floatRight}`}
           onClick={postAuth}
