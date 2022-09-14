@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './recommClass.module.css'
-import { fetchBeforClass } from '../../../api/class/class'
+import { fetchBeforClass } from '@api/class/class'
+import { nowDate } from '@utils/index'
 const RecommClass = (props) => {
-  const date = new Date()
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
-  const [nowDate, setNowDate] = useState(`${date.toISOString().slice(0, 10)}`)
+
   useEffect(() => {
     fetchBeforClass().then((res) => {
       setClasses(res.data)

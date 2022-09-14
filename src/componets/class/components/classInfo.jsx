@@ -2,11 +2,11 @@ import React from 'react'
 import styles from './classInfo.module.css'
 import ApplyClass from './applyClass'
 import Review from './review'
-import { fetchClass } from '../../../api/class/class'
+import { fetchClass } from '@/api/class/class'
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import button from '../../../common/button.module.css'
-
+import button from '@/common/button.module.css'
+import { nowDate } from '@utils/index'
 const ClassInfo = () => {
   const navigate = useNavigate()
 
@@ -19,8 +19,6 @@ const ClassInfo = () => {
 
   const location = useLocation()
   const classId = location.state.classId
-  const date = new Date()
-  const nowDate = date.toISOString().slice(0, 10)
 
   const apply = () => {
     setVisible(true)

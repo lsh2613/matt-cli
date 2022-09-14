@@ -5,8 +5,8 @@ import {
   fetchBeforClass,
   fetchDoingClass,
   fetchFinishedClass,
-} from '../../api/class/class'
-
+} from '@api/class/class'
+import { nowDate } from '@utils/index'
 const ClassPage = (props) => {
   const navigate = useNavigate()
 
@@ -24,10 +24,18 @@ const ClassPage = (props) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
   }
 
+  const classSt = (startDate, endDate) => {
+    if (startDate > nowDate)
+      return <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
+    if (endDate > nowDate)
+      return <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>
+    return <div className={`${styles.classSt} ${styles.done}`}>종료</div>
+  }
+
   return (
     <div className={styles.container}>
       <section className={styles.before}>
-        <h3>🟩 수강생 모집중인 강좌목록</h3>
+        <h3>🟦 수강생 모집중인 강좌목록</h3>
         <div className={styles.classes}>
           {before.map((classes) => (
             <div
@@ -35,6 +43,7 @@ const ClassPage = (props) => {
               key={classes.classId}
               onClick={() => toClassInfo(classes.classId)}
             >
+              {classSt(classes.startDate, classes.endDate)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>
                 수강인원 {classes.numberOfStudents}명
@@ -47,7 +56,7 @@ const ClassPage = (props) => {
         </div>
       </section>
       <section className={styles.doing}>
-        <h3>🟦 진행중인 강좌목록</h3>
+        <h3>🟩 진행중인 강좌목록</h3>
         <div className={styles.classes}>
           {doing.map((classes) => (
             <div
@@ -55,6 +64,7 @@ const ClassPage = (props) => {
               key={classes.classId}
               onClick={() => toClassInfo(classes.classId)}
             >
+              {classSt(classes.startDate, classes.endDate)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>
                 수강인원 {classes.numberOfStudents}명
@@ -67,7 +77,7 @@ const ClassPage = (props) => {
         </div>
       </section>
       <section className={styles.finished}>
-        <h3>🟥 종료된 강좌목록</h3>
+        <h3>⬜ 종료된 강좌목록</h3>
         <div className={styles.classes}>
           {finished.map((classes) => (
             <div
@@ -75,6 +85,7 @@ const ClassPage = (props) => {
               key={classes.classId}
               onClick={() => toClassInfo(classes.classId)}
             >
+              {classSt(classes.startDate, classes.endDate)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>
                 수강인원 {classes.numberOfStudents}명

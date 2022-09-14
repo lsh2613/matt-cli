@@ -8,37 +8,50 @@ h3 {
   grid-gap: 1rem;
 }
 
-.before .classes .class:hover {
-  background: var(--color-green-bright);
-}
-.doing .classes .class:hover {
-  background-color: var(--color-blue-bright);
-}
-.finished .classes .class:hover {
-  background: var(--color-gray);
-}
-
-dd {
+.title {
   text-align: left;
 }
 .class {
   border-radius: 10px;
   padding: 1rem 1rem;
+  height: 130px;
   box-shadow: var(--box-shadow);
+  position: relative;
 }
 
 .class:hover {
-  position: relative;
   bottom: 1px;
   -webkit-box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
   box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
 }
 .title {
-  padding: 0rem 0rem 1rem 0rem;
+  height: 60px;
+  margin-left: 0px;
 }
 .number,
 .date {
   color: #666;
   font-size: 13px;
   text-align: right;
+}
+
+.classSt {
+  width: fit-content;
+  right: 20px;
+  padding: 4px 8px;
+  position: absolute;
+  background-color: var(--color-blue);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.will {
+  background-color: var(--color-blue);
+}
+.ing {
+  background-color: var(--color-green);
+}
+.done {
+  background-color: var(--color-gray);
 }
