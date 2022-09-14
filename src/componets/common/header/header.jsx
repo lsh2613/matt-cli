@@ -4,7 +4,7 @@ import button from '../../../common/button.module.css'
 import { useNavigate } from 'react-router-dom'
 import { log_out } from '../../../api/login/login'
 import { useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { connect } from 'react-redux'
 
 const Header = () => {
   const [hover, setHover] = useState(false)
