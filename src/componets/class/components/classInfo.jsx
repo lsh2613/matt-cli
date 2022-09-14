@@ -113,7 +113,7 @@ const ClassInfo = () => {
           <hr />
           {classes.classes.descriptions}
         </section>
-        {classes.classes.instructorId === instructorId ? (
+        {classes.classes.endDate > nowDate ? (
           ''
         ) : (
           <section className={styles.reviewContainer}>

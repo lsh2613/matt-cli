@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from './classList.module.css'
-import button from '../../../common/button.module.css'
 import { fetchClassByInsId } from '../../../api/class/class'
 
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -40,12 +39,6 @@ const ClassList = (props) => {
               {classes.startTime} ~ {classes.endTime}
             </aside>
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
-            <button
-              className={`${button.borderGrayBtn} ${styles.showDetails}`}
-              onClick={() => toClassInfo(classes.classId)}
-            >
-              상세보기
-            </button>
           </div>
         ))}
       </div>

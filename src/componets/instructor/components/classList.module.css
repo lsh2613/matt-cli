@@ -6,6 +6,7 @@
   align-items: center;
   padding: 1rem 1rem;
   border-radius: 10px;
+  position: relative;
 }
 .title {
   display: inline-block;
@@ -22,6 +23,12 @@
   font-size: 14px;
   cursor: pointer;
   margin-bottom: 0.8rem;
+}
+
+.class:hover {
+  box-shadow: var(--push-shadow);
+  position: relative;
+  bottom: 1px;
 }
 .class:nth-last-child(1) {
   margin-bottom: 0;

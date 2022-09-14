@@ -13,5 +13,5 @@
   --color-gray-bright: rgba(238, 238, 238, 0.5);
   --color-gray: #bec0be;
   --box-shadow: 5px 4px 13px 1px rgba(0, 0, 0, 0.14);
-  --drop-shadow: ;
+  --push-shadow: -5px -4px 13px 1px rgba(0, 0, 0, 0.14);
 }
