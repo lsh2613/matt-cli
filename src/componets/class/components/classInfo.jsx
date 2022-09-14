@@ -88,14 +88,14 @@ const ClassInfo = () => {
           </div>
         </section>
         <section className={styles.detailInfo}>
-          <h3>강의 소개</h3>
+          <h3>📋 강의 소개</h3>
           <hr />
           {classes.classes.descriptions}
         </section>
         <section className={styles.reviewContainer}>
-          <h3>클래스 리뷰</h3>
+          <h3>💬 클래스 리뷰</h3>
           <hr />
-          <Review />
+          <Review classId={classId} />
         </section>
       </div>
       <ApplyClass

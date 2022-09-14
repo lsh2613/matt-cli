@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding-bottom: 5rem;
+}
+
+.review {
+  list-style: none;
+  background: var(--color-primary-bright);
+  padding: 0.5rem 0.5rem;
+}
+.contents {
+  background: #fff;
+  padding: 0.5rem 0.5rem;
+}
+
+.row {
+  display: flex;
+}
+
+.row .nickname {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.content {
+  padding: 0.3rem 0rem;
+}
