@@ -1,4 +1,4 @@
-// import { createStore } from 'redux'
-// import { searchByKeyword } from './reducers'
+import { createStore } from 'redux'
+import rootReducer from './reducer'
 
-// export const store = createStore(searchByKeyword)
+export const store = createStore(rootReducer)

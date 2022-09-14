@@ -1,5 +1,5 @@
-import { INIT_SEARCH_KEY } from './state'
-import { SEARCH } from './actions'
+import { INIT_SEARCH_KEY } from '../state'
+import { SEARCH } from '../actions/actions'
 import { combineReducers } from 'redux'
 
 const initialState = {

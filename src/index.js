@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import Header from './componets/common/header/header'
 
 import { createStore } from 'redux'
-import searchReducer from './redux/reducers'
+import searchReducer from './redux/reducers/reducers'
 
 const store = createStore(searchReducer)
 
