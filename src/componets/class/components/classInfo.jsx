@@ -16,6 +16,8 @@ const ClassInfo = () => {
 
   const location = useLocation()
   const classId = location.state.classId
+  const date = new Date()
+  const nowDate = date.toISOString().slice(0, 10)
 
   const apply = () => {
     setVisible(true)
@@ -39,7 +41,8 @@ const ClassInfo = () => {
       <div className={styles.container}>
         <section className={styles.main}>
           <div className={styles.title}>{classes.classes.title}</div>
-          {parseInt(classes.classes.instructorId) === parseInt(instructorId) ? (
+          {parseInt(classes.classes.instructorId) === parseInt(instructorId) ||
+          classes.classes.startDate < nowDate ? (
             ''
           ) : (
             <button className={button.fullBtn} onClick={apply}>
