@@ -18,7 +18,7 @@ function postClass(form) {
 }
 
 function updateClass(form) {
-  return class_.patch(`/${form.getClassId}`, form)
+  return class_.patch(`/${form.classId}`, form)
 }
 
 function fetchBeforClass() {

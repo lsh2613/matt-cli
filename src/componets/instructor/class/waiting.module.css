@@ -4,6 +4,10 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 }
+
+.container section {
+  min-width: 100%;
+}
 h3 {
   margin: 0.8rem 0;
 }
@@ -21,13 +25,14 @@ h3 {
 
 .label {
   border: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.5fr;
   padding: 0.5rem 0rem;
 }
-dd {
+.label dd {
   flex: 1 1;
   margin-left: 0;
-  text-align: center;
+  padding: 0 1rem;
 }
 
 .student {
@@ -38,7 +43,13 @@ dd {
 }
 
 .info {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.5fr;
+}
+
+.info dd {
+  padding: 0 1rem;
+  margin-left: 0;
 }
 .student:nth-last-child(1) {
   margin-bottom: 0px;
@@ -59,4 +70,15 @@ dd {
 
 .hr {
   margin: 4px 0px;
+}
+
+.date {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
 }

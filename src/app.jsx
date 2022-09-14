@@ -4,6 +4,7 @@ import Signup from './componets/signup/signup'
 import MyPage from './componets/mypage/mypage'
 import Home from './componets/home/home'
 import MakeClass from './componets/instructor/class/makeclass'
+import UpdateClass from './componets/instructor/class/updateclass'
 import Waiting from './componets/instructor/class/wating'
 import ClassInfoPage from './componets/class/classInfoPage'
 import AuthInstructor from './componets/instructor/auth/authInstructor'
@@ -22,6 +23,7 @@ function App() {
         <Route path='signup' element={<Signup />} />
         <Route path='mypage' element={<MyPage />} />
         <Route path='/makeclass' element={<MakeClass />} />
+        <Route path='/updateclass/:classId' element={<UpdateClass />} />
         <Route path='/class' element={<ClassPage />} />
         <Route exact path='/class/:classId' element={<ClassInfoPage />} />
         <Route exact path='/class/:classId/waiting' element={<Waiting />} />

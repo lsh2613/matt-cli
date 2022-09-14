@@ -13,11 +13,11 @@ function createInstaceWithAuth(url) {
   })
 }
 
-export const user = createInstance('/user')
+export const user = createInstaceWithAuth('/user')
 export const login = createInstaceWithAuth('/login')
-export const class_ = createInstance('/class')
-export const tag = createInstance('/tagInfo')
+export const class_ = createInstaceWithAuth('/class')
+export const tag = createInstaceWithAuth('/tagInfo')
 export const instructor = createInstaceWithAuth('/instructor')
 export const waiting = createInstaceWithAuth('/waitingStudent')
-export const logout = createInstance('/logout')
+export const logout = createInstaceWithAuth('/logout')
 export const insReview = createInstaceWithAuth('/instructor/review')

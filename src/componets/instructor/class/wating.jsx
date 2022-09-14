@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import styles from './waiting.module.css'
 import {
   deleteStudent,
@@ -7,7 +8,8 @@ import {
 } from '../../../api/wating/wating'
 
 const Waiting = (props) => {
-  const classId = 23
+  const location = useLocation()
+  const classId = location.state.classId
   const [ws, setWs] = useState([])
   useEffect(() => {
     fetchStudent(classId).then((res) => {
@@ -22,18 +24,16 @@ const Waiting = (props) => {
           <div className={`${styles.waiting} ${styles.box}`}>
             <div className={styles.list}>
               <div className={styles.label}>
-                <dd>닉네임</dd>
-                <dd>성별</dd>
+                <dd>이름</dd>
                 <dd>신청날짜</dd>
                 <dd>확인</dd>
               </div>
               <div className={styles.students}>
                 {ws.map((student) => (
-                  <div className={styles.student}>
+                  <div className={styles.student} key={student.id}>
                     <article className={styles.info}>
                       <dd>{student.name}</dd>
-                      <dd>여</dd>
-                      <dd>{student.date}</dd>
+                      <dd className={styles.date}>{student.date}</dd>
                       <dd className={styles.btn}>➕</dd>
                     </article>
                     <hr className={styles.hr} />
@@ -52,8 +52,7 @@ const Waiting = (props) => {
           <div className={`${styles.confirm} ${styles.box}`}>
             <div className={styles.list}>
               <div className={styles.label}>
-                <dd>닉네임</dd>
-                <dd>성별</dd>
+                <dd>이름</dd>
                 <dd>수락날짜</dd>
                 <dd>취소</dd>
               </div>
@@ -61,8 +60,7 @@ const Waiting = (props) => {
                 <div className={styles.student}>
                   <article className={styles.info}>
                     <dd>가궁</dd>
-                    <dd>여</dd>
-                    <dd>1997년생</dd>
+                    <dd className={styles.date}>2022-09-14</dd>
                     <dd className={styles.btn}>➖</dd>
                   </article>
                   <hr className={styles.hr} />

@@ -12,6 +12,10 @@ const CreatedClass = (props) => {
   const toClassInfo = (classId) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
   }
+
+  const toWaiting = (classId) => {
+    navigate(`/class/${classId}/waiting`, { state: { classId: classId } })
+  }
   useEffect(() => {
     fetchClassByInsId(localStorage.getItem('instructorId')).then((res) =>
       setClasses(res.data)
@@ -30,7 +34,11 @@ const CreatedClass = (props) => {
       </button>
       <div className={styles.classList}>
         {classes.map((classes) => (
-          <div className={styles.class} key={classes.classId}>
+          <div
+            className={styles.class}
+            key={classes.classId}
+            onClick={() => toWaiting(classes.classId)}
+          >
             <article className={styles.classNm}>{classes.title}</article>
             <aside className={styles.days}>화, 목</aside>
             <aside className={styles.time}>
@@ -39,7 +47,10 @@ const CreatedClass = (props) => {
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
             <button
               className={`${button.borderGrayBtn} ${styles.showDetails}`}
-              onClick={() => toClassInfo(classes.classId)}
+              onClick={(e) => {
+                e.stopPropagation()
+                toClassInfo(classes.classId)
+              }}
             >
               상세보기
             </button>

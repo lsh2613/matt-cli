@@ -4,15 +4,18 @@ import ApplyClass from './applyClass'
 import Review from './review'
 import { fetchClass } from '../../../api/class/class'
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import button from '../../../common/button.module.css'
+
 const ClassInfo = () => {
+  const navigate = useNavigate()
+
   const [classes, setClasses] = useState({
     classes: {},
   })
   const [visible, setVisible] = useState(false)
 
-  const instructorId = localStorage.getItem('instructorId')
+  const instructorId = parseInt(localStorage.getItem('instructorId'))
 
   const location = useLocation()
   const classId = location.state.classId
@@ -25,6 +28,29 @@ const ClassInfo = () => {
 
   const updateVisible = () => {
     setVisible(false)
+  }
+
+  const toUpdateClass = (classId) => {
+    navigate(`/updateclass/${classId}`, { state: { classId: classId } })
+  }
+
+  const showBtn = (insId, startDate) => {
+    if (insId !== instructorId && startDate > nowDate)
+      return (
+        <button className={button.fullBtn} onClick={apply}>
+          클래스 신청
+        </button>
+      )
+
+    if (insId === instructorId && startDate > nowDate)
+      return (
+        <button
+          className={button.fullBtn}
+          onClick={() => toUpdateClass(classes.classes.classId)}
+        >
+          클래스 수정
+        </button>
+      )
   }
 
   useEffect(() => {
@@ -41,14 +67,8 @@ const ClassInfo = () => {
       <div className={styles.container}>
         <section className={styles.main}>
           <div className={styles.title}>{classes.classes.title}</div>
-          {parseInt(classes.classes.instructorId) === parseInt(instructorId) ||
-          classes.classes.startDate < nowDate ? (
-            ''
-          ) : (
-            <button className={button.fullBtn} onClick={apply}>
-              클래스 신청
-            </button>
-          )}
+
+          {showBtn(classes.classes.instructorId, classes.classes.startDate)}
         </section>
 
         <section className={styles.infoGroup}>
@@ -95,11 +115,15 @@ const ClassInfo = () => {
           <hr />
           {classes.classes.descriptions}
         </section>
-        <section className={styles.reviewContainer}>
-          <h3>💬 클래스 리뷰</h3>
-          <hr />
-          <Review classId={classId} />
-        </section>
+        {classes.classes.instructorId === instructorId ? (
+          ''
+        ) : (
+          <section className={styles.reviewContainer}>
+            <h3>💬 클래스 리뷰</h3>
+            <hr />
+            <Review classId={classId} />
+          </section>
+        )}
       </div>
       <ApplyClass
         visible={visible}
