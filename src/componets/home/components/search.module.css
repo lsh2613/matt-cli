@@ -21,6 +21,7 @@
   font-size: 14px;
 }
 .item {
+  cursor: pointer;
   flex-shrink: 0;
   font-size: 13px;
   list-style: none;
@@ -34,4 +35,20 @@
   margin-right: 8px;
   box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.3);
   /* filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4)); */
+}
+
+.clicked {
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 13px;
+  list-style: none;
+  border: 2px solid none;
+  background-color: red;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  min-width: 60px;
+  text-align: center;
+  margin-right: 8px;
+  box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.3);
 }
