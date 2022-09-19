@@ -1,4 +1,9 @@
-import { createStore } from 'redux'
-import rootReducer from './reducer'
+import { configureStore } from '@reduxjs/toolkit'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import searchKeyReducer from './reducers/search'
 
-export const store = createStore(rootReducer)
+export default configureStore({
+  reducer: {
+    search: searchKeyReducer,
+  },
+})

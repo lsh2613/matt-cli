@@ -4,15 +4,16 @@ import button from '../../../common/button.module.css'
 import { useNavigate } from 'react-router-dom'
 import { log_out } from '../../../api/login/login'
 import { useLocation } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Header = () => {
   const [hover, setHover] = useState(false)
   const [login, setLogin] = useState(localStorage.getItem('studentId'))
-  const [keyword, setKeyword] = useState('')
+  const keyword = useSelector((state) => state.search.searchKey)
 
   const navigate = useNavigate()
   const location = useLocation()
+  const dispatch = useDispatch()
 
   const onLogout = () => {
     log_out().then(localStorage.clear())
@@ -21,7 +22,6 @@ const Header = () => {
   }
   const onChange = (e) => {
     const { name, value } = e.target
-    setKeyword(value)
   }
 
   const handleKeyPress = (e) => {
@@ -29,12 +29,11 @@ const Header = () => {
   }
 
   const toSearch = () => {
+    dispatch({ type: 'onChange' })
     navigate('/search', { state: { keyword: keyword } })
-    setKeyword('')
   }
   const toMypage = () => {
     navigate('/mypage')
-    setKeyword('')
   }
 
   return (
