@@ -1,0 +1,59 @@
+.container {
+  z-index: 1001;
+  width: 30%;
+  background: var(--color-primary-bright);
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-bottom: 7px;
+}
+.etc {
+  font-size: 0.9rem;
+  padding: 1rem 0rem;
+}
+
+.btn {
+  position: absolute;
+  right: 1.2rem;
+  top: 10px;
+}
+
+.inputForm {
+  border: 1px solid #eee;
+  padding: 13px 10px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.inputForm:focus {
+  outline: none;
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.16);
+  box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.3);
+}
+
+.before > dd,
+.after > dd {
+  padding: 0 10px;
+}
+
+dd {
+  margin-left: 0;
+}
+
+.red {
+  color: rgb(201, 17, 17);
+  font-size: 11px;
+  float: right;
+}
+
+.before {
+  margin-bottom: 0.5rem;
+}

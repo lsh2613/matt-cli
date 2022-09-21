@@ -2,12 +2,17 @@ import React, { useState } from 'react'
 import styles from './userInfo.module.css'
 import button from '@/common/button.module.css'
 import EditNick from '../modal/editNick'
+import EditPw from '../modal/editPw'
 
 const UserInfo = (props) => {
   const [nickModal, setNickModal] = useState(false)
   const [pwModal, setPwModal] = useState(false)
+
   const updateNickVisible = () => {
     setNickModal(false)
+  }
+  const updatePwVisible = () => {
+    setPwModal(false)
   }
   const [user, setUser] = useState({
     id: localStorage.getItem('studentId'),
@@ -34,7 +39,10 @@ const UserInfo = (props) => {
         >
           닉네임 수정
         </button>
-        <button className={`${button.fullBtn} ${styles.profileEditBtn}`}>
+        <button
+          className={`${button.fullBtn} ${styles.profileEditBtn}`}
+          onClick={() => setPwModal(true)}
+        >
           패스워드 수정
         </button>
         <button
@@ -44,6 +52,7 @@ const UserInfo = (props) => {
         </button>
       </div>
       <EditNick visible={nickModal} updateVisible={updateNickVisible} />
+      <EditPw visible={pwModal} updateVisible={updatePwVisible} />
     </>
   )
 }
