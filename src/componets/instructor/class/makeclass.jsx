@@ -55,7 +55,7 @@ const MakeClass = (props) => {
             <div className={styles.label}>클래스명</div>
             <input
               type='text'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               name='title'
               value={title}
@@ -65,7 +65,7 @@ const MakeClass = (props) => {
             <div className={styles.label}>카테고리</div>
             <input
               type='text'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               name='category'
               value={category}
@@ -74,7 +74,7 @@ const MakeClass = (props) => {
           <div className={styles.form}>
             <div className={styles.label}>수강인원</div>
             <select
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={numberOfStudents}
               name='numberOfStudents'
@@ -94,7 +94,7 @@ const MakeClass = (props) => {
             <input
               type='date'
               name='startDate'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={startDate}
             ></input>
@@ -104,7 +104,7 @@ const MakeClass = (props) => {
             <input
               type='date'
               name='endDate'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={endDate}
             ></input>
@@ -116,7 +116,7 @@ const MakeClass = (props) => {
             <input
               type='text'
               name='daysId'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
             ></input>
           </div>
@@ -125,7 +125,7 @@ const MakeClass = (props) => {
             <input
               type='time'
               name='startTime'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={startTime}
             ></input>
@@ -135,7 +135,7 @@ const MakeClass = (props) => {
             <input
               type='time'
               name='endTime'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={endTime}
             ></input>
@@ -145,7 +145,7 @@ const MakeClass = (props) => {
             <input
               type='text'
               name='place'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={place}
             ></input>
@@ -156,7 +156,7 @@ const MakeClass = (props) => {
             <textarea
               type='text'
               name='descriptions'
-              className={styles.inpuForm}
+              className={styles.inputForm}
               onChange={onChange}
               value={descriptions}
             ></textarea>

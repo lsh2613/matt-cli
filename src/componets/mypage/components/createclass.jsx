@@ -37,7 +37,7 @@ const CreatedClass = (props) => {
           <div
             className={styles.class}
             key={classes.classId}
-            onClick={() => toWaiting(classes.classId)}
+            onClick={() => toClassInfo(classes.classId)}
           >
             <article className={styles.classNm}>{classes.title}</article>
             <aside className={styles.days}>화, 목</aside>
@@ -49,10 +49,10 @@ const CreatedClass = (props) => {
               className={`${button.borderGrayBtn} ${styles.showDetails}`}
               onClick={(e) => {
                 e.stopPropagation()
-                toClassInfo(classes.classId)
+                toWaiting(classes.classId)
               }}
             >
-              상세보기
+              신청자 관리
             </button>
           </div>
         ))}

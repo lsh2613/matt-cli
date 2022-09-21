@@ -55,7 +55,7 @@ const Signup = (props) => {
           <div className={styles.label}>아이디</div>
           <input
             type='text'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='loginId'
             value={loginId}
@@ -65,7 +65,7 @@ const Signup = (props) => {
           <div className={styles.label}>이름</div>
           <input
             type='text'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='name'
             value={name}
@@ -75,7 +75,7 @@ const Signup = (props) => {
           <div className={styles.label}>닉네임</div>
           <input
             type='text'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='nickname'
             value={nickname}
@@ -113,7 +113,7 @@ const Signup = (props) => {
           <div className={styles.label}>생년월일</div>
           <input
             type='date'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='birthDate'
             value={birthDate}
@@ -123,7 +123,7 @@ const Signup = (props) => {
           <div className={styles.label}>전화번호</div>
           <input
             type='phone'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='phoneNumber'
             value={phoneNumber}
@@ -133,7 +133,7 @@ const Signup = (props) => {
           <div className={styles.label}>이메일</div>
           <input
             type='text'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='email'
             value={email}
@@ -143,7 +143,7 @@ const Signup = (props) => {
           <div className={styles.label}>패스워드</div>
           <input
             type='password'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='password'
             value={password}
@@ -151,7 +151,7 @@ const Signup = (props) => {
         </div>
         <div className={styles.form}>
           <div className={styles.label}>패스워드 확인</div>
-          <input type='password' className={styles.inpuForm}></input>
+          <input type='password' className={styles.inputForm}></input>
         </div>
         <button className={styles.signupBtn} onClick={postSignup}>
           회원가입

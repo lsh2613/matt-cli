@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './applyClass.module.css'
-import button from '../../../common/button.module.css'
-import modal from '../../../common/modal.module.css'
+import button from '@/common/button.module.css'
+import modal from '@/common/modal.module.css'
 import { applyClass } from '../../../api/wating/wating'
 const ApplyClass = (props) => {
   const [state, setState] = useState(props.visible)

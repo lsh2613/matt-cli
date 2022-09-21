@@ -4,9 +4,9 @@ import button from '../../../common/button.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
-import { fetchPastStudentClass } from '../../../api/cs/cs'
+import { fetchDoingStudentClass } from '../../../api/cs/cs'
 
-const FinishedClass = (props) => {
+const DoingClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
   const toClassInfo = (classId) => {
@@ -15,12 +15,12 @@ const FinishedClass = (props) => {
 
   const userId = localStorage.getItem('studentId')
   useEffect(() => {
-    fetchPastStudentClass(userId).then((res) => setClasses(res.data))
+    fetchDoingStudentClass(userId).then((res) => setClasses(res.data))
   }, [])
 
   return (
     <>
-      <span className={styles.title}>수강완료한 강의</span>
+      <span className={styles.title}>수강중인 강의</span>
       <div className={styles.classList}>
         {classes.map((classes) => (
           <div
@@ -34,14 +34,8 @@ const FinishedClass = (props) => {
               {classes.startTime} ~ {classes.endTime}
             </aside>
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
-            <button
-              className={`${button.borderGrayBtn} ${styles.showDetails}`}
-              onClick={(e) => {
-                e.stopPropagation()
-                // toWaiting(classes.classId)
-              }}
-            >
-              리뷰작성
+            <button className={`${button.borderGrayBtn} ${styles.showDetails}`}>
+              상세보기
             </button>
           </div>
         ))}
@@ -50,4 +44,4 @@ const FinishedClass = (props) => {
   )
 }
 
-export default FinishedClass
+export default DoingClass

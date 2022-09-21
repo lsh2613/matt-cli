@@ -49,7 +49,7 @@ const AuthInstructor = (props) => {
           <div className={styles.label}>전공</div>
           <input
             type='text'
-            className={styles.inpuForm}
+            className={styles.inputForm}
             onChange={onChange}
             name='major'
             value={major}

@@ -40,6 +40,22 @@
   background-color: var(--color-primary-darker);
 }
 
+.fullGrayBtn {
+  font-family: 'InfinitySans-RegularA1';
+  background: var(--color-gray);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.fullGrayBtn:hover {
+  background: #999;
+  transform: 0.2s;
+}
+
 .borderGrayBtn {
   font-family: 'InfinitySans-RegularA1';
   background-color: transparent;
@@ -51,6 +67,7 @@
   cursor: pointer;
   font-size: 12px;
 }
+
 .borderGrayBtn:hover {
   background-color: var(--color-gray);
   color: #fff;

@@ -39,15 +39,16 @@ const RecommClass = (props) => {
             {classSt(classes.startDate, classes.endDate)}
             <div className={styles.classTitle}>{classes.title}</div>
             <div className={styles.contents}>
-              <div className={styles.etc}>김가정 멘토</div>
+              <div className={styles.etc}>
+                {classes.instructorName} 멘토 ({classes.instructorMajor})
+              </div>
               <div className={styles.etc}>
                 {classes.startDate} ~ {classes.endDate}
               </div>
               <div className={styles.etc}>
                 현재 지원 인원
                 <span className={styles.bold}>
-                  {classes.waitingStudents.length} / {classes.numberOfStudents}
-                  명
+                  {classes.countWS} / {classes.numberOfStudents}명
                 </span>
               </div>
             </div>

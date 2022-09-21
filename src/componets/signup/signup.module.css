@@ -26,17 +26,16 @@
   color: #bbb;
   font-size: 14px;
   width: 7em;
-
 }
 
-.inpuForm {
+.inputForm {
   border: 1px solid #eee;
   padding: 13px 20px;
   border-radius: 10px;
   width: 20em;
 }
 
-.inpuForm:focus {
+.inputForm:focus {
   outline: none;
   -webkit-box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.16);
   box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.3);
@@ -61,11 +60,11 @@
   margin-left: 20px;
 }
 
-input[type=radio] {
+input[type='radio'] {
   display: none;
 }
 
-input[type=radio]+label {
+input[type='radio'] + label {
   display: inline-block;
   cursor: pointer;
   border: 1px solid #eee;
@@ -75,12 +74,12 @@ input[type=radio]+label {
   width: 10em;
 }
 
-input[type=radio]+label {
+input[type='radio'] + label {
   background-color: #fff;
   color: #333;
 }
 
-input[type=radio]:checked+label {
+input[type='radio']:checked + label {
   background-color: var(--color-primary);
   color: #fff;
 }
