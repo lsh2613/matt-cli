@@ -1,9 +1,11 @@
-import {user} from '../index'
+import { user } from '../index'
 
-function signup(data){
-  console.log(data)
-  return user.post('/new',data);
+function signup(data) {
+  return user.post('/new', data)
 }
 
+function editNickNm(nick) {
+  return user.patch(`/editNickname?nickname=${nick}`)
+}
 
-export {signup}
+export { signup, editNickNm }

@@ -17,7 +17,9 @@
 }
 .etc {
   font-size: 0.9rem;
-  display: flex;
+  padding: 1rem 0rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr 3fr;
 }
 
 .btn {
@@ -28,7 +30,7 @@
 
 .inputForm {
   border: 1px solid #eee;
-  padding: 13px 20px;
+  padding: 13px 10px;
   border-radius: 10px;
   width: 100%;
 }
@@ -37,4 +39,19 @@
   outline: none;
   -webkit-box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.16);
   box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.3);
+}
+
+.before,
+.after,
+.arrow {
+  flex-grow: 1;
+}
+
+.before > dd,
+.after > dd {
+  padding: 0 10px;
+}
+
+dd {
+  margin-left: 0;
 }
