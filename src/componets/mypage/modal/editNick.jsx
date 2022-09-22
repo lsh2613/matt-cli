@@ -29,7 +29,7 @@ const EditNick = (props) => {
     <>
       {state ? (
         <>
-          <div className={styles.container}>
+          <div className={`${modal.modalContainer} ${styles.container}`}>
             <div className={styles.title}>닉네임 변경✍️ </div>
             <button
               className={`${button.fullBtn} ${styles.btn}`}

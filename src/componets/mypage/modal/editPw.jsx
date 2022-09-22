@@ -53,7 +53,7 @@ const EditPw = (props) => {
     <>
       {state ? (
         <>
-          <div className={styles.container}>
+          <div className={`${modal.modalContainer} ${styles.container}`}>
             <div className={styles.title}>패스워드 변경✍️ </div>
             <button
               className={`${button.fullBtn} ${styles.btn}`}
