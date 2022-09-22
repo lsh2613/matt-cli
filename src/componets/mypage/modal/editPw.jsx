@@ -11,6 +11,7 @@ const EditPw = (props) => {
     check: '',
   })
   const [err, setErr] = useState(false)
+  const [nullErr, setNullErr] = useState(false)
 
   const { newPw, check } = pw
 
@@ -25,15 +26,28 @@ const EditPw = (props) => {
 
   const edit = () => {
     editPw(newPw).then((res) => {
-      if (res.status === 200) alert('변경되었습니다 :)')
-      else alert('오류가 발생했습니다 :(')
+      if (res.status === 200) {
+        alert('변경되었습니다 :)')
+      } else alert('오류가 발생했습니다 :(')
     })
     props.updateVisible(false)
+    init()
   }
 
+  const init = () => {
+    setPw({
+      newPw: '',
+      check: '',
+    })
+    setErr(false)
+    setNullErr(false)
+  }
   const compare = () => {
-    if (pw.newPw === pw.check) edit()
-    else setErr(true)
+    setNullErr(false)
+    setErr(false)
+    if (pw.newPw === '') setNullErr(true)
+    if (pw.newPw !== '' && pw.newPw === pw.check) edit()
+    if (pw.newPw !== pw.check) setErr(true)
   }
   return (
     <>
@@ -49,7 +63,12 @@ const EditPw = (props) => {
             </button>
             <div className={styles.etc}>
               <div className={styles.before}>
-                <dd className={styles.label}>변경할 비밀번호</dd>
+                <dd className={styles.label}>
+                  패스워드
+                  <span className={styles.red}>
+                    {nullErr ? '공란이 올 수 없습니다' : ''}
+                  </span>
+                </dd>
                 <input
                   type='password'
                   value={newPw}
@@ -60,7 +79,7 @@ const EditPw = (props) => {
               </div>
               <div className={styles.after}>
                 <dd className={styles.label}>
-                  비밀번호 재확인{' '}
+                  패스워드 재확인{' '}
                   <span className={styles.red}>
                     {err ? '패스워드가 다릅니다' : ''}
                   </span>
@@ -80,6 +99,7 @@ const EditPw = (props) => {
             onClick={() => {
               setState(false)
               props.updateVisible(false)
+              init()
             }}
           ></div>
         </>

@@ -9,6 +9,6 @@ function editNickNm(nick) {
 }
 
 function editPw(pw) {
-  return user.patch(`/user/editPwd?pwd=${pw}`)
+  return user.patch(`/editPwd?pwd=${pw}`)
 }
 export { signup, editNickNm, editPw }

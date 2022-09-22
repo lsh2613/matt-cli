@@ -13,9 +13,9 @@ const Login = (props) => {
   const postUser = () => {
     try {
       signin(user).then((res) => {
+        console.log(res)
         if (res.status === 200) saveInLocalStorage(res.data)
-
-        else alert('로그인 정보를 다시 확인하세요')
+        else alert(res)
       })
     } catch (e) {
       console.log(e)
@@ -26,7 +26,7 @@ const Login = (props) => {
     for (let [key, value] of Object.entries(user)) {
       localStorage.setItem(key, value)
     }
-    navigate("/")
+    navigate('/')
   }
 
   const { loginId, password } = user
