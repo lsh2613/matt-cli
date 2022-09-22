@@ -59,9 +59,7 @@
   justify-content: space-between;
   margin-left: 20px;
 }
-.span {
-  font-size: 0.8rem;
-}
+
 input[type='radio'] {
   display: none;
 }
