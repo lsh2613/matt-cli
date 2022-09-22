@@ -52,7 +52,11 @@ const InstructorPage = (props) => {
             </dd>
             <dd className={styles.insItem}>
               <label>평점</label>
-              <span className={styles.span}>⭐ 4.8점</span>
+              <span className={styles.span}>
+                {instructor.score !== -1
+                  ? `⭐${instructor.score}점`
+                  : '점수없음'}
+              </span>
             </dd>
           </section>
         </div>

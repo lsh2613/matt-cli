@@ -1,13 +1,19 @@
 .container {
   padding-bottom: 5rem;
+  position: relative;
+}
+
+.reviewContainer {
+  margin: 0 0.5rem;
 }
 
 .review {
   list-style: none;
-  background: var(--color-gray-bright);
+  background: var(--color-blue-bright);
   padding: 0.5rem 0.5rem;
   font-size: 0.9rem;
 }
+
 .contents {
   background: #fff;
   padding: 0.5rem 0.5rem;
@@ -25,4 +31,5 @@
 
 .content {
   padding: 0.3rem 0rem;
+  text-decoration: underline;
 }

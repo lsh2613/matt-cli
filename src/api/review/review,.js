@@ -16,4 +16,14 @@ function patchReveiw(form) {
   return insReview.patch('', form)
 }
 
-export { fetchReviewByClassId, postReveiw, deleteReview, patchReveiw }
+function fetchReviewByInsId(insId) {
+  return insReview.get(`/instructor/${insId}`)
+}
+
+export {
+  fetchReviewByClassId,
+  postReveiw,
+  deleteReview,
+  patchReveiw,
+  fetchReviewByInsId,
+}

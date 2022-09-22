@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './instructorInfo.module.css'
 import { fetchClassByInsId } from '../../../api/class/class'
-import { fetchInstructorByInsId } from '../../../api/instructor/instructor'
+
 import { useLocation } from 'react-router-dom'
 import InsProfile from './insProfile'
 import ClassList from './classList'
@@ -22,7 +22,7 @@ const InstructorInfo = (props) => {
 
       <ClassList insId={ins} />
 
-      <InsReview />
+      <InsReview insId={ins} />
     </div>
   )
 }

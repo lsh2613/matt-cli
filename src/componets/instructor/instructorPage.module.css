@@ -1,13 +1,11 @@
 .container {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .insContainer {
   background: var(--color-gray-bright);
-  min-width: 47%;
-  max-width: 47%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,16 +23,12 @@
   box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
 }
 
-.insContainer:nth-child(2n) {
-  margin-right: 0;
-}
-
 .imgSection {
-  flex: 1 1 27%;
+  flex: 1 1 25%;
 }
 
 .infoSection {
-  flex: 1 1 63%;
+  flex: 1 1 65%;
   background: #fff;
   border-radius: 10px;
   padding: 0.2rem 0.5rem;
@@ -42,8 +36,8 @@
 
 .profileImg {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   text-align: center;
 }
@@ -57,14 +51,16 @@
   display: block;
   width: 70%;
   text-align: left;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
 label {
   width: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .container {
     display: flex;
     flex-direction: column;
