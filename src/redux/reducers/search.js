@@ -7,7 +7,6 @@ export const searchKeySlice = createSlice({
   },
   reducers: {
     onChange: (state, action) => {
-      console.log(action)
       state.searchKey = action.payload
     },
   },

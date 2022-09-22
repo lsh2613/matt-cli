@@ -15,6 +15,8 @@ const FinishedClass = (props) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
   }
 
+  const [classId, setClassId] = useState(0)
+
   const userId = localStorage.getItem('studentId')
   useEffect(() => {
     fetchPastStudentClass(userId).then((res) => setClasses(res.data))
@@ -45,7 +47,7 @@ const FinishedClass = (props) => {
                 className={`${button.borderGrayBtn} ${styles.showDetails}`}
                 onClick={(e) => {
                   e.stopPropagation()
-                  // toWaiting(classes.classId)
+                  setClassId(classes.classId)
                   setModal(true)
                 }}
               >
@@ -55,7 +57,11 @@ const FinishedClass = (props) => {
           ))}
         </div>
       </>
-      <WriteReview visible={modal} updateVisible={updateVisible} />
+      <WriteReview
+        visible={modal}
+        classId={classId}
+        updateVisible={updateVisible}
+      />
     </>
   )
 }

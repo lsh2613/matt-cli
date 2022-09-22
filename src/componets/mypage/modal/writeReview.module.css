@@ -1,0 +1,40 @@
+.container {
+  width: 60%;
+}
+
+.span {
+  font-size: 0.9rem;
+  color: #666;
+}
+.starForm fieldset {
+  display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+  direction: rtl; /* 이모지 순서 반전 */
+  border: 0; /* 필드셋 테두리 제거 */
+}
+
+fieldset {
+  display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+  border: 0; /* 필드셋 테두리 제거 */
+}
+
+input[type='radio'] + .radioForm {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #eee;
+  padding: 0px 0px;
+  border-radius: 10px;
+}
+
+input[type='radio'] + .radioForm {
+  width: fit-content;
+  color: transparent;
+  text-shadow: 0 0 0 #b1b1b1;
+}
+
+input[type='radio']:hover ~ .radioForm {
+  text-shadow: 0 0 0 #ffc75f;
+}
+
+input[type='radio']:checked ~ .radioForm {
+  text-shadow: 0 0 0 #ffc75f;
+}
