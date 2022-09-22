@@ -13,7 +13,7 @@ const Review = (props) => {
         <li className={styles.review} key={index}>
           <div className={styles.contents}>
             <div className={styles.row}>
-              <dd className={styles.score}>⭐{review.score} 점</dd>
+              <dd className={styles.score}>⭐{review.score}점 </dd>
               <dd className={styles.nickname}>{review.nickname}</dd>
             </div>
             <dd className={styles.content}>{review.reviewContent}</dd>

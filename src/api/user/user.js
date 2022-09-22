@@ -11,4 +11,8 @@ function editNickNm(nick) {
 function editPw(pw) {
   return user.patch(`/editPwd?pwd=${pw}`)
 }
-export { signup, editNickNm, editPw }
+
+function deleteUser() {
+  return user.delete('/delete')
+}
+export { signup, editNickNm, editPw, deleteUser }

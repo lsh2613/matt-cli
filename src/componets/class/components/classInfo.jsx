@@ -7,15 +7,14 @@ import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import button from '@/common/button.module.css'
 import { nowDate } from '@utils/index'
-const ClassInfo = () => {
+const ClassInfo = (props) => {
   const navigate = useNavigate()
 
   const [classes, setClasses] = useState({})
   const [visible, setVisible] = useState(false)
-
   const instructorId = parseInt(localStorage.getItem('instructorId'))
-
   const location = useLocation()
+  const classStatus = location.state.classSt
   const classId = location.state.classId
 
   const apply = () => {
@@ -110,14 +109,14 @@ const ClassInfo = () => {
           <hr />
           {classes.descriptions}
         </section>
-        {classes.endDate > nowDate ? (
-          ''
-        ) : (
+        {classes.endDate < nowDate || classStatus ? (
           <section className={styles.reviewContainer}>
             <h3>💬 클래스 리뷰</h3>
             <hr />
             <Review classId={classId} />
           </section>
+        ) : (
+          ''
         )}
       </div>
       <ApplyClass

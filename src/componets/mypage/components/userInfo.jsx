@@ -3,8 +3,11 @@ import styles from './userInfo.module.css'
 import button from '@/common/button.module.css'
 import EditNick from '../modal/editNick'
 import EditPw from '../modal/editPw'
+import { deleteUser } from '@api/user/user'
+import { useNavigate } from 'react-router-dom'
 
 const UserInfo = (props) => {
+  const navigate = useNavigate()
   const [nickModal, setNickModal] = useState(false)
   const [pwModal, setPwModal] = useState(false)
 
@@ -13,6 +16,15 @@ const UserInfo = (props) => {
   }
   const updatePwVisible = () => {
     setPwModal(false)
+  }
+
+  const secession = () => {
+    alert(`회원탈퇴 시, 모든 정보는 되돌릴 수 없습니다.
+회원탈퇴 하시겠습니까?`)
+    deleteUser().then(() => {
+      navigate('/')
+      localStorage.clear()
+    })
   }
   const [user, setUser] = useState({
     id: localStorage.getItem('studentId'),
@@ -47,6 +59,7 @@ const UserInfo = (props) => {
         </button>
         <button
           className={`${button.fullGrayBtn} ${styles.profileEditBtn} ${styles.secession}`}
+          onClick={() => secession()}
         >
           회원탈퇴
         </button>

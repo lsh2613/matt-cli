@@ -12,7 +12,9 @@ const FinishedClass = (props) => {
   const [modal, setModal] = useState(false)
   const [classes, setClasses] = useState([])
   const toClassInfo = (classId) => {
-    navigate(`/class/${classId}`, { state: { classId: classId } })
+    navigate(`/class/${classId}`, {
+      state: { classId: classId, classSt: true },
+    })
   }
 
   const [classId, setClassId] = useState(0)

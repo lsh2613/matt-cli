@@ -1,14 +1,12 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
   padding-bottom: 5rem;
 }
 
 .review {
   list-style: none;
-  background: var(--color-primary-bright);
+  background: var(--color-gray-bright);
   padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
 }
 .contents {
   background: #fff;
@@ -21,7 +19,7 @@
 
 .row .nickname {
   text-align: right;
-  font-size: 0.9rem;
+  padding-left: 1rem;
   color: #666;
 }
 
