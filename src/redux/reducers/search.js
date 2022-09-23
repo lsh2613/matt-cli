@@ -3,14 +3,17 @@ import { createSlice } from '@reduxjs/toolkit'
 export const searchKeySlice = createSlice({
   name: 'searchKeySlice',
   initialState: {
-    searchKey: '어쩌라고',
+    searchKey: '',
   },
   reducers: {
-    onChange: (state, action) => {
+    onChangeKeyword: (state, action) => {
       state.searchKey = action.payload
+    },
+    initKeyword: (state) => {
+      state.searchKey = ''
     },
   },
 })
 
-export const { onChange } = searchKeySlice.actions
+export const { onChangeKeyword } = searchKeySlice.actions
 export default searchKeySlice.reducer

@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom'
 import { log_out } from '../../../api/login/login'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { onChangeKeyword } from '../../../redux/reducers/search'
 
 const Header = () => {
-  const [hover, setHover] = useState(false)
   const [login, setLogin] = useState(localStorage.getItem('studentId'))
   const keyword = useSelector((state) => state.search.searchKey)
 
@@ -19,9 +19,6 @@ const Header = () => {
     log_out().then(localStorage.clear())
     setLogin()
     navigate('/')
-  }
-  const onChange = (e) => {
-    const { name, value } = e.target
   }
 
   const handleKeyPress = (e) => {
@@ -57,7 +54,9 @@ const Header = () => {
       <div className={styles.searchForm}>
         <input
           placeholder='검색어를 입력하세요'
-          onChange={onChange}
+          onChange={(e) => {
+            dispatch(onChangeKeyword(e.target.value))
+          }}
           name={keyword}
           value={keyword}
           onKeyPress={handleKeyPress}
