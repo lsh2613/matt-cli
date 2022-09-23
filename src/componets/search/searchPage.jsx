@@ -10,16 +10,21 @@ import { useSelector } from 'react-redux'
 const SearchPage = (props) => {
   const location = useLocation()
   const navigate = useNavigate()
-  const [keyword, setKeyword] = useState(location.state.keyword)
+  const [keyword, setKeyword] = useState(
+    useSelector((state) => state.search.searchKey)
+  )
+  const [status, setStatus] = useState(
+    useSelector((state) => state.search.status)
+  )
   const [classes, setClasses] = useState([])
-  const searchKey = useSelector((state) => state.search.searchKey)
-
   useEffect(() => {
-    fetchClassByKeyword(keyword).then((res) => {
-      setKeyword(keyword)
-      setClasses(res.data)
-    })
-  }, keyword)
+    console.log(props)
+    // fetchClassByKeyword(keyword).then((res) => {
+    //   setKeyword(keyword)
+    //   setClasses(res.data)
+    // })
+    console.log('rkawl')
+  }, [status])
 
   const toClassInfo = (classId) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
