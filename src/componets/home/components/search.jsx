@@ -28,7 +28,6 @@ const Search = (props) => {
 
   const changeState = (item) => {
     if (item.state === false) {
-      console.log('false')
       return (
         <li
           className={styles.item}
@@ -38,7 +37,7 @@ const Search = (props) => {
           {item.tagName}
         </li>
       )
-    } else console.log('true')
+    }
     return (
       <li
         className={styles.clicked}

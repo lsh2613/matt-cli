@@ -4,20 +4,22 @@ import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { fetchClassByKeyword } from '../../api/class/class'
 import styles from './searchPage.module.css'
+import { nowDate } from '@/utils'
+import { useSelector } from 'react-redux'
+
 const SearchPage = (props) => {
-  const date = new Date()
   const location = useLocation()
   const navigate = useNavigate()
-  const [keyword, setKeyword] = useState('')
+  const [keyword, setKeyword] = useState(location.state.keyword)
   const [classes, setClasses] = useState([])
-  const [nowDate, setNowDate] = useState(`${date.toISOString().slice(0, 10)}`)
+  const searchKey = useSelector((state) => state.search.searchKey)
 
   useEffect(() => {
-    fetchClassByKeyword(location.state.keyword).then((res) => {
-      setKeyword(location.state.keyword)
+    fetchClassByKeyword(keyword).then((res) => {
+      setKeyword(keyword)
       setClasses(res.data)
     })
-  }, [])
+  }, keyword)
 
   const toClassInfo = (classId) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
@@ -39,6 +41,7 @@ const SearchPage = (props) => {
           <div
             className={styles.card}
             onClick={() => toClassInfo(classes.classId)}
+            key={classes.classId}
           >
             {classSt(classes.startDate, classes.endDate)}
 

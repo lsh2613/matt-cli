@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { log_out } from '../../../api/login/login'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { onChangeKeyword } from '../../../redux/reducers/search'
+import { onChangeKeyword, initKeyword } from '../../../redux/reducers/search'
 
 const Header = () => {
   const [login, setLogin] = useState(localStorage.getItem('studentId'))
@@ -26,8 +26,8 @@ const Header = () => {
   }
 
   const toSearch = () => {
-    dispatch({ type: 'onChange' })
     navigate('/search', { state: { keyword: keyword } })
+    dispatch(initKeyword())
   }
   const toMypage = () => {
     navigate('/mypage')

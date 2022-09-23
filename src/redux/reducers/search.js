@@ -15,5 +15,5 @@ export const searchKeySlice = createSlice({
   },
 })
 
-export const { onChangeKeyword } = searchKeySlice.actions
+export const { onChangeKeyword, initKeyword } = searchKeySlice.actions
 export default searchKeySlice.reducer
