@@ -10,18 +10,19 @@ import {
   onSearch,
   initKeyword,
 } from '../../../redux/reducers/search'
+import { initUser } from '../../../redux/reducers/user'
 
 const Header = () => {
-  const [login, setLogin] = useState(localStorage.getItem('studentId'))
-  const keyword = useSelector((state) => state.search.searchKey)
-
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
 
+  const login = useSelector((state) => state.user.login)
+  const keyword = useSelector((state) => state.search.searchKey)
+
   const onLogout = () => {
     log_out().then(localStorage.clear())
-    setLogin()
+    dispatch(initUser())
     navigate('/')
   }
 

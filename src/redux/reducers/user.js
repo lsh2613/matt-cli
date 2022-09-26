@@ -12,12 +12,13 @@ export const userInfoSlice = createSlice({
       email: '',
       phoneNumber: '',
     },
+    login: false,
   },
 
   reducers: {
-    setUser: (state, action) => {
-      console.log(action)
-      //state.initialState = action.payload
+    setUserInfo: (state, action) => {
+      state.user = action.payload
+      state.login = true
     },
     initUser: (state) => {
       state.user = {
@@ -29,9 +30,10 @@ export const userInfoSlice = createSlice({
         email: '',
         phoneNumber: '',
       }
+      state.login = false
     },
   },
 })
 
-export const { setUser, initUser } = userInfoSlice.actions
+export const { setUserInfo, initUser } = userInfoSlice.actions
 export default userInfoSlice.reducer

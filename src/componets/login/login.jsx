@@ -3,8 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { signin } from '../../api/login/login'
 import styles from './login.module.css'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { setUserInfo } from '@/redux/reducers/user'
+
 const Login = (props) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const [user, setUser] = useState({
     loginId: '',
     password: '',
@@ -13,9 +18,11 @@ const Login = (props) => {
   const postUser = () => {
     try {
       signin(user).then((res) => {
-        console.log(res)
-        if (res.status === 200) saveInLocalStorage(res.data)
-        else alert(res)
+        if (res.status === 200) {
+          saveInLocalStorage(res.data)
+          console.log(res.data)
+          dispatch(setUserInfo(res.data))
+        } else alert(res)
       })
     } catch (e) {
       console.log(e)
