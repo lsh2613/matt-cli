@@ -1,30 +1,30 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { fetchClassByKeyword } from '../../api/class/class'
 import styles from './searchPage.module.css'
 import { nowDate } from '@/utils'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { initSearch } from '@/redux/reducers/search'
 
 const SearchPage = (props) => {
-  const location = useLocation()
   const navigate = useNavigate()
-  const [keyword, setKeyword] = useState(
-    useSelector((state) => state.search.searchKey)
-  )
-  const [status, setStatus] = useState(
-    useSelector((state) => state.search.status)
-  )
+  const dispatch = useDispatch()
+
+  const keyword = useSelector((state) => state.search.searchKey)
+  const searched = useSelector((state) => state.search.status)
+
+  const [searchKey, setSearchKey] = useState('')
   const [classes, setClasses] = useState([])
   useEffect(() => {
-    console.log(props)
-    // fetchClassByKeyword(keyword).then((res) => {
-    //   setKeyword(keyword)
-    //   setClasses(res.data)
-    // })
-    console.log('rkawl')
-  }, [status])
+    fetchClassByKeyword(keyword).then((res) => {
+      setClasses(res.data)
+      setSearchKey(keyword)
+    })
+    dispatch(initSearch())
+  }, [searched])
 
   const toClassInfo = (classId) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
@@ -40,29 +40,35 @@ const SearchPage = (props) => {
 
   return (
     <>
-      <h4>🔍'{keyword}' 로 검색한 결과 </h4>
-      <div className={styles.container}>
-        {classes.map((classes) => (
-          <div
-            className={styles.card}
-            onClick={() => toClassInfo(classes.classId)}
-            key={classes.classId}
-          >
-            {classSt(classes.startDate, classes.endDate)}
+      <h4>🔍'{searchKey}' 로 검색한 결과 </h4>
+      {classes.length > 0 ? (
+        <div className={styles.container}>
+          {classes.map((classes) => (
+            <div
+              className={styles.card}
+              onClick={() => toClassInfo(classes.classId)}
+              key={classes.classId}
+            >
+              {classSt(classes.startDate, classes.endDate)}
 
-            <div className={styles.classTitle}>{classes.title}</div>
-            <div className={styles.contents}>
-              <div className={styles.etc}>김가정 멘토</div>
-              <div className={styles.etc}>
-                {classes.startDate} ~ {classes.endDate}
-              </div>
-              <div className={styles.etc}>
-                모집인원 {classes.numberOfStudents}
+              <div className={styles.classTitle}>{classes.title}</div>
+              <div className={styles.contents}>
+                <div className={styles.etc}>김가정 멘토</div>
+                <div className={styles.etc}>
+                  {classes.startDate} ~ {classes.endDate}
+                </div>
+                <div className={styles.etc}>
+                  모집인원 {classes.numberOfStudents}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.container}>
+          <span className={styles.span}>검색 결과가 없습니다 🧐</span>
+        </div>
+      )}
     </>
   )
 }

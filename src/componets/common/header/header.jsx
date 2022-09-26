@@ -6,9 +6,9 @@ import { log_out } from '../../../api/login/login'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {
+  initSearch,
   onChangeKeyword,
   onSearch,
-  initKeyword,
 } from '../../../redux/reducers/search'
 import { initUser } from '../../../redux/reducers/user'
 
@@ -30,10 +30,12 @@ const Header = () => {
     if (e.key === 'Enter') toSearch()
   }
 
+  /**
+   * 검색어
+   */
   const toSearch = () => {
     dispatch(onSearch())
-    dispatch(initKeyword())
-    navigate('/search')
+    if (location.pathname !== '/search') navigate('/search')
   }
   const toMypage = () => {
     navigate('/mypage')

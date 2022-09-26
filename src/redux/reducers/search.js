@@ -13,12 +13,12 @@ export const searchKeySlice = createSlice({
     onSearch: (state) => {
       state.status = true
     },
-    initKeyword: (state) => {
-      state.searchKey = ''
+    initSearch: (state) => {
       state.status = false
+      state.searchKey = ''
     },
   },
 })
 
-export const { onChangeKeyword, onSearch, initKeyword } = searchKeySlice.actions
+export const { onChangeKeyword, onSearch, initSearch } = searchKeySlice.actions
 export default searchKeySlice.reducer
