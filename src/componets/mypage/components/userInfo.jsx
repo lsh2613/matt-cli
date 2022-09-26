@@ -11,7 +11,13 @@ const UserInfo = (props) => {
   const [nickModal, setNickModal] = useState(false)
   const [pwModal, setPwModal] = useState(false)
 
-  const updateNickVisible = () => {
+  const updateNickVisible = (state) => {
+    if (state === true) {
+      setUser({
+        ...user,
+        nickname: localStorage.getItem('nickname'),
+      })
+    }
     setNickModal(false)
   }
   const updatePwVisible = () => {
@@ -27,10 +33,7 @@ const UserInfo = (props) => {
     })
   }
   const [user, setUser] = useState({
-    id: localStorage.getItem('studentId'),
-    loginId: localStorage.getItem('loginId'),
     nickname: localStorage.getItem('nickname'),
-    gender: localStorage.getItem('gender'),
     birthday: localStorage.getItem('birthDate'),
     email: localStorage.getItem('email'),
     phoneNumber: localStorage.getItem('phoneNumber'),

@@ -14,16 +14,25 @@ const EditNick = (props) => {
     setNewNick(value)
   }
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') edit()
+  }
+
   useEffect(() => {
     setState(props.visible)
   }, [props.visible])
 
   const edit = () => {
     editNickNm(newNick).then((res) => {
-      if (res.status === 200) alert('변경되었습니다 :)')
-      else alert('오류가 발생했습니다 :(')
+      if (res.status === 200) {
+        alert('변경되었습니다 :)')
+        localStorage.setItem('nickname', res.data.nickname)
+        props.updateVisible(true)
+      } else {
+        alert('오류가 발생했습니다 :(')
+        props.updateVisible(false)
+      }
     })
-    props.updateVisible(false)
   }
   return (
     <>
@@ -56,6 +65,7 @@ const EditNick = (props) => {
                   value={nick}
                   name='nick'
                   onChange={onChange}
+                  onKeyPress={handleKeyPress}
                 />
               </div>
             </div>
