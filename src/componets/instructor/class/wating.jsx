@@ -25,7 +25,7 @@ const Waiting = (props) => {
             <div className={styles.list}>
               <div className={styles.label}>
                 <dd>이름</dd>
-                <dd>신청날짜</dd>
+                <dd>신청일</dd>
                 <dd>확인</dd>
               </div>
               <div className={styles.students}>
@@ -53,7 +53,7 @@ const Waiting = (props) => {
             <div className={styles.list}>
               <div className={styles.label}>
                 <dd>이름</dd>
-                <dd>수락날짜</dd>
+                <dd>수락일</dd>
                 <dd>취소</dd>
               </div>
               <div className={styles.students}>

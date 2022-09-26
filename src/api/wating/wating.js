@@ -1,8 +1,7 @@
 import { waiting } from '../index'
 
 function applyClass(data) {
-  console.log(data)
-  //return waiting.post(`/${data.classId}`, encodeURI(data.content))
+  return waiting.post(`/${data.classId}/?content=${encodeURI(data.content)}`)
 }
 
 function fetchStudent(classId) {

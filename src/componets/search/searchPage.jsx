@@ -19,11 +19,13 @@ const SearchPage = (props) => {
   const [searchKey, setSearchKey] = useState('')
   const [classes, setClasses] = useState([])
   useEffect(() => {
-    fetchClassByKeyword(keyword).then((res) => {
-      setClasses(res.data)
-      setSearchKey(keyword)
-    })
-    dispatch(initSearch())
+    if (searched === true) {
+      fetchClassByKeyword(keyword).then((res) => {
+        setClasses(res.data)
+        setSearchKey(keyword)
+      })
+      dispatch(initSearch())
+    }
   }, [searched])
 
   const toClassInfo = (classId) => {

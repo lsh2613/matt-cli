@@ -14,7 +14,7 @@ const ApplyClass = (props) => {
       if (res.status === 200) {
         setState(false)
         //부모의 visible 변경
-        props.updateVisible(false)
+        props.updateVisible()
         alert('신청 완료되었습니다')
       } else alert('예상치 못한 오류가 발생했습니다')
     })
