@@ -76,6 +76,16 @@ h3 {
   font-size: 0.9rem;
 }
 
+.end {
+  position: absolute;
+  right: 1rem;
+}
+
+.none {
+  background: #fff;
+  padding: 1rem 1rem;
+  color: #666;
+}
 @media (max-width: 768px) {
   .container {
     display: flex;

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import styles from './waiting.module.css'
-import {
-  deleteStudent,
-  fetchStudent,
-  transferToCs,
-} from '../../../api/wating/wating'
+import button from '@/common/button.module.css'
+import float from '@/common/button.module.css'
+import { deleteStudent, fetchStudent, transferToCs } from '@api/wating/wating'
 
 const Waiting = (props) => {
   const location = useLocation()
@@ -16,6 +14,16 @@ const Waiting = (props) => {
       setWs(res.data)
     })
   }, [])
+
+  const fetchWs = (id) => {
+    transferToCs(id).then((res) => {
+      if (res.status === 200) {
+        fetchStudent(classId).then((res) => {
+          setWs(res.data)
+        })
+      }
+    })
+  }
   return (
     <>
       <div className={styles.container}>
@@ -28,21 +36,32 @@ const Waiting = (props) => {
                 <dd>신청일</dd>
                 <dd>확인</dd>
               </div>
-              <div className={styles.students}>
-                {ws.map((student) => (
-                  <div className={styles.student} key={student.id}>
-                    <article className={styles.info}>
-                      <dd>{student.name}</dd>
-                      <dd className={styles.date}>{student.date}</dd>
-                      <dd className={styles.btn}>➕</dd>
-                    </article>
-                    <hr className={styles.hr} />
-                    <article className={styles.reason}>
-                      {student.content}
-                    </article>
-                  </div>
-                ))}
-              </div>
+
+              {ws.length > 0 ? (
+                <div className={styles.students}>
+                  {' '}
+                  {ws.map((student) => (
+                    <div className={styles.student} key={student.id}>
+                      <article className={styles.info}>
+                        <dd>{student.name}</dd>
+                        <dd className={styles.date}>{student.date}</dd>
+                        <dd
+                          className={styles.btn}
+                          onClick={fetchWs(student.id)}
+                        >
+                          ➕
+                        </dd>
+                      </article>
+                      <hr className={styles.hr} />
+                      <article className={styles.reason}>
+                        {student.content}
+                      </article>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.none}>신청자가 없습니다 ㅜ ㅜ </div>
+              )}
             </div>
           </div>
         </section>
@@ -73,6 +92,9 @@ const Waiting = (props) => {
             </div>
           </div>
         </section>
+        <button className={`${button.fullGrayBtn} ${styles.end}`}>
+          수강생 마감
+        </button>
       </div>
     </>
   )

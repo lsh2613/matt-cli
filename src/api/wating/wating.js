@@ -16,7 +16,7 @@ function updateContent(wsId, data) {
   return waiting.patch(`/${wsId}`, data)
 }
 
-function trasferToCs(wsId) {
+function transferToCs(wsId) {
   return waiting.post(`/transfer/${wsId}`)
 }
-export { applyClass, fetchStudent, deleteStudent, updateContent, trasferToCs }
+export { applyClass, fetchStudent, deleteStudent, updateContent, transferToCs }
