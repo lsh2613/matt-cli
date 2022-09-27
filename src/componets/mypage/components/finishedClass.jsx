@@ -45,16 +45,25 @@ const FinishedClass = (props) => {
                 {classes.startTime} ~ {classes.endTime}
               </aside>
               <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
-              <button
-                className={`${button.borderGrayBtn} ${styles.showDetails}`}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setClassId(classes.classId)
-                  setModal(true)
-                }}
-              >
-                리뷰작성
-              </button>
+              {classes.review === 'NOT' ? (
+                <button
+                  className={`${button.borderGrayBtn} ${styles.showDetails}`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setClassId(classes.classId)
+                    setModal(true)
+                  }}
+                >
+                  리뷰작성
+                </button>
+              ) : (
+                <button
+                  className={`${button.fullGrayBtn} ${styles.showDetails}`}
+                  disabled
+                >
+                  작성완료
+                </button>
+              )}
             </div>
           ))}
         </div>

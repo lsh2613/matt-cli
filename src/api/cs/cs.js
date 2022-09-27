@@ -1,10 +1,13 @@
 import { cs } from '../index'
 
-function fetchPastStudentClass(userId) {
-  return cs.get(`/${userId}/FINISHED`)
+function fetchPastStudentClass() {
+  return cs.get(`/userid/FINISHED`)
 }
-function fetchDoingStudentClass(userId) {
-  return cs.get(`/${userId}/DOING`)
+function fetchDoingStudentClass() {
+  return cs.get(`/userid/DOING`)
 }
 
-export { fetchPastStudentClass, fetchDoingStudentClass }
+function fetchStudentByClassId(id) {
+  return cs.get(`/${id}`)
+}
+export { fetchPastStudentClass, fetchDoingStudentClass, fetchStudentByClassId }

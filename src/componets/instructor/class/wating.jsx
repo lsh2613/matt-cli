@@ -4,15 +4,19 @@ import styles from './waiting.module.css'
 import button from '@/common/button.module.css'
 import float from '@/common/button.module.css'
 import { deleteStudent, fetchStudent, transferToCs } from '@api/wating/wating'
+import { fetchStudentByClassId } from '@api/cs/cs'
 
 const Waiting = (props) => {
   const location = useLocation()
   const classId = location.state.classId
+
   const [ws, setWs] = useState([])
+  const [cs, setCs] = useState([])
   useEffect(() => {
     fetchStudent(classId).then((res) => {
       setWs(res.data)
     })
+    fetchStudentByClassId(classId).then((res) => setCs(res.data))
   }, [])
 
   const fetchWs = (id) => {
@@ -21,6 +25,7 @@ const Waiting = (props) => {
         fetchStudent(classId).then((res) => {
           setWs(res.data)
         })
+        fetchStudentByClassId(classId).then((res) => setCs(res.data))
       }
     })
   }
@@ -47,7 +52,7 @@ const Waiting = (props) => {
                         <dd className={styles.date}>{student.date}</dd>
                         <dd
                           className={styles.btn}
-                          onClick={fetchWs(student.id)}
+                          onClick={() => fetchWs(student.id)}
                         >
                           ➕
                         </dd>
@@ -73,22 +78,26 @@ const Waiting = (props) => {
               <div className={styles.label}>
                 <dd>이름</dd>
                 <dd>수락일</dd>
-                <dd>취소</dd>
               </div>
-              <div className={styles.students}>
-                <div className={styles.student}>
-                  <article className={styles.info}>
-                    <dd>가궁</dd>
-                    <dd className={styles.date}>2022-09-14</dd>
-                    <dd className={styles.btn}>➖</dd>
-                  </article>
-                  <hr className={styles.hr} />
-                  <article className={styles.reason}>
-                    진짜 열심히 하려고 하긴 했는데 열심히 안해가지고 근데도
-                    열심히 한다고 하면 그래서 결론은 열심히 해봅시다
-                  </article>
+              {cs.length > 0 ? (
+                <div className={styles.students}>
+                  {' '}
+                  {cs.map((student, index) => (
+                    <div className={styles.student} key={index}>
+                      <article className={styles.info}>
+                        <dd>{student.name}</dd>
+                        <dd className={styles.date}>{student.date}</dd>
+                      </article>
+                      <hr className={styles.hr} />
+                      <article className={styles.reason}>
+                        {student.contents ? `${student.contents}` : 'no data '}
+                      </article>
+                    </div>
+                  ))}
                 </div>
-              </div>
+              ) : (
+                <div className={styles.none}>신청자가 없습니다 ㅜ ㅜ </div>
+              )}
             </div>
           </div>
         </section>

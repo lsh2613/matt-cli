@@ -12,7 +12,6 @@ const WriteReview = (props) => {
     classId: 0,
     reviewContent: '',
     score: 0,
-    studentId: localStorage.getItem('studentId'),
   })
 
   const { reviewContent, score } = form

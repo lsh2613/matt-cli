@@ -2,7 +2,8 @@ import React from 'react'
 import styles from './classInfo.module.css'
 import ApplyClass from './applyClass'
 import Review from './review'
-import { fetchClass } from '@/api/class/class'
+import { fetchClass } from '@api/class/class'
+import { fetchClassTagByClassId } from '@api/classtag/classtag'
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import button from '@/common/button.module.css'
@@ -12,6 +13,7 @@ const ClassInfo = (props) => {
 
   const [classes, setClasses] = useState({})
   const [visible, setVisible] = useState(false)
+  const [tags, setTags] = useState([])
   const instructorId = parseInt(localStorage.getItem('instructorId'))
   const location = useLocation()
   const classStatus = location.state.classSt
@@ -33,6 +35,7 @@ const ClassInfo = (props) => {
     fetchClass(classId).then((res) => {
       setClasses(res.data)
     })
+    fetchClassTagByClassId(classId).then((res) => setTags(res.data))
   }, [])
 
   const showBtn = (insId, startDate) => {

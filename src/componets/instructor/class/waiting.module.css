@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+  position: relative;
 }
 
 .container section {
@@ -86,7 +87,7 @@ h3 {
   padding: 1rem 1rem;
   color: #666;
 }
-@media (max-width: 768px) {
+@media (max-width: 488px) {
   .container {
     display: flex;
     flex-direction: column;

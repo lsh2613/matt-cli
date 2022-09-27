@@ -3,6 +3,7 @@ import styles from './signup.module.css'
 import { signup } from '../../api/user/user'
 import { useNavigate } from 'react-router-dom'
 const Signup = (props) => {
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     id: 0,
     birthDate: '',
@@ -13,8 +14,11 @@ const Signup = (props) => {
     nickname: '',
     password: '',
     phoneNumber: '',
+    checkPw: '',
   })
 
+  const [emailCheck, setEmailCheck] = useState(false)
+  const [pwCompare, setPwCompare] = useState(false)
   const {
     birthDate,
     email,
@@ -24,14 +28,17 @@ const Signup = (props) => {
     nickname,
     password,
     phoneNumber,
+    checkPw,
   } = user
-  const navigate = useNavigate()
+
   const onChange = (e) => {
     const { name, value } = e.target
     setUser({
       ...user,
       [name]: value,
     })
+    if (name === 'phoneNumber') autoHyphen()
+    if (name === 'email') checkEmail()
   }
 
   const postSignup = () => {
@@ -45,6 +52,30 @@ const Signup = (props) => {
     } catch (e) {
       console.log(e)
     }
+  }
+  const checkEmail = () => {
+    var reg_email =
+      /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
+    if (!reg_email.test(email)) {
+      setEmailCheck(true)
+    } else {
+      setEmailCheck(false)
+    }
+  }
+
+  const autoHyphen = () => {
+    let hypen = 'zz'
+
+    setUser({
+      ...user,
+      [phoneNumber]: hypen,
+    })
+  }
+
+  const compare = () => {
+    if (user.password === '') setPwCompare(true)
+    if (user.password !== user.check) setPwCompare(true)
+    if (!emailCheck && !pwCompare) postSignup()
   }
 
   return (
@@ -129,6 +160,9 @@ const Signup = (props) => {
             value={phoneNumber}
           ></input>
         </div>
+        <span className={styles.red}>
+          {emailCheck ? '이메일 형식을 지켜주세요' : ''}
+        </span>
         <div className={styles.form}>
           <div className={styles.label}>이메일</div>
           <input
@@ -139,6 +173,9 @@ const Signup = (props) => {
             value={email}
           ></input>
         </div>
+        <span className={styles.red}>
+          {pwCompare ? '패스워드 정보가 다릅니다' : ''}
+        </span>
         <div className={styles.form}>
           <div className={styles.label}>패스워드</div>
           <input
@@ -149,11 +186,18 @@ const Signup = (props) => {
             value={password}
           ></input>
         </div>
+
         <div className={styles.form}>
           <div className={styles.label}>패스워드 확인</div>
-          <input type='password' className={styles.inputForm}></input>
+          <input
+            type='password'
+            className={styles.inputForm}
+            onChange={onChange}
+            name='checkPw'
+            value={checkPw}
+          ></input>
         </div>
-        <button className={styles.signupBtn} onClick={postSignup}>
+        <button className={styles.signupBtn} onClick={compare}>
           회원가입
         </button>
       </div>

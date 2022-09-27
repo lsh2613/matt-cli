@@ -87,3 +87,9 @@ input[type='radio']:checked + .radioForm {
 label {
   text-align: center;
 }
+
+.red {
+  color: rgb(189, 86, 86);
+  font-size: 0.8rem;
+  padding-left: 220px;
+}
