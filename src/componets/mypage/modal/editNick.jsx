@@ -24,6 +24,7 @@ const EditNick = (props) => {
 
   const edit = () => {
     editNickNm(newNick).then((res) => {
+      console.log(res)
       if (res.status === 200) {
         alert('변경되었습니다 :)')
         localStorage.setItem('nickname', res.data.nickname)

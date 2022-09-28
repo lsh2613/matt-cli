@@ -1,6 +1,9 @@
 h3 {
   padding: 1rem 0rem 0.5rem 0rem;
 }
+.container {
+  padding: 1rem 1rem;
+}
 
 .classes {
   display: grid;
@@ -10,6 +13,9 @@ h3 {
 
 .title {
   text-align: left;
+  height: 60px;
+  margin-left: 0px;
+  width: calc(100% - 80px);
 }
 .class {
   border-radius: 10px;
@@ -24,10 +30,7 @@ h3 {
   -webkit-box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
   box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
 }
-.title {
-  height: 60px;
-  margin-left: 0px;
-}
+
 .number,
 .date {
   color: #666;
@@ -54,4 +57,10 @@ h3 {
 }
 .done {
   background-color: var(--color-gray);
+}
+
+@media (max-width: 486px) {
+  .classes {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

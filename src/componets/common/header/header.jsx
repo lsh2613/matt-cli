@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import styles from './header.module.css'
 import button from '../../../common/button.module.css'
 import { useNavigate } from 'react-router-dom'
 import { log_out } from '../../../api/login/login'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  initSearch,
-  onChangeKeyword,
-  onSearch,
-} from '../../../redux/reducers/search'
-import { initUser } from '../../../redux/reducers/user'
+import { onChangeKeyword, onSearch } from '../../../redux/reducers/search'
+import { initUser, fetchUser } from '../../../redux/reducers/user'
 
 const Header = () => {
   const navigate = useNavigate()
@@ -33,6 +29,7 @@ const Header = () => {
   /**
    * 검색어
    */
+
   const toSearch = () => {
     dispatch(onSearch())
     if (location.pathname !== '/search') navigate('/search')
@@ -40,6 +37,10 @@ const Header = () => {
   const toMypage = () => {
     navigate('/mypage')
   }
+
+  useEffect(() => {
+    dispatch(fetchUser())
+  })
 
   return (
     <header className={styles.header}>

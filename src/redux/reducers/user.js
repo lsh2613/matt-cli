@@ -21,19 +21,37 @@ export const userInfoSlice = createSlice({
       state.login = true
     },
     initUser: (state) => {
-      state.user = {
-        id: '',
-        loginId: '',
-        nickname: '',
-        gender: '',
-        birthday: '',
-        email: '',
-        phoneNumber: '',
-      }
+      if (localStorage.getItem(''))
+        state.user = {
+          id: '',
+          loginId: '',
+          nickname: '',
+          gender: '',
+          birthday: '',
+          email: '',
+          phoneNumber: '',
+        }
       state.login = false
+    },
+    fetchUser: (state) => {
+      if (localStorage.getItem('studentId')) {
+        const index = [
+          'id',
+          'loginId',
+          'nickname',
+          'gender',
+          'birthday',
+          'email',
+          'phoneNumber',
+        ]
+        index.map((item) => {
+          state.user[item] = localStorage.getItem(item)
+        })
+        state.login = true
+      }
     },
   },
 })
 
-export const { setUserInfo, initUser } = userInfoSlice.actions
+export const { setUserInfo, initUser, fetchUser } = userInfoSlice.actions
 export default userInfoSlice.reducer
