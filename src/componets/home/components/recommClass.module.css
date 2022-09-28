@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   margin-top: 40px;
-  padding: 2 rem 0rem;
 }
 .title {
   font-size: 1.1rem;
@@ -10,15 +9,14 @@
 }
 
 .cardContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   position: relative;
 }
 
 .card {
   position: relative;
   background-color: #fff;
-  width: 31%;
   margin: 0 12px;
   height: 180px;
   border-radius: 13px;
@@ -33,7 +31,6 @@
 
 .card:hover {
   background: #7a86b6;
-  transition: 0.1s;
   color: #fff;
 }
 
@@ -77,4 +74,10 @@
 }
 .done {
   background-color: var(--color-gray);
+}
+
+@media (max-width: 486px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

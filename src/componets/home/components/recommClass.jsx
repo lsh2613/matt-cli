@@ -40,7 +40,7 @@ const RecommClass = (props) => {
             <div className={styles.classTitle}>{classes.title}</div>
             <div className={styles.contents}>
               <div className={styles.etc}>
-                {classes.instructorName} 멘토 ({classes.instructorMajor})
+                {classes.instructorName} 멘토 ( {classes.instructorMajor} )
               </div>
               <div className={styles.etc}>
                 {classes.startDate} ~ {classes.endDate}

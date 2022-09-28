@@ -17,7 +17,6 @@
 
 .class:hover {
   box-shadow: var(--box-shadow);
-  transition: 0.2s;
 }
 
 .classNm {
