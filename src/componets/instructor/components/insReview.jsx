@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
+
 import { fetchReviewByInsId } from '@api/review/review,'
 import styles from '../../class/components/review.module.css'
+import float from '@/common/float.module.css'
 const InsReview = (props) => {
   const [reviews, setReviews] = useState([])
+  const insId = props.insId
 
   useEffect(() => {
-    const insId = props?.insId
     fetchReviewByInsId(insId).then((res) => setReviews(res.data))
   }, [])
   return (
@@ -13,13 +15,22 @@ const InsReview = (props) => {
       <h3>💬 수강생이 작성한 최근 리뷰</h3>
       <div className={styles.reviewContainer}>
         {reviews.map((review, index) => (
-          <li className={styles.review} key={index}>
+          <div className={styles.review} key={index}>
             <div className={styles.row}>
-              <dd className={styles.score}>⭐{review.score}점 </dd>
-              <dd className={styles.nickname}>{review.nickname}</dd>
+              <dd className={styles.title}>{review.title}</dd>
             </div>
-            <dd className={styles.content}>{review.reviewContent}</dd>
-          </li>
+            <div className={styles.contents}>
+              <div className={styles.row}>
+                <dd className={styles.nickname}>{review.nickname}</dd>
+                <dd className={styles.score}>{'⭐'.repeat(review.score)} </dd>
+                <dd className={`${styles.date} ${float.floatRight}`}>
+                  {review.date}
+                </dd>
+              </div>
+              <hr />
+              <dd className={styles.content}>{review.reviewContent}</dd>
+            </div>
+          </div>
         ))}
       </div>
     </section>

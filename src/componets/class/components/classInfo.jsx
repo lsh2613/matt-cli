@@ -48,12 +48,15 @@ const ClassInfo = (props) => {
 
     if (insId === instructorId && startDate > nowDate)
       return (
-        <button
-          className={button.fullBtn}
-          onClick={() => toUpdateClass(classes.classId)}
-        >
-          클래스 수정
-        </button>
+        <div className={styles.btnGroup}>
+          <button
+            className={`${button.fullBtn} ${styles.marginRight}`}
+            onClick={() => toUpdateClass(classes.classId)}
+          >
+            클래스 수정
+          </button>
+          <button className={button.fullGrayBtn}>클래스 종료</button>
+        </div>
       )
   }
 
@@ -86,23 +89,23 @@ const ClassInfo = (props) => {
           </div>
           <div className={styles.classInfo}>
             <aside>
-              <label>카테고리</label>
+              <label className={styles.marginRight}>카테고리</label>
               {classes.category}
             </aside>
             <aside>
-              <label>기간</label>
+              <label className={styles.marginRight}>기간</label>
               {classes.startDate} ~ {classes.endDate}
             </aside>
             <aside>
-              <label>시간</label>
+              <label className={styles.marginRight}>시간</label>
               {classes.startTime} ~ {classes.endTime}
             </aside>
             <aside>
-              <label>장소</label>
+              <label className={styles.marginRight}>장소</label>
               {classes.place}
             </aside>
             <aside>
-              <label>신청현황</label>
+              <label className={styles.marginRight}>신청현황</label>
               {classes.countWS}/ {classes.numberOfStudents}
             </aside>
           </div>

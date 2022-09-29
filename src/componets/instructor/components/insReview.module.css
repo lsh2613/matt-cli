@@ -2,3 +2,9 @@
   margin-top: 3rem;
   padding: 0 0.5rem;
 }
+.date {
+  position: absolute;
+  right: 1rem;
+}
+.content {
+}

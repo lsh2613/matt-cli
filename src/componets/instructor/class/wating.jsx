@@ -96,7 +96,7 @@ const Waiting = (props) => {
                   ))}
                 </div>
               ) : (
-                <div className={styles.none}>신청자가 없습니다 ㅜ ㅜ </div>
+                <div className={styles.none}></div>
               )}
             </div>
           </div>

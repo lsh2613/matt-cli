@@ -38,7 +38,7 @@
   color: #fff;
 }
 .classTitle {
-  max-width: 80%;
+  width: calc(100% - 70px);
 }
 .etc {
   font-size: 14px;
@@ -76,7 +76,17 @@
   background-color: var(--color-gray);
 }
 
-@media (max-width: 486px) {
+.date {
+  position: absolute;
+  right: 1rem;
+}
+
+hr {
+  margin-bottom: 0px 0px;
+  padding: 0px 0px;
+}
+
+@media (max-width: 648px) {
   .cardContainer {
     grid-template-columns: repeat(2, 1fr);
   }

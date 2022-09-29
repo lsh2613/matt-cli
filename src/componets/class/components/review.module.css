@@ -12,24 +12,44 @@
   background: var(--color-blue-bright);
   padding: 0.5rem 0.5rem;
   font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .contents {
   background: #fff;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0rem;
+}
+
+.title {
+  padding: 0 1rem;
+  margin-bottom: 3px;
 }
 
 .row {
   display: flex;
 }
 
-.row .nickname {
-  text-align: right;
-  padding-left: 1rem;
+.score {
+  padding: 0 1rem;
+}
+
+.contents .nickname {
+  text-align: left;
+  padding: 0 1rem;
   color: #666;
 }
 
 .content {
-  padding: 0.3rem 0rem;
-  text-decoration: underline;
+  padding: 0 1rem;
+}
+
+.date {
+  position: absolute;
+  right: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+hr {
+  margin-bottom: 3px;
 }

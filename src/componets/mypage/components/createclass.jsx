@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { fetchClassByInsId } from '../../../api/class/class'
 import { useEffect } from 'react'
 
+import { nowDate } from '@utils/index'
+
 const CreatedClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
@@ -45,15 +47,24 @@ const CreatedClass = (props) => {
               {classes.startTime} ~ {classes.endTime}
             </aside>
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
-            <button
-              className={`${button.borderGrayBtn} ${styles.showDetails}`}
-              onClick={(e) => {
-                e.stopPropagation()
-                toWaiting(classes.classId)
-              }}
-            >
-              신청자 관리
-            </button>
+            {classes.endDate > nowDate ? (
+              <button
+                className={`${button.borderGrayBtn} ${styles.showDetails}`}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  toWaiting(classes.classId)
+                }}
+              >
+                신청자 관리
+              </button>
+            ) : (
+              <button
+                disabled
+                className={`${button.end} ${styles.showDetails}`}
+              >
+                종료
+              </button>
+            )}
           </div>
         ))}
       </div>

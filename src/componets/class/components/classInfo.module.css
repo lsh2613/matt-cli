@@ -31,8 +31,11 @@ label {
   font-size: var(--font-sm);
   color: #777;
   padding: 0.4rem 0rem;
-  width: 4rem;
   text-align: left;
+}
+
+.marginRight {
+  margin-right: 0.5rem;
 }
 
 .instrutorInfo {
@@ -48,7 +51,8 @@ label {
 }
 
 .detailInfo {
-  padding: 3rem 0rem;
+  padding: 2rem 0rem;
+  min-height: 20rem;
 }
 
 h3 {
