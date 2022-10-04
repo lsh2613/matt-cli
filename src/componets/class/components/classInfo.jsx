@@ -7,6 +7,7 @@ import { fetchClassTagByClassId } from '@api/classtag/classtag'
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import button from '@/common/button.module.css'
+import { useSelector } from 'react-redux'
 import { nowDate } from '@utils/index'
 const ClassInfo = (props) => {
   const navigate = useNavigate()
@@ -18,9 +19,14 @@ const ClassInfo = (props) => {
   const location = useLocation()
   const classStatus = location.state.classSt
   const classId = location.state.classId
+  const login = useSelector((state) => state.user.login)
 
   const apply = () => {
-    setVisible(true)
+    if (login) setVisible(true)
+    else {
+      alert('로그인 후 신청 가능합니다.')
+      navigate('/login')
+    }
   }
 
   const updateVisible = () => {
