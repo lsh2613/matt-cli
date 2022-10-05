@@ -1,21 +1,28 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import styles from './mypage.module.css'
 import CreatedClass from './components/createclass'
+import WishList from './components/wishlist'
 import TakeClass from './components/takeClass'
 import UserInfo from './components/userInfo'
 
+import { onChangeMenu } from '../../redux/reducers/mypage'
+
 const MyPage = (props) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const insId = localStorage.getItem('instructorId')
   const toAuth = () => {
     navigate('/instructor/auth')
   }
-  const [menu, setMenu] = useState('class-menu')
+
+  const menu = useSelector((state) => state.mypage.menu)
 
   const onChange = (e) => {
     const value = e.target.id
-    setMenu(value)
+    dispatch(onChangeMenu(value))
   }
 
   return (
@@ -30,8 +37,8 @@ const MyPage = (props) => {
             type='radio'
             id='class-menu'
             name='menu'
+            checked={menu === 'class-menu'}
             className={styles.radioForm}
-            defaultChecked={menu}
             onChange={onChange}
           ></input>
           <label htmlFor='class-menu' className={styles.radioForm}>
@@ -41,6 +48,7 @@ const MyPage = (props) => {
             type='radio'
             id='wish-menu'
             name='menu'
+            checked={menu === 'wish-menu'}
             className={styles.radioForm}
             onChange={onChange}
           ></input>
@@ -51,6 +59,7 @@ const MyPage = (props) => {
             type='radio'
             id='mentor-menu'
             name='menu'
+            checked={menu === 'mentor-menu'}
             className={styles.radioForm}
             onChange={onChange}
           ></input>
@@ -80,6 +89,14 @@ const MyPage = (props) => {
         {menu === 'class-menu' ? (
           <section>
             <TakeClass />
+          </section>
+        ) : (
+          ''
+        )}
+
+        {menu === 'wish-menu' ? (
+          <section className={styles.section}>
+            <WishList />
           </section>
         ) : (
           ''

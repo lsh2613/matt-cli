@@ -85,6 +85,7 @@
 .fullBtn {
   font-family: 'InfinitySans-RegularA1';
   padding: 0.5rem 1rem;
+  min-width: 6rem;
   height: fit-content;
   border: none;
   border-radius: 4px;
@@ -93,12 +94,37 @@
   cursor: pointer;
 }
 
+.borderBtn {
+  font-family: 'InfinitySans-RegularA1';
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 0.4rem 0.2rem;
+  color: #999;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 12px;
+}
+
 .red {
   background-color: var(--color-red);
 }
+.red:hover {
+  background-color: #d48494;
+}
+
 .blue {
   background-color: var(--color-blue);
 }
 .green {
   background-color: var(--color-green);
+}
+
+.redBorder {
+  border: 2px solid var(--color-red);
+}
+.blueBorder {
+  border: 2px solid var(--color-blue);
+}
+.greenBorder {
+  border: 2px solid var(--color-green);
 }
