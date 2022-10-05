@@ -23,3 +23,40 @@ p {
   cursor: pointer;
   transform: scale(1.005);
 }
+
+.list {
+  list-style: none;
+  padding: 0.5rem 1rem;
+}
+
+.radioGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + .radioForm {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  width: 10em;
+}
+
+input[type='radio'] + .radioForm {
+  background-color: #fff;
+  color: #333;
+}
+
+input[type='radio']:checked + .radioForm {
+  background-color: var(--color-primary-bright);
+}
+
+label {
+  text-align: center;
+}
