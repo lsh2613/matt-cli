@@ -57,3 +57,14 @@
 hr {
   margin-bottom: 3px;
 }
+
+.thumbs{
+  display:flex;
+  position: absolute;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.hate {
+  margin-left:0.5rem;
+}
