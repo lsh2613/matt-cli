@@ -29,9 +29,12 @@ const InsInfo = (props) => {
   }
 
   const updateInsInfo = () => {
-    updateInstructorInfo(insInfo).then((res) =>
-      res.status === 200 ? setInsInfo(res.data) : ''
-    )
+    updateInstructorInfo(insInfo).then((res) => {
+      if (res.status === 200) {
+        setInsInfo(res.data)
+        alert('수정되었습니다 :)')
+      }
+    })
   }
 
   useEffect(() => {

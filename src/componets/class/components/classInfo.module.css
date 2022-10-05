@@ -13,6 +13,10 @@
   justify-content: space-between;
 }
 
+.infoGroup:hover {
+  cursor: pointer;
+}
+
 .tag {
   display: inline-block;
   background-color: var(--color-primary);

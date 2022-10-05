@@ -60,6 +60,12 @@ const ClassInfo = (props) => {
     })
   }
 
+  const toClassList = (insId) => {
+    navigate(`/instructor/${classes.instructorId}`, {
+      state: { insId },
+    })
+  }
+
   const showBtn = (insId, startDate) => {
     if (insId !== instructorId && startDate > nowDate && classState)
       return (
@@ -104,7 +110,10 @@ const ClassInfo = (props) => {
           {showBtn(classes.instructorId, classes.startDate)}
         </section>
 
-        <section className={styles.infoGroup}>
+        <section
+          className={styles.infoGroup}
+          onClick={() => toClassList(classes.instructorId)}
+        >
           <div className={styles.instrutorInfo}>
             <article>👩‍🎓 멘토 프로필</article>
             <aside>
