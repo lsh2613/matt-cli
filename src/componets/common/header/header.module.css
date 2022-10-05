@@ -89,7 +89,7 @@ input:focus {
   right: 6px;
 }
 
-.fullBtn {
+.fullPrimaryBtn {
   font-family: 'InfinitySans-RegularA1';
   background-color: #dfccf0;
   padding: 0.5rem 1rem;
@@ -101,7 +101,7 @@ input:focus {
   cursor: pointer;
 }
 
-.fullBtn:hover {
+.fullPrimaryBtn:hover {
   background-color: var(--color-primary);
 }
 

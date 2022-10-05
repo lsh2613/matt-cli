@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import button from '@/common/button.module.css'
 import { useSelector } from 'react-redux'
 import { nowDate } from '@utils/index'
+import { postWish } from '@api/wish/wish'
 const ClassInfo = (props) => {
   const navigate = useNavigate()
 
@@ -36,7 +37,11 @@ const ClassInfo = (props) => {
   const toUpdateClass = (classId) => {
     navigate(`/updateclass/${classId}`, { state: { classId: classId } })
   }
-
+  const setWish = () => {
+    postWish(classId).then((res) =>
+      res.status === 200 ? alert('찜완료 :) ') : ''
+    )
+  }
   useEffect(() => {
     fetchClass(classId).then((res) => {
       setClasses(res.data)
@@ -47,16 +52,24 @@ const ClassInfo = (props) => {
   const showBtn = (insId, startDate) => {
     if (insId !== instructorId && startDate > nowDate)
       return (
-        <button className={button.fullBtn} onClick={apply}>
-          클래스 신청
-        </button>
+        <div className={styles.btnGroup}>
+          <button
+            className={`${button.fullBtn} ${button.red}  ${styles.marginRight}`}
+            onClick={setWish}
+          >
+            🤍 찜하기
+          </button>
+          <button className={button.fullPrimaryBtn} onClick={apply}>
+            클래스 신청
+          </button>
+        </div>
       )
 
     if (insId === instructorId && startDate > nowDate)
       return (
         <div className={styles.btnGroup}>
           <button
-            className={`${button.fullBtn} ${styles.marginRight}`}
+            className={`${button.fullPrimaryBtn} ${styles.marginRight}`}
             onClick={() => toUpdateClass(classes.classId)}
           >
             클래스 수정

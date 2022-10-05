@@ -27,7 +27,7 @@ const CreatedClass = (props) => {
     <>
       <span className={styles.title}>내가 개설한 클래스</span>
       <button
-        className={`${button.fullBtn} ${float.floatRight}`}
+        className={`${button.fullPrimaryBtn} ${float.floatRight}`}
         onClick={() => {
           navigate('/makeclass')
         }}

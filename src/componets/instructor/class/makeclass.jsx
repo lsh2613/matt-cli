@@ -164,7 +164,7 @@ const MakeClass = (props) => {
         </section>
       </div>
       <button
-        className={` ${button.fullBtn} ${float.floatRight}`}
+        className={` ${button.fullPrimaryBtn} ${float.floatRight}`}
         onClick={postData}
       >
         제출하기

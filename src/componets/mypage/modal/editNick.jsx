@@ -42,7 +42,7 @@ const EditNick = (props) => {
           <div className={`${modal.modalContainer} ${styles.container}`}>
             <div className={styles.title}>닉네임 변경👾 </div>
             <button
-              className={`${button.fullBtn} ${styles.btn}`}
+              className={`${button.fullPrimaryBtn} ${styles.btn}`}
               onClick={() => edit()}
             >
               수정

@@ -71,7 +71,7 @@ const Header = () => {
           onKeyPress={handleKeyPress}
         />
         <button
-          className={`${styles.fullBtn} ${styles.searchBtn}`}
+          className={`${styles.fullPrimaryBtn} ${styles.searchBtn}`}
           onClick={toSearch}
         >
           검색
@@ -82,7 +82,7 @@ const Header = () => {
           <span className={styles.signUpBtn} onClick={toMypage}>
             마이페이지
           </span>
-          <button className={button.fullBtn} onClick={onLogout}>
+          <button className={button.fullPrimaryBtn} onClick={onLogout}>
             로그아웃
           </button>
         </div>
@@ -97,7 +97,7 @@ const Header = () => {
             회원가입
           </span>
           <button
-            className={button.borderBtn}
+            className={button.borderPrimaryBtn}
             onClick={() => {
               navigate('/login')
             }}

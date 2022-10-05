@@ -54,7 +54,7 @@ const WriteReview = (props) => {
             <div className={styles.title}>
               리뷰 작성✍️{' '}
               <button
-                className={`${button.fullBtn} ${styles.btn} ${float.floatRight}`}
+                className={`${button.fullPrimaryBtn} ${styles.btn} ${float.floatRight}`}
                 onClick={() => post()}
               >
                 작성

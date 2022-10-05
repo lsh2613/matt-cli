@@ -49,13 +49,13 @@ const UserInfo = (props) => {
           <div className={styles.intro}> 꿈과 열정을 가진 미친 음악가❤️</div>
         </div>
         <button
-          className={`${button.fullBtn} ${styles.profileEditBtn}`}
+          className={`${button.fullPrimaryBtn} ${styles.profileEditBtn}`}
           onClick={() => setNickModal(true)}
         >
           닉네임 수정
         </button>
         <button
-          className={`${button.fullBtn} ${styles.profileEditBtn}`}
+          className={`${button.fullPrimaryBtn} ${styles.profileEditBtn}`}
           onClick={() => setPwModal(true)}
         >
           패스워드 수정

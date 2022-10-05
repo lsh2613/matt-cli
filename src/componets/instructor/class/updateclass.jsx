@@ -165,7 +165,7 @@ const UpdateClass = (props) => {
         </section>
       </div>
       <button
-        className={` ${button.fullBtn} ${float.floatRight}`}
+        className={` ${button.fullPrimaryBtn} ${float.floatRight}`}
         onClick={patchData}
       >
         수정하기

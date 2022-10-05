@@ -56,7 +56,7 @@ const EditPw = (props) => {
           <div className={`${modal.modalContainer} ${styles.container}`}>
             <div className={styles.title}>패스워드 변경 </div>
             <button
-              className={`${button.fullBtn} ${styles.btn}`}
+              className={`${button.fullPrimaryBtn} ${styles.btn}`}
               onClick={() => compare()}
             >
               수정

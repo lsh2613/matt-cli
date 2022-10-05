@@ -40,7 +40,7 @@ const ApplyClass = (props) => {
           <div className={styles.container}>
             <div className={styles.title}>멘토에게 전할 메세지✍️ </div>
             <button
-              className={`${button.fullBtn} ${styles.btn}`}
+              className={`${button.fullPrimaryBtn} ${styles.btn}`}
               onClick={submit}
             >
               확인
