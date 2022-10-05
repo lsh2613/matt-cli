@@ -3,6 +3,14 @@
   padding: 1rem 0rem;
 }
 
+.section {
+  background-color: rgba(238, 238, 238, 0.3);
+  border-radius: 10px;
+  padding: 1em 1em;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
 .class {
   display: flex;
   align-items: center;
@@ -33,4 +41,10 @@
 }
 .showDetails {
   flex: 1 1 13%;
+}
+
+.description {
+  background: #fff;
+  padding: 1rem 1rem;
+  font-size: 0.9rem;
 }

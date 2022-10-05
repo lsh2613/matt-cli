@@ -22,7 +22,9 @@ const InsReview = (props) => {
             <div className={styles.contents}>
               <div className={styles.row}>
                 <dd className={styles.nickname}>{review.nickname}</dd>
-                <dd className={styles.score}>{'⭐'.repeat(review.score)} </dd>
+                <dd className={styles.score}>
+                  <span>{'⭐'.repeat(review.score)}</span>
+                </dd>
                 <dd className={`${styles.date} ${float.floatRight}`}>
                   {review.date}
                 </dd>

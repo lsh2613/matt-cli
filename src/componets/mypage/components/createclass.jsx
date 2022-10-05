@@ -11,6 +11,7 @@ import { nowDate } from '@utils/index'
 const CreatedClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
+
   const toClassInfo = (classId) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
   }
@@ -24,7 +25,7 @@ const CreatedClass = (props) => {
     )
   }, [])
   return (
-    <>
+    <section className={styles.section}>
       <span className={styles.title}>내가 개설한 클래스</span>
       <button
         className={`${button.fullPrimaryBtn} ${float.floatRight}`}
@@ -68,7 +69,7 @@ const CreatedClass = (props) => {
           </div>
         ))}
       </div>
-    </>
+    </section>
   )
 }
 

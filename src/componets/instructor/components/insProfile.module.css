@@ -17,6 +17,25 @@
 }
 
 .insProfile {
-  margin-top: 2rem;
   padding: 0 0.5rem;
+  width: 50%;
+}
+
+.infoGroup {
+  margin-top: 2rem;
+  display: flex;
+}
+.info {
+  width: 40%;
+}
+h4 {
+  background: none;
+  padding: 16px 0px 8px 0px;
+  margin-bottom: 8px;
+}
+
+.intro {
+  background-color: var(--color-gray-bright);
+  padding: 1rem 1rem;
+  min-height: 70%;
 }

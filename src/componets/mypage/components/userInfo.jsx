@@ -45,6 +45,7 @@ const UserInfo = (props) => {
         <div className={styles.userInfo}>
           <div className={styles.nicknm}>👤 {user.nickname}</div>
           <div className={styles.birth}>🎂 {user.birthday}</div>
+          <div className={styles.email}>✉️ {user.email}</div>
           <div className={styles.phonenb}>📞 {user.phoneNumber}</div>
           <div className={styles.intro}> 꿈과 열정을 가진 미친 음악가❤️</div>
         </div>

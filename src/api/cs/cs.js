@@ -10,4 +10,13 @@ function fetchDoingStudentClass() {
 function fetchStudentByClassId(id) {
   return cs.get(`/${id}`)
 }
-export { fetchPastStudentClass, fetchDoingStudentClass, fetchStudentByClassId }
+
+function makeClassFinished(classId) {
+  return cs.post(`/status/${classId}`, classId)
+}
+export {
+  fetchPastStudentClass,
+  fetchDoingStudentClass,
+  fetchStudentByClassId,
+  makeClassFinished,
+}

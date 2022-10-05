@@ -12,4 +12,18 @@ function fetchInstructorByInsId(insId) {
   return instructor.get(`/${insId}`)
 }
 
-export { createIns, fetchInstructors, fetchInstructorByInsId }
+function updateInstructorInfo(form) {
+  const data = {
+    instructorId: form.instructorId,
+    introduction: form.introduction,
+    major: form.major,
+  }
+  return instructor.patch(`/${data.instructorId}/edit`, data)
+}
+
+export {
+  createIns,
+  fetchInstructors,
+  fetchInstructorByInsId,
+  updateInstructorInfo,
+}

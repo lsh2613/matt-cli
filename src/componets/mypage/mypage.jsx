@@ -6,6 +6,7 @@ import CreatedClass from './components/createclass'
 import WishList from './components/wishlist'
 import TakeClass from './components/takeClass'
 import UserInfo from './components/userInfo'
+import InsInfo from './components/insInfo'
 
 import { onChangeMenu } from '../../redux/reducers/mypage'
 
@@ -78,7 +79,8 @@ const MyPage = (props) => {
             </section>
           ) : (
             //멘토가 창설한 강의
-            <section className={styles.section}>
+            <section>
+              <InsInfo />
               <CreatedClass />
             </section>
           )

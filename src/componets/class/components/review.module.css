@@ -32,6 +32,10 @@
 .score {
   padding: 0 1rem;
 }
+.gray {
+  text-shadow: 0 0 0 #b1b1b1;
+  color: #b1b1b1;
+}
 
 .contents .nickname {
   text-align: left;

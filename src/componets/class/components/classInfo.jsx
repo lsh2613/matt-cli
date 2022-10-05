@@ -10,11 +10,16 @@ import button from '@/common/button.module.css'
 import { useSelector } from 'react-redux'
 import { nowDate } from '@utils/index'
 import { postWish } from '@api/wish/wish'
+import { makeClassFinished } from '@api/cs/cs'
+
 const ClassInfo = (props) => {
   const navigate = useNavigate()
 
   const [classes, setClasses] = useState({})
   const [visible, setVisible] = useState(false)
+  //클래스 상태에 따른 상태 코드
+  const [classState, setClassState] = useState(true)
+
   const [tags, setTags] = useState([])
   const instructorId = parseInt(localStorage.getItem('instructorId'))
   const location = useLocation()
@@ -39,7 +44,7 @@ const ClassInfo = (props) => {
   }
   const setWish = () => {
     postWish(classId).then((res) =>
-      res.status === 200 ? alert('찜완료 :) ') : ''
+      res.status === 200 ? alert('찜완료 :) ') : alert('이미 찜했습니다')
     )
   }
   useEffect(() => {
@@ -49,8 +54,14 @@ const ClassInfo = (props) => {
     fetchClassTagByClassId(classId).then((res) => setTags(res.data))
   }, [])
 
+  const setFinished = () => {
+    makeClassFinished(classId).then((res) => {
+      if (res.status === 200) setClassState(false)
+    })
+  }
+
   const showBtn = (insId, startDate) => {
-    if (insId !== instructorId && startDate > nowDate)
+    if (insId !== instructorId && startDate > nowDate && classState)
       return (
         <div className={styles.btnGroup}>
           <button
@@ -65,7 +76,7 @@ const ClassInfo = (props) => {
         </div>
       )
 
-    if (insId === instructorId && startDate > nowDate)
+    if (insId === instructorId && startDate > nowDate && classState)
       return (
         <div className={styles.btnGroup}>
           <button
@@ -74,7 +85,12 @@ const ClassInfo = (props) => {
           >
             클래스 수정
           </button>
-          <button className={button.fullGrayBtn}>클래스 종료</button>
+          <button
+            className={button.fullGrayBtn}
+            onClick={() => setFinished(classes.classId)}
+          >
+            클래스 종료
+          </button>
         </div>
       )
   }
@@ -128,6 +144,13 @@ const ClassInfo = (props) => {
               {classes.countWS}/ {classes.numberOfStudents}
             </aside>
           </div>
+        </section>
+        <section className={styles.tagGroup}>
+          {tags.map((tag) => (
+            <span key={tag.tagId} className={styles.tag}>
+              {tag.tagName}
+            </span>
+          ))}
         </section>
         <section className={styles.detailInfo}>
           <h3>📋 강의 소개</h3>
