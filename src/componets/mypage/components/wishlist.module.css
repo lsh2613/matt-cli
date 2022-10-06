@@ -1,0 +1,52 @@
+.title {
+  display: inline-block;
+  padding: 1rem 0rem;
+}
+
+.section {
+  background-color: rgba(238, 238, 238, 0.3);
+  border-radius: 10px;
+  padding: 1em 1em;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.class {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 0.8rem;
+}
+
+.class:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.classNm {
+  flex: 1 1 30%;
+}
+
+.category {
+  flex: 1 1 20%;
+  text-align: center;
+}
+.btnGroup {
+  flex: 1 1 30%;
+  text-align: right;
+}
+
+.btn {
+  min-width: 20%;
+  margin-left: 10px;
+}
+
+.description {
+  background: #fff;
+  padding: 1rem 1rem;
+  font-size: 0.9rem;
+}

@@ -3,6 +3,7 @@ import styles from './applyClass.module.css'
 import button from '@/common/button.module.css'
 import modal from '@/common/modal.module.css'
 import { applyClass } from '../../../api/wating/wating'
+import { deletehWish } from '@api/wish/wish'
 const ApplyClass = (props) => {
   const [state, setState] = useState(props.visible)
   const [data, setData] = useState({
@@ -10,15 +11,29 @@ const ApplyClass = (props) => {
     content: '',
   })
   const submit = () => {
-    applyClass(data).then((res) => {
-      if (res.status === 200) {
+    applyClass(data)
+      .then((res) => {
         setState(false)
         //부모의 visible 변경
+        // dropWish(classId)
         props.updateVisible()
+
         alert('신청 완료되었습니다')
-      } else alert('예상치 못한 오류가 발생했습니다')
-    })
+      })
+      .catch((e) => {
+        alert(e)
+      })
   }
+
+  // const dropWish = (wishId) => {
+  //   deletehWish(wishId).then((res) => {
+  //     if (res.status === 200) {
+  //       fetchWish().then((res) => setClasses(res.data))
+  //     } else {
+  //       alert('예상치 못한 오류로 실패했습니다 :(')
+  //     }
+  //   })
+  // }
 
   const { content } = data
   const onChange = (e) => {
@@ -31,6 +46,7 @@ const ApplyClass = (props) => {
 
   useEffect(() => {
     setState(props.visible)
+    setData({ ...data, classId: props.classId })
   }, [props.visible])
 
   return (

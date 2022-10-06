@@ -110,11 +110,11 @@ const ClassInfo = (props) => {
           {showBtn(classes.instructorId, classes.startDate)}
         </section>
 
-        <section
-          className={styles.infoGroup}
-          onClick={() => toClassList(classes.instructorId)}
-        >
-          <div className={styles.instrutorInfo}>
+        <section className={styles.infoGroup}>
+          <div
+            className={styles.instrutorInfo}
+            onClick={() => toClassList(classes.instructorId)}
+          >
             <article>👩‍🎓 멘토 프로필</article>
             <aside>
               <label>이름</label>

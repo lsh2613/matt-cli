@@ -115,6 +115,9 @@
 .blue {
   background-color: var(--color-blue);
 }
+.blue:hover {
+  background-color: #7081b6;
+}
 .green {
   background-color: var(--color-green);
 }
