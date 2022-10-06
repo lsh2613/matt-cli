@@ -16,7 +16,7 @@ const InsInfo = (props) => {
   const [disabled, setDisabled] = useState(true)
   const [insInfo, setInsInfo] = useState({})
 
-  const insId = useSelector((state) => state.user.user['instructorId'])
+  const insId = useSelector((state) => state.user.user.instructorId)
 
   const { introduction } = insInfo
 
@@ -29,7 +29,7 @@ const InsInfo = (props) => {
   }
 
   const updateInsInfo = () => {
-    updateInstructorInfo(insInfo).then((res) => {
+    updateInstructorInfo(insId).then((res) => {
       if (res.status === 200) {
         setInsInfo(res.data)
         alert('수정되었습니다 :)')

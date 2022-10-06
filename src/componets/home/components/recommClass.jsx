@@ -48,7 +48,7 @@ const RecommClass = (props) => {
               <div className={styles.etc}>
                 현재 지원 인원
                 <span className={styles.bold}>
-                  {classes.countWS} / {classes.numberOfStudents}명
+                  {classes.totalCount} / {classes.numberOfStudents}명
                 </span>
               </div>
             </div>

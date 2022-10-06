@@ -68,6 +68,7 @@ const Header = () => {
           }}
           name={keyword}
           value={keyword}
+          
           onKeyPress={handleKeyPress}
         />
         <button

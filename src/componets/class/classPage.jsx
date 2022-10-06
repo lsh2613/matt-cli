@@ -46,7 +46,8 @@ const ClassPage = (props) => {
               {classSt(classes.startDate, classes.endDate)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>
-                수강인원 {classes.numberOfStudents}명
+                신청생 {classes.totalCount}명 /수강가능 인원
+                {classes.numberOfStudents}명
               </dd>
               <dd className={styles.date}>
                 {classes.startDate} ~ {classes.endDate}
@@ -66,9 +67,7 @@ const ClassPage = (props) => {
             >
               {classSt(classes.startDate, classes.endDate)}
               <dd className={styles.title}>{classes.title}</dd>
-              <dd className={styles.number}>
-                수강인원 {classes.numberOfStudents}명
-              </dd>
+              <dd className={styles.number}>수강인원 {classes.countCS}명</dd>
               <dd className={styles.date}>
                 {classes.startDate} ~ {classes.endDate}
               </dd>
@@ -87,9 +86,7 @@ const ClassPage = (props) => {
             >
               {classSt(classes.startDate, classes.endDate)}
               <dd className={styles.title}>{classes.title}</dd>
-              <dd className={styles.number}>
-                수강인원 {classes.numberOfStudents}명
-              </dd>
+              <dd className={styles.number}>수강인원 {classes.countCS}명</dd>
               <dd className={styles.date}>
                 {classes.startDate} ~ {classes.endDate}
               </dd>
