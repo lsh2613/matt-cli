@@ -23,17 +23,22 @@ const EditNick = (props) => {
   }, [props.visible])
 
   const edit = () => {
-    editNickNm(newNick).then((res) => {
-      console.log(res)
-      if (res.status === 200) {
-        alert('변경되었습니다 :)')
-        localStorage.setItem('nickname', res.data.nickname)
-        props.updateVisible(true)
-      } else {
-        alert('오류가 발생했습니다 :(')
-        props.updateVisible(false)
-      }
-    })
+    if (newNick !== '') {
+      editNickNm(newNick)
+        .then((res) => {
+          if (res.status === 200) {
+            alert('변경되었습니다 :)')
+            localStorage.setItem('nickname', res.data.nickname)
+            props.updateVisible(true)
+          }
+        })
+        .catch((e) => {
+          alert('오류가 발생했습니다 :(')
+          props.updateVisible(false)
+        })
+    } else {
+      alert('공란을 올 수 없습니다')
+    }
   }
   return (
     <>

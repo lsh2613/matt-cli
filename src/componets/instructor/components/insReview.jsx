@@ -17,11 +17,12 @@ const InsReview = (props) => {
     if (code === 1) {
       makeLike(id).catch((e) => {
         cancelLike(id)
+        fetchReviewByInsId(insId).then((res) => setReviews(res.data))
       })
-      fetchReviewByInsId(insId).then((res) => setReviews(res.data))
     } else {
       makeHate(id).catch((e) => {
         cancelHate(id)
+        fetchReviewByInsId(insId).then((res) => setReviews(res.data))
       })
       fetchReviewByInsId(insId).then((res) => setReviews(res.data))
     }

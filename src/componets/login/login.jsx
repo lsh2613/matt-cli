@@ -16,17 +16,12 @@ const Login = (props) => {
   })
 
   const postUser = () => {
-    try {
-      signin(user).then((res) => {
-        if (res.status === 200) {
-          saveInLocalStorage(res.data)
-          console.log(res.data)
-          dispatch(setUserInfo(res.data))
-        } else alert(res)
+    signin(user)
+      .then((res) => {
+        saveInLocalStorage(res.data)
+        dispatch(setUserInfo(res.data))
       })
-    } catch (e) {
-      console.log(e)
-    }
+      .catch((e) => alert(e.response.data))
   }
 
   const saveInLocalStorage = (user) => {
