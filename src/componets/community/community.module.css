@@ -1,0 +1,102 @@
+.container {
+  padding: 0.5rem 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.menu {
+  padding: 1rem 2rem;
+  background: var(--color-gray-bright);
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.menu:hover {
+  background: var(--color-primary-bright);
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 12fr;
+  margin-top: 0.5rem;
+}
+.communitySection {
+  padding: 0rem 3rem 0rem 3rem;
+}
+.pastTime {
+  text-align: right;
+}
+
+.item {
+  padding: 1rem 0rem 0.5rem 0rem;
+}
+.item:hover {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.1rem;
+  padding: 0.2rem 0rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 1.5rem;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: #555;
+}
+.hr {
+  margin-top: 1rem;
+}
+
+.content {
+  padding: 0.5rem 0rem;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.5rem;
+  max-height: 3.7rem;
+}
+
+li {
+  list-style: none;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + .radioForm {
+  display: inline-block;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1em;
+  color: #666;
+  width: 10em;
+  text-align: center;
+}
+
+input[type='radio'] + .radioForm {
+  background-color: #fff;
+  color: #333;
+  color: #666;
+}
+
+input[type='radio']:checked + .radioForm {
+  background: var(--color-primary-bright);
+}
+
+label {
+  text-align: center;
+}
