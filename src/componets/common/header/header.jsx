@@ -59,6 +59,9 @@ const Header = () => {
         <li className={styles.menuList} onClick={() => navigate('/instructor')}>
           멘토조회
         </li>
+        <li className={styles.menuList} onClick={() => navigate('/community')}>
+          커뮤니티
+        </li>
       </div>
       <div className={styles.searchForm}>
         <input
@@ -68,7 +71,6 @@ const Header = () => {
           }}
           name={keyword}
           value={keyword}
-          
           onKeyPress={handleKeyPress}
         />
         <button

@@ -14,6 +14,7 @@ import InstructorPage from './componets/instructor/instructorPage'
 import InstructorInfo from './componets/instructor/components/instructorInfo'
 import { useSelector } from 'react-redux'
 import ClassPage from './componets/class/classPage'
+import CommunityPage from './componets/community/communityPage'
 
 function App() {
   const login = useSelector((state) => state.user.login)
@@ -29,6 +30,7 @@ function App() {
         <Route exact path='/instructor' element={<InstructorPage />} />
         <Route exact path='/instructor/:insId' element={<InstructorInfo />} />
         <Route path='/search' element={<SearchPage />} />
+        <Route path='/community' element={<CommunityPage />} />
 
         {login ? (
           <>

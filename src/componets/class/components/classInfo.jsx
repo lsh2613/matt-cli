@@ -150,7 +150,7 @@ const ClassInfo = (props) => {
             </aside>
             <aside>
               <label className={styles.marginRight}>신청현황</label>
-              {classes.countWS}/ {classes.numberOfStudents}
+              {classes.totalCount}/ {classes.numberOfStudents}
             </aside>
           </div>
         </section>
