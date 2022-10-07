@@ -30,13 +30,16 @@ const WishList = (props) => {
     })
   }
 
-  const apply = (id) => {
-    setClassId(id)
+  const apply = (classId) => {
+    setClassId(classId)
     setVisible(true)
   }
 
-  const updateVisible = () => {
+  const updateVisible = (classId) => {
     setVisible(false)
+    deletehWish(classId).then(() =>
+      fetchWish().then((res) => setClasses(res.data))
+    )
   }
 
   return (
@@ -66,7 +69,7 @@ const WishList = (props) => {
                   className={`${button.fullBtn} ${button.blue} ${styles.btn}`}
                   onClick={(e) => {
                     e.stopPropagation()
-                    apply(classes.classId)
+                    apply(classes.classId, classes.wishId)
                   }}
                 >
                   신청

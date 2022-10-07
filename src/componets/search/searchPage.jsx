@@ -42,7 +42,7 @@ const SearchPage = (props) => {
 
   return (
     <>
-      <h4>🔍'{searchKey}' 로 검색한 결과 </h4>
+      <h4 className={styles.searchKeyWord}>🔍'{searchKey}' 로 검색한 결과 </h4>
       {classes.length > 0 ? (
         <div className={styles.container}>
           {classes.map((classes) => (

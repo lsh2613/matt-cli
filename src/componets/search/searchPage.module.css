@@ -4,7 +4,7 @@
   position: relative;
 }
 
-h4 {
+.searchKeyWord {
   padding: 1rem 1rem;
   background-color: var(--color-gray-bright);
   border-radius: 10px;

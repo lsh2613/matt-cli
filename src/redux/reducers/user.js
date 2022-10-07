@@ -11,6 +11,7 @@ export const userInfoSlice = createSlice({
       birthday: '',
       email: '',
       phoneNumber: '',
+      instructorId: '',
     },
     login: false,
   },
@@ -30,6 +31,7 @@ export const userInfoSlice = createSlice({
           birthday: '',
           email: '',
           phoneNumber: '',
+          instructorId: '',
         }
       state.login = false
     },
@@ -43,6 +45,7 @@ export const userInfoSlice = createSlice({
           'birthday',
           'email',
           'phoneNumber',
+          'instructorId',
         ]
         index.map((item) => {
           state.user[item] = localStorage.getItem(item)
