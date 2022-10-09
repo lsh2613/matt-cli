@@ -15,9 +15,7 @@ p {
   color: #bbb;
 }
 
-.class {
-  flex-grow: 2;
-}
+
 
 .auth:hover {
   cursor: pointer;
@@ -33,6 +31,7 @@ p {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  padding-right:  1rem;
 }
 
 input[type='radio'] {

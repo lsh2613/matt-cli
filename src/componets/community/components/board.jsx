@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./board.module.css";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { fetchaByCommunityId } from "@api/community/community";
 const CommunityBoard = (props) => {
-  const id = useSelector((state) => state.community.id);
+  const params = useParams();
+
+  const id = params.communityId;
   const [data, setData] = useState({});
   const [comments, setComments] = useState([]);
 
