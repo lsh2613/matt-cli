@@ -7,7 +7,7 @@ import { fetchCategory } from "@api/community/community";
 const CommunityMenu = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const icon = ["🔭", "🔗", "🔊", "🧐", "🏝️"];
   const menu = useSelector((state) => state.community.menu);
   const [category, setCategory] = useState([]);
   const onChange = (e) => {
@@ -34,6 +34,7 @@ const CommunityMenu = (props) => {
             onChange={onChange}
           ></input>
           <label htmlFor="전체" className={styles.radioForm}>
+            <span className={styles.span}>{icon[0]}</span>
             전체
           </label>
           {category.map((item, index) => (
@@ -49,6 +50,7 @@ const CommunityMenu = (props) => {
                 onChange={onChange}
               ></input>
               <label key={index} htmlFor={item} className={styles.radioForm}>
+                <span className={styles.span}>{icon[index + 1]}</span>
                 {item}
               </label>
             </>

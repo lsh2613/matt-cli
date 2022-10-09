@@ -1,30 +1,30 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import styles from './mypage.module.css'
-import CreatedClass from './components/createclass'
-import WishList from './components/wishlist'
-import TakeClass from './components/takeClass'
-import UserInfo from './components/userInfo'
-import InsInfo from './components/insInfo'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import styles from "./mypage.module.css";
+import CreatedClass from "./components/createclass";
+import WishList from "./components/wishlist";
+import TakeClass from "./components/takeClass";
+import UserInfo from "./components/userInfo";
+import InsInfo from "./components/insInfo";
 
-import { onChangeMenu } from '../../redux/reducers/mypage'
+import { onChangeMenu } from "../../redux/reducers/mypage";
 
 const MyPage = (props) => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const insId = localStorage.getItem('instructorId')
+  const insId = localStorage.getItem("instructorId");
   const toAuth = () => {
-    navigate('/instructor/auth')
-  }
+    navigate("/instructor/auth");
+  };
 
-  const menu = useSelector((state) => state.mypage.menu)
+  const menu = useSelector((state) => state.mypage.menu);
 
   const onChange = (e) => {
-    const value = e.target.id
-    dispatch(onChangeMenu(value))
-  }
+    const value = e.target.id;
+    dispatch(onChangeMenu(value));
+  };
 
   return (
     <div className={styles.container}>
@@ -33,44 +33,45 @@ const MyPage = (props) => {
       </section>
 
       <div className={styles.class}>
+        <h2>마이페이지</h2>
         <hgroup className={styles.radioGroup}>
           <input
-            type='radio'
-            id='class-menu'
-            name='menu'
-            checked={menu === 'class-menu'}
+            type="radio"
+            id="class-menu"
+            name="menu"
+            checked={menu === "class-menu"}
             className={styles.radioForm}
             onChange={onChange}
           ></input>
-          <label htmlFor='class-menu' className={styles.radioForm}>
+          <label htmlFor="class-menu" className={styles.radioForm}>
             클래스
           </label>
           <input
-            type='radio'
-            id='wish-menu'
-            name='menu'
-            checked={menu === 'wish-menu'}
+            type="radio"
+            id="wish-menu"
+            name="menu"
+            checked={menu === "wish-menu"}
             className={styles.radioForm}
             onChange={onChange}
           ></input>
-          <label htmlFor='wish-menu' className={styles.radioForm}>
+          <label htmlFor="wish-menu" className={styles.radioForm}>
             위시리스트
           </label>
           <input
-            type='radio'
-            id='mentor-menu'
-            name='menu'
-            checked={menu === 'mentor-menu'}
+            type="radio"
+            id="mentor-menu"
+            name="menu"
+            checked={menu === "mentor-menu"}
             className={styles.radioForm}
             onChange={onChange}
           ></input>
-          <label htmlFor='mentor-menu' className={styles.radioForm}>
+          <label htmlFor="mentor-menu" className={styles.radioForm}>
             멘토
           </label>
         </hgroup>
 
-        {menu === 'mentor-menu' ? (
-          insId === 'null' ? (
+        {menu === "mentor-menu" ? (
+          insId === "null" ? (
             <section className={styles.section}>
               <div className={styles.title}>선생님 인증하기</div>
               <p className={styles.auth} onClick={toAuth}>
@@ -85,27 +86,27 @@ const MyPage = (props) => {
             </section>
           )
         ) : (
-          ''
+          ""
         )}
 
-        {menu === 'class-menu' ? (
+        {menu === "class-menu" ? (
           <section>
             <TakeClass />
           </section>
         ) : (
-          ''
+          ""
         )}
 
-        {menu === 'wish-menu' ? (
+        {menu === "wish-menu" ? (
           <section className={styles.section}>
             <WishList />
           </section>
         ) : (
-          ''
+          ""
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyPage
+export default MyPage;
