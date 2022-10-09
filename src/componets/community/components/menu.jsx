@@ -35,7 +35,7 @@ const CommunityMenu = (props) => {
           {category.map((item, index) => (
             <>
               <input
-                key={index}
+                key={item.toString()}
                 type="radio"
                 id={item}
                 name="menu"
@@ -44,7 +44,7 @@ const CommunityMenu = (props) => {
                 className={styles.radioForm}
                 onChange={onChange}
               ></input>
-              <label htmlFor={item} className={styles.radioForm}>
+              <label key={index} htmlFor={item} className={styles.radioForm}>
                 {item}
               </label>
             </>

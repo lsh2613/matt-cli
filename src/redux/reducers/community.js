@@ -1,19 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const communitySlice = createSlice({
-  name: 'communitySlice',
+  name: "communitySlice",
   initialState: {
-    menu: 'community-menu',
+    menu: "community-menu",
+    id: 0,
   },
   reducers: {
     initMenu: (state) => {
-      state.menu = 'community-menu'
+      state.menu = "community-menu";
     },
     onChangeMenu: (state, action) => {
-      state.menu = action.payload
+      state.menu = action.payload;
+    },
+    onChangeId: (state, action) => {
+      state.id = action.payload;
     },
   },
-})
+});
 
-export const { initMenu, onChangeMenu } = communitySlice.actions
-export default communitySlice.reducer
+export const { initMenu, onChangeMenu, onChangeId } = communitySlice.actions;
+export default communitySlice.reducer;

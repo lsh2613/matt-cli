@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./board.module.css";
+import { useSelector } from "react-redux";
+import { fetchaByCommunityId } from "@api/community/community";
 const CommunityBoard = (props) => {
+  const id = useSelector((state) => state.community.id);
+  const [data, setData] = useState({});
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    fetchaByCommunityId(id).then((res) => {
+      setData(res.data);
+      setComments(res.data.commentList);
+    });
+  }, []);
   return (
     <>
       <section className={styles.container}>
         <div className={styles.contents}>
-          <dd className={styles.title}>ggg</dd>
+          <dd className={styles.category}>{data.category}</dd>
+          <dd className={styles.title}>{data.title}</dd>
+          <div className={styles.row2}>
+            <dd className={styles.userName}>{data.userName}</dd>
+            <dd className={styles.pastTime}>{data.pastTime}</dd>
+          </div>
+          <hr className={styles.hr} />
+          <dd className={styles.content}>{data.content}</dd>
+          <div className={styles.row}>
+            <dd className={styles.numOfLikes}>👍🏻{data.numOfLikes}</dd>
+            <dd className={styles.numOfComments}>💬{data.numOfComments}</dd>
+          </div>
+          <hr className={styles.hr} />
+        </div>
+
+        <div className={styles.comments}>
+          {comments.map((comment) => (
+            <div key={comment.commentId} className={styles.comment}>
+              <div className={styles.white}>
+                <dd className={styles.nick}>{comment.writer}</dd>
+                <dd className={styles.commentContent}>{comment.content}</dd>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </>

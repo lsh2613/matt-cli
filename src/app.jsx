@@ -30,9 +30,7 @@ function App() {
         <Route exact path="/instructor" element={<InstructorPage />} />
         <Route exact path="/instructor/:insId" element={<InstructorInfo />} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/community" element={<CommunityPage />} />
-        <Route path="/community/:communityId" element={<CommunityBoard />} />
-
+        <Route path="/community/*" element={<CommunityPage />} />
         {login ? (
           <>
             <Route path="mypage" element={<MyPage />} />
