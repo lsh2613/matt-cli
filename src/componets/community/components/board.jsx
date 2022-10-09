@@ -36,6 +36,13 @@ const CommunityBoard = (props) => {
         </div>
 
         <div className={styles.comments}>
+          <div className={styles.searchForm}>
+            <input placeholder="댓글을 남겨보세요" />
+            <button className={`${styles.fullPrimaryBtn} ${styles.searchBtn}`}>
+              확인
+            </button>
+          </div>
+
           {comments.map((comment) => (
             <div key={comment.commentId} className={styles.comment}>
               <div className={styles.white}>

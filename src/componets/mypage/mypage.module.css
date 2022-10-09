@@ -15,7 +15,9 @@ p {
   color: #bbb;
 }
 
-
+.class{
+  width: 100%;
+}
 
 .auth:hover {
   cursor: pointer;

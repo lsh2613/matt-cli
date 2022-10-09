@@ -59,3 +59,10 @@
   padding: 3rem 0rem;
   text-align: center;
 }
+
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

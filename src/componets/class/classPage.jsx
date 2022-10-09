@@ -1,39 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import styles from './classPage.module.css'
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./classPage.module.css";
 import {
   fetchBeforClass,
   fetchDoingClass,
   fetchFinishedClass,
-} from '@api/class/class'
-import { nowDate } from '@utils/index'
+} from "@api/class/class";
+import { nowDate } from "@utils/index";
 const ClassPage = (props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [doing, setDoing] = useState([])
-  const [before, setBefore] = useState([])
-  const [finished, setFinished] = useState([])
+  const [doing, setDoing] = useState([]);
+  const [before, setBefore] = useState([]);
+  const [finished, setFinished] = useState([]);
 
   useEffect(() => {
-    fetchBeforClass().then((res) => setBefore(res.data))
-    fetchDoingClass().then((res) => setDoing(res.data))
-    fetchFinishedClass().then((res) => setFinished(res.data))
-  }, [])
+    fetchBeforClass().then((res) => setBefore(res.data));
+    fetchDoingClass().then((res) => setDoing(res.data));
+    fetchFinishedClass().then((res) => setFinished(res.data));
+  }, []);
 
   const toClassInfo = (classId) => {
-    navigate(`/class/${classId}`, { state: { classId: classId } })
-  }
+    navigate(`/class/${classId}`, { state: { classId: classId } });
+  };
 
   const classSt = (startDate, endDate) => {
     if (startDate > nowDate)
-      return <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
+      return <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>;
     if (endDate > nowDate)
-      return <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>
-    return <div className={`${styles.classSt} ${styles.done}`}>종료</div>
-  }
+      return <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>;
+    return <div className={`${styles.classSt} ${styles.done}`}>종료</div>;
+  };
 
   return (
     <div className={styles.container}>
+      <h2>강좌조회</h2>
       <section className={styles.before}>
         <h3>🟦 수강생 모집중인 강좌목록</h3>
         <div className={styles.classes}>
@@ -95,7 +96,7 @@ const ClassPage = (props) => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default ClassPage
+export default ClassPage;

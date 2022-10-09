@@ -3,7 +3,8 @@ import styles from "./list.module.css";
 import { fetchaAllCommunity, fetchByCategory } from "@api/community/community";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import button from "@/common/button.module.css";
+import float from "@/common/float.module.css";
 const CommunityList = (props) => {
   const navigate = useNavigate();
   const [community, setCommunity] = useState([]);
@@ -18,6 +19,14 @@ const CommunityList = (props) => {
   return (
     <>
       <section className={styles.communitySection}>
+        <div className={styles.menu}>
+          <h2>커뮤니티</h2>
+          <button
+            className={`${button.fullPrimaryBtn} ${float.floatRight} ${styles.bottom}`}
+          >
+            작성하기
+          </button>
+        </div>
         <div className={styles.communityContainer}>
           {community.length > 0 ? (
             community.map((data) => (
