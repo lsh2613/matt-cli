@@ -1,0 +1,44 @@
+.menu {
+  padding: 1rem 2rem;
+  background: var(--color-gray-bright);
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.menu:hover {
+  background: var(--color-primary-bright);
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + .radioForm {
+  display: inline-block;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1em;
+  color: #666;
+  width: 10em;
+  text-align: center;
+}
+
+input[type='radio'] + .radioForm {
+  background-color: #fff;
+  color: #333;
+  color: #666;
+}
+
+input[type='radio']:checked + .radioForm {
+  background: var(--color-primary-bright);
+}
+
+label {
+  text-align: center;
+}
