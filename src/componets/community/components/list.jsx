@@ -3,18 +3,13 @@ import styles from "./list.module.css";
 import { fetchaAllCommunity, fetchByCategory } from "@api/community/community";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { onChangeId } from "@redux/reducers/community";
+
 const CommunityList = (props) => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [community, setCommunity] = useState([]);
 
   const menu = useSelector((state) => state.community.menu);
 
-  const onChange = (id) => {
-    dispatch(onChangeId(id));
-    navigate(`/community/board/${id}`);
-  };
   useEffect(() => {
     if (menu === "전체")
       fetchaAllCommunity().then((res) => setCommunity(res.data));
@@ -29,7 +24,7 @@ const CommunityList = (props) => {
               <li
                 key={data.communityId}
                 className={styles.item}
-                onClick={() => onChange(data.communityId)}
+                onClick={() => navigate(`/community/board/${data.communityId}`)}
               >
                 <dd className={styles.category}>{data.category}</dd>
                 <dd className={styles.title}>{data.title}</dd>
