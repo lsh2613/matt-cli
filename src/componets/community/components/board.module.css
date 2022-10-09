@@ -48,3 +48,8 @@
 .nick{
   font-size:0.9rem;
 }
+
+.numOfLikes,
+.numOfComments{
+  min-width: 50px ;
+}

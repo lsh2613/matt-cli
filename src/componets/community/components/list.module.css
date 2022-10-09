@@ -4,6 +4,11 @@
   grid-template-columns: 1fr 1fr 12fr;
   margin-top: 0.5rem;
 }
+
+.numOfLikes,
+.numOfComments{
+  min-width: 50px ;
+}
 .communitySection {
   padding: 0rem 3rem 0rem 3rem;
 }
@@ -48,4 +53,9 @@
   -webkit-line-clamp: 2;
   line-height: 1.5rem;
   max-height: 3.7rem;
+}
+
+.none{
+  padding: 3rem 0rem;
+  text-align: center;
 }

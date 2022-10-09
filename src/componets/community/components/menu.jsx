@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { onChangeMenu } from "@redux/reducers/community";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styles from "./menu.module.css";
 import { fetchCategory } from "@api/community/community";
 const CommunityMenu = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const menu = useSelector((state) => state.community.menu);
   const [category, setCategory] = useState([]);
   const onChange = (e) => {
     const value = e.target.value;
+    navigate("/community/board");
     dispatch(onChangeMenu(value));
   };
 
