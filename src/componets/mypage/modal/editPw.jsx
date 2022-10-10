@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from 'react'
-import button from '@/common/button.module.css'
-import modal from '@/common/modal.module.css'
-import styles from './editPw.module.css'
-import { editPw } from '../../../api/user/user'
+import React, { useState, useEffect } from "react";
+import button from "@/common/button.module.css";
+import modal from "@/common/modal.module.css";
+import styles from "./editPw.module.css";
+import { editPw } from "../../../api/user/user";
 
 const EditPw = (props) => {
-  const [state, setState] = useState(props.visible)
+  const [state, setState] = useState(props.visible);
   const [pw, setPw] = useState({
-    newPw: '',
-    check: '',
-  })
-  const [err, setErr] = useState(false)
-  const [nullErr, setNullErr] = useState(false)
+    newPw: "",
+    check: "",
+  });
+  const [err, setErr] = useState(false);
+  const [nullErr, setNullErr] = useState(false);
 
-  const { newPw, check } = pw
+  const { newPw, check } = pw;
 
   const onChange = (e) => {
-    const { name, value } = e.target
-    setPw({ ...pw, [name]: value })
-  }
+    const { name, value } = e.target;
+    setPw({ ...pw, [name]: value });
+  };
 
   useEffect(() => {
-    setState(props.visible)
-  }, [props.visible])
+    setState(props.visible);
+  }, [props.visible]);
 
   const edit = () => {
     editPw(newPw).then((res) => {
       if (res.status === 200) {
-        alert('변경되었습니다 :)')
-      } else alert('오류가 발생했습니다 :(')
-    })
-    props.updateVisible(false)
-    init()
-  }
+        alert("변경되었습니다 :)");
+      } else alert("오류가 발생했습니다 :(");
+    });
+    props.updateVisible(false);
+    init();
+  };
 
   const init = () => {
     setPw({
-      newPw: '',
-      check: '',
-    })
-    setErr(false)
-    setNullErr(false)
-  }
+      newPw: "",
+      check: "",
+    });
+    setErr(false);
+    setNullErr(false);
+  };
   const compare = () => {
-    setNullErr(false)
-    setErr(false)
-    if (pw.newPw === '') setNullErr(true)
-    if (pw.newPw !== '' && pw.newPw === pw.check) edit()
-    if (pw.newPw !== pw.check) setErr(true)
-  }
+    setNullErr(false);
+    setErr(false);
+    if (pw.newPw === "") setNullErr(true);
+    if (pw.newPw !== "" && pw.newPw === pw.check) edit();
+    if (pw.newPw !== pw.check) setErr(true);
+  };
   return (
     <>
       {state ? (
@@ -66,28 +66,28 @@ const EditPw = (props) => {
                 <dd className={styles.label}>
                   패스워드
                   <span className={styles.red}>
-                    {nullErr ? '공란이 올 수 없습니다' : ''}
+                    {nullErr ? "공란이 올 수 없습니다" : ""}
                   </span>
                 </dd>
                 <input
-                  type='password'
+                  type="password"
                   value={newPw}
-                  name='newPw'
+                  name="newPw"
                   onChange={onChange}
                   className={styles.inputForm}
                 />
               </div>
               <div className={styles.after}>
                 <dd className={styles.label}>
-                  패스워드 재확인{' '}
+                  패스워드 재확인{" "}
                   <span className={styles.red}>
-                    {err ? '패스워드가 다릅니다' : ''}
+                    {err ? "패스워드가 다릅니다" : ""}
                   </span>
                 </dd>
                 <input
-                  type='password'
+                  type="password"
                   value={check}
-                  name='check'
+                  name="check"
                   onChange={onChange}
                   className={styles.inputForm}
                 />
@@ -97,17 +97,17 @@ const EditPw = (props) => {
           <div
             className={modal.mask}
             onClick={() => {
-              setState(false)
-              props.updateVisible(false)
-              init()
+              setState(false);
+              props.updateVisible(false);
+              init();
             }}
           ></div>
         </>
       ) : (
-        ''
+        ""
       )}
     </>
-  )
-}
+  );
+};
 
-export default EditPw
+export default EditPw;

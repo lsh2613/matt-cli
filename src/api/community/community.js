@@ -7,7 +7,7 @@ function fetchCategory() {
 function fetchaAllCommunity() {
   return community.get("");
 }
-function fetchaByCommunityId(id) {
+function fetchByCommunityId(id) {
   return community.get(`/${id}`);
 }
 
@@ -34,7 +34,7 @@ function fetchByUser() {
 export {
   fetchCategory,
   fetchaAllCommunity,
-  fetchaByCommunityId,
+  fetchByCommunityId,
   createCommunity,
   fetchByCategory,
   deleteCommunity,

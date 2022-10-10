@@ -1,70 +1,70 @@
-import React from 'react'
-import styles from './classInfo.module.css'
-import ApplyClass from './applyClass'
-import Review from './review'
-import { fetchClass } from '@api/class/class'
-import { fetchClassTagByClassId } from '@api/classtag/classtag'
-import { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import button from '@/common/button.module.css'
-import { useSelector } from 'react-redux'
-import { nowDate } from '@utils/index'
-import { postWish } from '@api/wish/wish'
-import { makeClassFinished } from '@api/cs/cs'
+import React from "react";
+import styles from "./classInfo.module.css";
+import ApplyClass from "./applyClass";
+import Review from "./review";
+import { fetchClass } from "@api/class/class";
+import { fetchClassTagByClassId } from "@api/classtag/classtag";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import button from "@/common/button.module.css";
+import { useSelector } from "react-redux";
+import { nowDate } from "@utils/index";
+import { postWish } from "@api/wish/wish";
+import { makeClassFinished } from "@api/cs/cs";
 
 const ClassInfo = (props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [classes, setClasses] = useState({})
-  const [visible, setVisible] = useState(false)
+  const [classes, setClasses] = useState({});
+  const [visible, setVisible] = useState(false);
   //클래스 상태에 따른 상태 코드
-  const [classState, setClassState] = useState(true)
+  const [classState, setClassState] = useState(true);
 
-  const [tags, setTags] = useState([])
-  const instructorId = parseInt(localStorage.getItem('instructorId'))
-  const location = useLocation()
-  const classStatus = location.state.classSt
-  const classId = location.state.classId
-  const login = useSelector((state) => state.user.login)
+  const [tags, setTags] = useState([]);
+  const instructorId = parseInt(localStorage.getItem("instructorId"));
+  const location = useLocation();
+  const classStatus = location.state.classSt;
+  const classId = location.state.classId;
+  const login = useSelector((state) => state.user.login);
 
   const apply = () => {
-    if (login) setVisible(true)
+    if (login) setVisible(true);
     else {
-      alert('로그인 후 신청 가능합니다.')
-      navigate('/login')
+      alert("로그인 후 신청 가능합니다.");
+      navigate("/login");
     }
-  }
+  };
 
   const updateVisible = () => {
-    setVisible(false)
-  }
+    setVisible(false);
+  };
 
   const toUpdateClass = (classId) => {
-    navigate(`/updateclass/${classId}`, { state: { classId: classId } })
-  }
+    navigate(`/updateclass/${classId}`, { state: { classId: classId } });
+  };
   const setWish = () => {
     postWish(classId).then((res) =>
-      res.status === 200 ? alert('찜완료 :) ') : alert('이미 찜했습니다')
-    )
-  }
+      res.status === 200 ? alert("찜완료 :) ") : alert("이미 찜했습니다")
+    );
+  };
   useEffect(() => {
     fetchClass(classId).then((res) => {
-      setClasses(res.data)
-    })
-    fetchClassTagByClassId(classId).then((res) => setTags(res.data))
-  }, [])
+      setClasses(res.data);
+    });
+    fetchClassTagByClassId(classId).then((res) => setTags(res.data));
+  }, []);
 
   const setFinished = () => {
     makeClassFinished(classId).then((res) => {
-      if (res.status === 200) setClassState(false)
-    })
-  }
+      if (res.status === 200) setClassState(false);
+    });
+  };
 
   const toClassList = (insId) => {
     navigate(`/instructor/${classes.instructorId}`, {
       state: { insId },
-    })
-  }
+    });
+  };
 
   const showBtn = (insId, startDate) => {
     if (insId !== instructorId && startDate > nowDate && classState)
@@ -80,7 +80,7 @@ const ClassInfo = (props) => {
             클래스 신청
           </button>
         </div>
-      )
+      );
 
     if (insId === instructorId && startDate > nowDate && classState)
       return (
@@ -98,8 +98,8 @@ const ClassInfo = (props) => {
             클래스 종료
           </button>
         </div>
-      )
-  }
+      );
+  };
 
   return (
     <>
@@ -125,9 +125,9 @@ const ClassInfo = (props) => {
               {classes.instructorMajor}
             </aside>
             <aside>
-              <label>평점</label>{' '}
+              <label>평점</label>{" "}
               {classes.instructorScore === -1
-                ? '점수없음 '
+                ? "점수없음 "
                 : `⭐${classes.instructorScore}점`}
             </aside>
           </div>
@@ -173,7 +173,7 @@ const ClassInfo = (props) => {
             <Review classId={classId} />
           </section>
         ) : (
-          ''
+          ""
         )}
       </div>
       <ApplyClass
@@ -182,7 +182,7 @@ const ClassInfo = (props) => {
         classId={classId}
       />
     </>
-  )
-}
+  );
+};
 
-export default ClassInfo
+export default ClassInfo;

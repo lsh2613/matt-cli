@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./board.module.css";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchaByCommunityId } from "@api/community/community";
+import { fetchByCommunityId } from "@api/community/community";
 const CommunityBoard = (props) => {
   const params = useParams();
 
@@ -11,7 +11,7 @@ const CommunityBoard = (props) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetchaByCommunityId(id).then((res) => {
+    fetchByCommunityId(id).then((res) => {
       setData(res.data);
       setComments(res.data.commentList);
     });

@@ -25,12 +25,15 @@ const UserInfo = (props) => {
   };
 
   const secession = () => {
-    alert(`회원탈퇴 시, 모든 정보는 되돌릴 수 없습니다.
-회원탈퇴 하시겠습니까?`);
-    deleteUser().then(() => {
-      navigate("/");
-      localStorage.clear();
-    });
+    if (
+      confirm(`회원탈퇴 시, 모든 정보는 되돌릴 수 없습니다.
+    회원탈퇴 하시겠습니까?`) === true
+    ) {
+      deleteUser().then(() => {
+        navigate("/");
+        localStorage.clear();
+      });
+    }
   };
   const [user, setUser] = useState({
     nickname: localStorage.getItem("nickname"),

@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import styles from './waiting.module.css'
-import button from '@/common/button.module.css'
-import float from '@/common/button.module.css'
-import { deleteStudent, fetchStudent, transferToCs } from '@api/wating/wating'
-import { fetchStudentByClassId } from '@api/cs/cs'
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import styles from "./waiting.module.css";
+import button from "@/common/button.module.css";
+import float from "@/common/button.module.css";
+import { deleteStudent, fetchStudent, transferToCs } from "@api/wating/wating";
+import { fetchStudentByClassId } from "@api/cs/cs";
 
 const Waiting = (props) => {
-  const location = useLocation()
-  const classId = location.state.classId
+  const location = useLocation();
+  const classId = location.state.classId;
 
-  const [ws, setWs] = useState([])
-  const [cs, setCs] = useState([])
+  const [ws, setWs] = useState([]);
+  const [cs, setCs] = useState([]);
   useEffect(() => {
     fetchStudent(classId).then((res) => {
-      setWs(res.data)
-    })
-    fetchStudentByClassId(classId).then((res) => setCs(res.data))
-  }, [])
+      setWs(res.data);
+    });
+    fetchStudentByClassId(classId).then((res) => setCs(res.data));
+  }, []);
 
   const fetchWs = (id) => {
     transferToCs(id).then((res) => {
       if (res.status === 200) {
         fetchStudent(classId).then((res) => {
-          setWs(res.data)
-        })
-        fetchStudentByClassId(classId).then((res) => setCs(res.data))
+          setWs(res.data);
+        });
+        fetchStudentByClassId(classId).then((res) => setCs(res.data));
       }
-    })
-  }
+    });
+  };
   return (
     <>
       <div className={styles.container}>
@@ -44,7 +44,7 @@ const Waiting = (props) => {
 
               {ws.length > 0 ? (
                 <div className={styles.students}>
-                  {' '}
+                  {" "}
                   {ws.map((student) => (
                     <div className={styles.student} key={student.id}>
                       <article className={styles.info}>
@@ -81,7 +81,7 @@ const Waiting = (props) => {
               </div>
               {cs.length > 0 ? (
                 <div className={styles.students}>
-                  {' '}
+                  {" "}
                   {cs.map((student, index) => (
                     <div className={styles.student} key={index}>
                       <article className={styles.info}>
@@ -90,7 +90,7 @@ const Waiting = (props) => {
                       </article>
                       <hr className={styles.hr} />
                       <article className={styles.reason}>
-                        {student.contents ? `${student.contents}` : 'no data '}
+                        {student.contents ? `${student.contents}` : "no data "}
                       </article>
                     </div>
                   ))}
@@ -106,7 +106,7 @@ const Waiting = (props) => {
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Waiting
+export default Waiting;

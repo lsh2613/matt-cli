@@ -26,7 +26,7 @@ const CreateCommunity = (props) => {
     createCommunity(data)
       .then((res) => {
         alert("작성 완료되었습니다 :)");
-        navigate("/community/board");
+        navigate(`/community/board/${res.data.communityId}`);
       })
       .catch((e) => alert(e.response.data));
   };

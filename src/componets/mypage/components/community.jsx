@@ -20,10 +20,11 @@ const Community = (props) => {
   };
 
   const delBoard = (id) => {
-    alert("정말 삭제하시겠습니까?");
-    deleteCommunity(id).then(() =>
-      fetchByUser().then((res) => setBoard(res.data))
-    );
+    if (confirm("정말 삭제하시겠습니까?") === true) {
+      deleteCommunity(id).then(() =>
+        fetchByUser().then((res) => setBoard(res.data))
+      );
+    }
   };
 
   const goUpdate = (id) => {
