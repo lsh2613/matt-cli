@@ -104,3 +104,16 @@ input:focus {
 .fullPrimaryBtn:hover {
   background-color: var(--color-primary);
 }
+
+.commentRow{
+  display:flex;
+  justify-content: space-between;
+}
+
+.right{
+  font-size: 0.75rem;
+  color: #555;
+}
+.span{
+  padding:0 0.5rem;
+}

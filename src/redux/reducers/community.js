@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const communitySlice = createSlice({
   name: "communitySlice",
   initialState: {
-    menu: "community-menu",
+    menu: "전체",
   },
   reducers: {
     initMenu: (state) => {

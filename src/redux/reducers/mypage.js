@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const mypageSlice = createSlice({
-  name: 'mypageSlice',
+  name: "mypageSlice",
   initialState: {
-    menu: '전체',
+    menu: "class-menu",
   },
   reducers: {
     initMenu: (state) => {
-      state.menu = '전체'
+      state.menu = "class-menu";
     },
     onChangeMenu: (state, action) => {
-      state.menu = action.payload
+      state.menu = action.payload;
     },
   },
-})
+});
 
-export const { initMenu, onChangeMenu } = mypageSlice.actions
-export default mypageSlice.reducer
+export const { initMenu, onChangeMenu } = mypageSlice.actions;
+export default mypageSlice.reducer;

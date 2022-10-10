@@ -31,6 +31,19 @@ function fetchByUser() {
   return community.get("/user");
 }
 
+//댓글
+function createComment(communityId, content) {
+  return community.post(`/${communityId}/comment/create?content=${content}`);
+}
+
+function updateComment(commentId, content) {
+  return community.put(`comment/${commentId}/?content=${content}`);
+}
+
+function deleteComment(commentId) {
+  return community.delete(`comment/${commentId}`);
+}
+
 export {
   fetchCategory,
   fetchaAllCommunity,
@@ -40,4 +53,7 @@ export {
   deleteCommunity,
   updateCommunity,
   fetchByUser,
+  createComment,
+  updateComment,
+  deleteComment,
 };
