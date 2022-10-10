@@ -1,43 +1,43 @@
-import { category, community } from '..'
+import { category, community } from "..";
 
 function fetchCategory() {
-  return community.get('/category')
+  return community.get("/category");
 }
 
 function fetchaAllCommunity() {
-  return community.get('')
+  return community.get("");
 }
 function fetchaByCommunityId(id) {
-  return community.get(`/${id}`)
+  return community.get(`/${id}`);
 }
 
-function createCoomunity(data) {
-  return community.post('/add', data)
+function createCommunity(data) {
+  return community.post("/add", data);
 }
 
 function fetchByCategory(category) {
-  return community.get(`/comByCategory?category=${category}`)
+  return community.get(`/comByCategory?category=${category}`);
 }
 
 function deleteCommunity(id) {
-  return community.patch(`/delete?communityId=${id}`)
+  return community.patch(`/delete?communityId=${id}`);
 }
 
 function updateCommunity(data) {
-  return community.patch(`/edit?communityId=${data.communityId}`, data)
+  return community.patch(`/edit?communityId=${data.communityId}`, data);
 }
 
 function fetchByUser() {
-  return community.get('/user')
+  return community.get("/user");
 }
 
 export {
   fetchCategory,
   fetchaAllCommunity,
   fetchaByCommunityId,
-  createCoomunity,
+  createCommunity,
   fetchByCategory,
   deleteCommunity,
   updateCommunity,
   fetchByUser,
-}
+};

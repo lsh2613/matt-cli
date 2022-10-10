@@ -23,6 +23,7 @@ const CommunityList = (props) => {
           <h2>커뮤니티</h2>
           <button
             className={`${button.fullPrimaryBtn} ${float.floatRight} ${styles.bottom}`}
+            onClick={() => navigate("/community/create")}
           >
             작성하기
           </button>
