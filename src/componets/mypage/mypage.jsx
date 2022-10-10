@@ -7,6 +7,7 @@ import WishList from "./components/wishlist";
 import TakeClass from "./components/takeClass";
 import UserInfo from "./components/userInfo";
 import InsInfo from "./components/insInfo";
+import Community from "./components/community";
 
 import { onChangeMenu } from "../../redux/reducers/mypage";
 
@@ -68,6 +69,17 @@ const MyPage = (props) => {
           <label htmlFor="mentor-menu" className={styles.radioForm}>
             멘토
           </label>
+          <input
+            type="radio"
+            id="community-menu"
+            name="menu"
+            checked={menu === "community-menu"}
+            className={styles.radioForm}
+            onChange={onChange}
+          ></input>
+          <label htmlFor="community-menu" className={styles.radioForm}>
+            커뮤니티
+          </label>
         </hgroup>
 
         {menu === "mentor-menu" ? (
@@ -100,6 +112,14 @@ const MyPage = (props) => {
         {menu === "wish-menu" ? (
           <section className={styles.section}>
             <WishList />
+          </section>
+        ) : (
+          ""
+        )}
+
+        {menu === "community-menu" ? (
+          <section className={styles.section}>
+            <Community />
           </section>
         ) : (
           ""

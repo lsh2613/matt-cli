@@ -50,3 +50,13 @@
   padding: 1rem 1rem;
   font-size: 0.9rem;
 }
+
+.boardTitle{
+  flex:1 1 40%;
+}
+
+.boardCategory{
+  flex:1 1 20%;
+  font-size: 0.9rem;
+  color :#555;
+}

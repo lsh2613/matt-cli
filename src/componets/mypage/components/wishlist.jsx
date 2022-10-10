@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import styles from './wishlist.module.css'
-import button from '@/common/button.module.css'
-import { fetchWish, deletehWish } from '@api/wish/wish'
-import ApplyClass from '../../class/components/applyClass'
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./wishlist.module.css";
+import button from "@/common/button.module.css";
+import { fetchWish, deletehWish } from "@api/wish/wish";
+import ApplyClass from "../../class/components/applyClass";
 
 const WishList = (props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [visible, setVisible] = useState(false)
-  const [classes, setClasses] = useState([])
-  const [classId, setClassId] = useState(0)
+  const [visible, setVisible] = useState(false);
+  const [classes, setClasses] = useState([]);
+  const [classId, setClassId] = useState(0);
 
   useEffect(() => {
-    fetchWish().then((res) => setClasses(res.data))
-  }, [props.visible])
+    fetchWish().then((res) => setClasses(res.data));
+  }, [props.visible]);
 
   const toClassInfo = (classId) => {
-    navigate(`/class/${classId}`, { state: { classId: classId } })
-  }
+    navigate(`/class/${classId}`, { state: { classId: classId } });
+  };
 
   const dropWish = (wishId) => {
     deletehWish(wishId).then((res) => {
       if (res.status === 200) {
-        fetchWish().then((res) => setClasses(res.data))
+        fetchWish().then((res) => setClasses(res.data));
       } else {
-        alert('예상치 못한 오류로 실패했습니다 :(')
+        alert("예상치 못한 오류로 실패했습니다 :(");
       }
-    })
-  }
+    });
+  };
 
   const apply = (classId) => {
-    setClassId(classId)
-    setVisible(true)
-  }
+    setClassId(classId);
+    setVisible(true);
+  };
 
   const updateVisible = (classId) => {
-    setVisible(false)
+    setVisible(false);
     deletehWish(classId).then(() =>
       fetchWish().then((res) => setClasses(res.data))
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -59,8 +59,8 @@ const WishList = (props) => {
                 <button
                   className={`${button.fullGrayBtn}  ${styles.btn}`}
                   onClick={(e) => {
-                    e.stopPropagation()
-                    dropWish(classes.classId)
+                    e.stopPropagation();
+                    dropWish(classes.classId);
                   }}
                 >
                   삭제
@@ -68,8 +68,8 @@ const WishList = (props) => {
                 <button
                   className={`${button.fullBtn} ${button.blue} ${styles.btn}`}
                   onClick={(e) => {
-                    e.stopPropagation()
-                    apply(classes.classId, classes.wishId)
+                    e.stopPropagation();
+                    apply(classes.classId, classes.wishId);
                   }}
                 >
                   신청
@@ -85,7 +85,7 @@ const WishList = (props) => {
         classId={classId}
       />
     </>
-  )
-}
+  );
+};
 
-export default WishList
+export default WishList;

@@ -1,4 +1,5 @@
 .profile {
+  min-width: 176px;
   max-width: 15rem;
   flex-grow: 0.5;
   padding: 2rem 1rem;
