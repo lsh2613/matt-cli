@@ -4,7 +4,7 @@ export const userInfoSlice = createSlice({
   name: 'userInfoSlice',
   initialState: {
     user: {
-      id: '',
+      studentId: '',
       loginId: '',
       nickname: '',
       gender: '',
@@ -24,7 +24,7 @@ export const userInfoSlice = createSlice({
     initUser: (state) => {
       if (localStorage.getItem(''))
         state.user = {
-          id: '',
+          studentId: '',
           loginId: '',
           nickname: '',
           gender: '',
@@ -38,7 +38,7 @@ export const userInfoSlice = createSlice({
     fetchUser: (state) => {
       if (localStorage.getItem('studentId')) {
         const index = [
-          'id',
+          'studentId',
           'loginId',
           'nickname',
           'gender',

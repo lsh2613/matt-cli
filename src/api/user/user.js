@@ -15,4 +15,8 @@ function editPw(pw) {
 function deleteUser() {
   return user.delete('/delete')
 }
-export { signup, editNickNm, editPw, deleteUser }
+
+function findPw(data) {
+  return user.patch('/findPwd', data)
+}
+export { signup, editNickNm, editPw, deleteUser, findPw }

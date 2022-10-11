@@ -26,6 +26,7 @@ const FinishedClass = (props) => {
 
   const updateVisible = () => {
     setModal(false)
+    fetchPastStudentClass(userId).then((res) => setClasses(res.data))
   }
 
   return (

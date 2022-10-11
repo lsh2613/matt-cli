@@ -24,7 +24,7 @@ const CommunityBoard = (props) => {
   const userId = useSelector((state) => state.user.user.studentId)
 
   const onChange = (e) => {
-    setNewComment(e.target)
+    setNewComment(e.target.value)
   }
 
   const editHandleKeyPress = (e) => {
@@ -105,7 +105,7 @@ const CommunityBoard = (props) => {
               <div className={styles.white}>
                 <div className={styles.commentRow}>
                   <dd className={styles.nick}>{comment.writer}</dd>
-                  {userId === comment.userId ? (
+                  {parseInt(userId) === comment.userId ? (
                     <div className={styles.right}>
                       <span
                         className={styles.span}
