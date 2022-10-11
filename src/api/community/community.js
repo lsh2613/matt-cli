@@ -1,47 +1,48 @@
-import { category, community } from "..";
+import { category, community } from '..'
 
 function fetchCategory() {
-  return community.get("/category");
+  return community.get('/category')
 }
 
 function fetchaAllCommunity() {
-  return community.get("");
+  return community.get('')
 }
 function fetchByCommunityId(id) {
-  return community.get(`/${id}`);
+  return community.get(`/${id}`)
 }
 
 function createCommunity(data) {
-  return community.post("/add", data);
+  return community.post('/add', data)
 }
 
 function fetchByCategory(category) {
-  return community.get(`/comByCategory?category=${category}`);
+  return community.get(`/comByCategory?category=${category}`)
 }
 
 function deleteCommunity(id) {
-  return community.patch(`/delete?communityId=${id}`);
+  return community.patch(`/delete?communityId=${id}`)
 }
 
 function updateCommunity(data) {
-  return community.patch(`/edit?communityId=${data.communityId}`, data);
+  return community.patch(`/edit?communityId=${data.communityId}`, data)
 }
 
 function fetchByUser() {
-  return community.get("/user");
+  return community.get('/user')
 }
 
 //댓글
 function createComment(communityId, content) {
-  return community.post(`/${communityId}/comment/create?content=${content}`);
+  return community.post(`/${communityId}/comment/create?content=${content}`)
 }
 
-function updateComment(commentId, content) {
-  return community.put(`comment/${commentId}/?content=${content}`);
+function updateComment(data) {
+  console.log(data)
+  return community.put(`comment/${data.commentId}/?content=${data.content}`)
 }
 
 function deleteComment(commentId) {
-  return community.delete(`comment/${commentId}`);
+  return community.delete(`comment/${commentId}`)
 }
 
 export {
@@ -56,4 +57,4 @@ export {
   createComment,
   updateComment,
   deleteComment,
-};
+}

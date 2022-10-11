@@ -1,4 +1,4 @@
-.container{
+.container {
   padding: 1rem 1rem;
 }
 
@@ -64,14 +64,14 @@ label {
   width: 50px;
 }
 
-@media (max-width: 680px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 768px) {
+  .section {
+    grid-template-columns: 1fr 1fr;
   }
-  .insContainer {
-    min-width: 80%;
+}
+
+@media (max-width: 484px) {
+  .section {
+    grid-template-columns: 1fr;
   }
 }
