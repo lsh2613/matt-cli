@@ -15,7 +15,6 @@ import InstructorInfo from './componets/instructor/components/instructorInfo'
 import { useSelector } from 'react-redux'
 import ClassPage from './componets/class/classPage'
 import CommunityPage from './componets/community/communityPage'
-import CommunityBoard from './componets/community/components/board'
 import FindPw from './componets/home/components/findPw'
 function App() {
   const login = useSelector((state) => state.user.login)
