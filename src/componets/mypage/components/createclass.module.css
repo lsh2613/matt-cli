@@ -52,3 +52,13 @@
   padding: 1rem 1rem;
   font-size: 0.9rem;
 }
+
+.btnGroup {
+  flex: 1 1 30%;
+  text-align: right;
+}
+
+.btn {
+  min-width: 20%;
+  margin-left: 10px;
+}
