@@ -4,13 +4,15 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   position: relative;
+  padding: 0 1rem;
 }
 
 .container section {
   min-width: 100%;
 }
-h3 {
+.h3 {
   margin: 0.8rem 0;
+  padding: 0.5rem 1rem;
 }
 
 .box {
@@ -18,7 +20,7 @@ h3 {
   padding: 0rem 0.5rem 0.5rem 0.5rem;
 }
 .waiting {
-  background-color: var(--color-yellow-bright);
+  background-color: var(--color-red-bright);
 }
 .confirm {
   background-color: var(--color-blue-bright);
@@ -27,7 +29,7 @@ h3 {
 .label {
   border: none;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 0.5fr;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
   padding: 0.5rem 0rem;
 }
 .label dd {
@@ -45,7 +47,7 @@ h3 {
 
 .info {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 0.5fr;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
 }
 
 .info dd {
@@ -58,15 +60,25 @@ h3 {
 
 .btn {
   cursor: pointer;
+  width: fit-content;
+  color: #fff;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
 }
 .btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 .reason {
   padding: 0.5rem 0.5rem;
   margin-left: 4px;
   line-height: 1.7;
+}
+
+.dd {
+  text-align: center;
 }
 
 .hr {

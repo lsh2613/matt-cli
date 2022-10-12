@@ -1,60 +1,64 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import styles from "./waiting.module.css";
-import button from "@/common/button.module.css";
-import float from "@/common/button.module.css";
-import { deleteStudent, fetchStudent, transferToCs } from "@api/wating/wating";
-import { fetchStudentByClassId } from "@api/cs/cs";
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import styles from './waiting.module.css'
+import button from '@/common/button.module.css'
+import float from '@/common/button.module.css'
+import { fetchStudent, transferToCs } from '@api/wating/wating'
+import { fetchStudentByClassId } from '@api/cs/cs'
 
 const Waiting = (props) => {
-  const location = useLocation();
-  const classId = location.state.classId;
+  const location = useLocation()
+  const classId = location.state.classId
 
-  const [ws, setWs] = useState([]);
-  const [cs, setCs] = useState([]);
+  const [ws, setWs] = useState([])
+  const [cs, setCs] = useState([])
   useEffect(() => {
-    fetchStudent(classId).then((res) => {
-      setWs(res.data);
-    });
-    fetchStudentByClassId(classId).then((res) => setCs(res.data));
-  }, []);
+    fetchData()
+  }, [])
 
   const fetchWs = (id) => {
     transferToCs(id).then((res) => {
       if (res.status === 200) {
-        fetchStudent(classId).then((res) => {
-          setWs(res.data);
-        });
-        fetchStudentByClassId(classId).then((res) => setCs(res.data));
+        fetchData()
       }
-    });
-  };
+    })
+  }
+
+  const fetchData = () => {
+    fetchStudent(classId).then((res) => {
+      setWs(res.data)
+    })
+    fetchStudentByClassId(classId).then((res) => setCs(res.data))
+  }
   return (
     <>
       <div className={styles.container}>
-        <section>
-          <h3>수강 대기중인 학생 </h3>
+        <section className={styles.section}>
+          <h3 className={styles.h3}>수강 대기생 </h3>
           <div className={`${styles.waiting} ${styles.box}`}>
             <div className={styles.list}>
               <div className={styles.label}>
-                <dd>이름</dd>
-                <dd>신청일</dd>
-                <dd>확인</dd>
+                <dd className={styles.dd}>이름</dd>
+                <dd className={styles.dd}>신청일</dd>
+                <dd className={styles.dd}></dd>
               </div>
 
               {ws.length > 0 ? (
                 <div className={styles.students}>
-                  {" "}
+                  {' '}
                   {ws.map((student) => (
-                    <div className={styles.student} key={student.id}>
+                    <div
+                      className={styles.student}
+                      key={student.waitingStudentId}
+                    >
                       <article className={styles.info}>
-                        <dd>{student.name}</dd>
-                        <dd className={styles.date}>{student.date}</dd>
+                        <dd className={styles.dd}>{student.name}</dd>
+                        <dd className={styles.dd}>{student.date}</dd>
                         <dd
-                          className={styles.btn}
-                          onClick={() => fetchWs(student.id)}
+                          className={`${styles.dd} ${styles.btn} ${button.red}`}
+                          onClick={() => fetchWs(student.waitingStudentId)}
                         >
-                          ➕
+                          추가
                         </dd>
                       </article>
                       <hr className={styles.hr} />
@@ -72,25 +76,34 @@ const Waiting = (props) => {
         </section>
 
         <section>
-          <h3>수강 확정된 학생 </h3>
+          <h3 className={styles.h3}>수강 확정생 </h3>
           <div className={`${styles.confirm} ${styles.box}`}>
             <div className={styles.list}>
               <div className={styles.label}>
-                <dd>이름</dd>
-                <dd>수락일</dd>
+                <dd className={styles.dd}>이름</dd>
+                <dd className={styles.dd}>수락일</dd>
+                <dd className={styles.dd}></dd>
               </div>
               {cs.length > 0 ? (
                 <div className={styles.students}>
-                  {" "}
+                  {' '}
                   {cs.map((student, index) => (
                     <div className={styles.student} key={index}>
                       <article className={styles.info}>
-                        <dd>{student.name}</dd>
-                        <dd className={styles.date}>{student.date}</dd>
+                        <dd className={styles.dd}>{student.name}</dd>
+                        <dd className={`${styles.dd} ${styles.date}`}>
+                          {student.date}
+                        </dd>
+                        <dd
+                          className={`${styles.dd} ${styles.btn} ${button.blue}`}
+                          onClick={() => fetchWs(student.waitingStudentId)}
+                        >
+                          제외
+                        </dd>
                       </article>
                       <hr className={styles.hr} />
                       <article className={styles.reason}>
-                        {student.contents ? `${student.contents}` : "no data "}
+                        {student.contents ? `${student.contents}` : 'no data '}
                       </article>
                     </div>
                   ))}
@@ -106,7 +119,7 @@ const Waiting = (props) => {
         </button>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Waiting;
+export default Waiting

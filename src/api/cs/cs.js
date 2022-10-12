@@ -14,6 +14,7 @@ function fetchStudentByClassId(id) {
 function makeClassFinished(classId) {
   return cs.post(`/status/${classId}`, classId)
 }
+
 export {
   fetchPastStudentClass,
   fetchDoingStudentClass,
