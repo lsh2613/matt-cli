@@ -37,7 +37,6 @@ function createComment(communityId, content) {
 }
 
 function updateComment(data) {
-  console.log(data)
   return community.put(`comment/${data.commentId}/?content=${data.content}`)
 }
 

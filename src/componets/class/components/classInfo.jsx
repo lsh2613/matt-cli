@@ -41,7 +41,7 @@ const ClassInfo = (props) => {
   }
 
   const toUpdateClass = (classId) => {
-    navigate(`/updateclass/${classId}`, { state: { classId: classId } })
+    navigate(`/updateclass/${classId}`)
   }
   const setWish = () => {
     postWish(classId).then((res) =>
@@ -50,7 +50,6 @@ const ClassInfo = (props) => {
   }
   useEffect(() => {
     fetchClass(classId).then((res) => {
-      console.log(params)
       setClasses(res.data)
     })
     fetchClassTagByClassId(classId).then((res) => setTags(res.data))

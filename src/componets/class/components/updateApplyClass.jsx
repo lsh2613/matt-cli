@@ -35,7 +35,6 @@ const UpdateApplyClass = (props) => {
   useEffect(() => {
     setState(props.visible)
     fetchWsByWsId(wsId).then((res) => {
-      console.log(res)
       setData({ ...data, ['content']: res.data.content })
     })
   }, [props.visible])

@@ -4,6 +4,7 @@ import button from '../../../common/button.module.css'
 import float from '../../../common/float.module.css'
 import { postClass } from '../../../api/class/class'
 import { useNavigate } from 'react-router-dom'
+import { fetchTagByNm, createTag } from '@/api/tag/tag'
 
 const MakeClass = (props) => {
   const navigate = useNavigate()
@@ -20,6 +21,8 @@ const MakeClass = (props) => {
     startTime: '',
     title: '',
   })
+  const [input, setInput] = useState('')
+  const [tags, setTags] = useState([])
 
   const {
     category,
@@ -39,6 +42,24 @@ const MakeClass = (props) => {
       ...classInfo,
       [name]: value,
     })
+  }
+
+  //태그 메소드
+  const onChangeTag = (e) => {
+    setTagInput(e.target.value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      setInput('')
+      fetchTagByNm(input)
+        .then((res) => {
+          setTags([...tags, res.data])
+        })
+        .catch(() => {
+          createTagName()
+        })
+    }
   }
 
   const postData = () => {
@@ -71,24 +92,7 @@ const MakeClass = (props) => {
               value={category}
             ></input>
           </div>
-          <div className={styles.form}>
-            <div className={styles.label}>수강인원</div>
-            <select
-              className={styles.inputForm}
-              onChange={onChange}
-              value={numberOfStudents}
-              name='numberOfStudents'
-            >
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-              <option value='8'>8</option>
-            </select>
-          </div>
+
           <div className={styles.form}>
             <div className={styles.label}>시작 날짜</div>
             <input
@@ -109,17 +113,7 @@ const MakeClass = (props) => {
               value={endDate}
             ></input>
           </div>
-        </section>
-        <section className={styles.section2}>
-          <div className={styles.form}>
-            <div className={styles.label}>요일</div>
-            <input
-              type='text'
-              name='daysId'
-              className={styles.inputForm}
-              onChange={onChange}
-            ></input>
-          </div>
+
           <div className={styles.form}>
             <div className={styles.label}>시작 시간</div>
             <input
@@ -140,6 +134,26 @@ const MakeClass = (props) => {
               value={endTime}
             ></input>
           </div>
+        </section>
+        <section className={styles.section2}>
+          <div className={styles.form}>
+            <div className={styles.label}>수강인원</div>
+            <select
+              className={styles.inputForm}
+              onChange={onChange}
+              value={numberOfStudents}
+              name='numberOfStudents'
+            >
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+              <option value='7'>7</option>
+              <option value='8'>8</option>
+            </select>
+          </div>
           <div className={styles.form}>
             <div className={styles.label}>장소</div>
             <input
@@ -150,7 +164,27 @@ const MakeClass = (props) => {
               value={place}
             ></input>
           </div>
-
+          <div className={styles.form}>
+            <div className={styles.label}>태그</div>
+            <input
+              type='text'
+              className={styles.inputForm}
+              onChange={onChangeTag}
+              onKeyPress={handleKeyPress}
+              value={tagInput}
+            ></input>
+            {tags.map((tag) => (
+              <li className={styles.item} key={tag.tagInfoId}>
+                <ol className={styles.tagNm}>{tag.tagName}</ol>
+                <ol
+                  className={styles.tagDel}
+                  onClick={() => delTag(tag.tagInfoId)}
+                >
+                  X
+                </ol>
+              </li>
+            ))}
+          </div>
           <div className={styles.form}>
             <div className={styles.label}>설명</div>
             <textarea

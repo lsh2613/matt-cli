@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './search.module.css'
 import button from '@/common/button.module.css'
-import { fetchTagByNm, createTag } from '../../../api/tag/tag'
-import { fetchClassByTags } from '../../../api/classtag/classtag'
+import { fetchTagByNm, createTag } from '@/api/tag/tag'
+import { fetchClassByTags } from '@/api/classtag/classtag'
 
 const Search = (props) => {
   const [tags, setTags] = useState([])
