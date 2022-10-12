@@ -12,4 +12,7 @@ function fetchTagById(id) {
   return tag.get(`/${id}`)
 }
 
-export { fetchTag, createTag, fetchTagById }
+function fetchTagByNm(name) {
+  return tag.get(`/name/${name}`)
+}
+export { fetchTag, createTag, fetchTagById, fetchTagByNm }

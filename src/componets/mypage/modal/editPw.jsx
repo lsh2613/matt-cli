@@ -30,7 +30,7 @@ const EditPw = (props) => {
         alert('변경되었습니다 :)')
       })
       .catch((e) => {
-        console.log(e)
+        alert(e.response.data)
       })
     props.updateVisible(false)
     init()

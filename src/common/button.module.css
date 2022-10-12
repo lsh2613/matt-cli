@@ -104,7 +104,12 @@
   cursor: pointer;
   font-size: 12px;
 }
-
+.primary {
+  background-color: var(--color-primary);
+}
+.primary:hover {
+  background-color: var(--color-primary-darker);
+}
 .red {
   background-color: var(--color-red);
 }

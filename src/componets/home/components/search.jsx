@@ -1,30 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './search.module.css'
-import { fetchTag } from '../../../api/tag/tag'
+import button from '@/common/button.module.css'
+import { fetchTagByNm, createTag } from '../../../api/tag/tag'
+import { fetchClassByTags } from '../../../api/classtag/classtag'
 
 const Search = (props) => {
   const [tags, setTags] = useState([])
-  const tag = useRef(null)
-  useEffect(() => {
-    //tag 정보 Dom 입력에 편리하도록 커스텀
-    fetchTag().then((res) => {
-      const data = res.data
-      let cus_data = []
-      let idx = -1
-      data.forEach((el) => {
-        if (el.tagInfoId % 100 === 0) {
-          idx += 1
-          let obj = el
-          obj['items'] = []
-          cus_data.push(obj)
-        } else {
-          el.state = false
-          cus_data[idx].items.push(el)
-        }
+  const [input, setInput] = useState('')
+
+  const [classes, setClasses] = useState([])
+
+  const onChange = (e) => {
+    setInput(e.target.value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      setInput('')
+      fetchTagByNm(input)
+        .then((res) => {
+          setTags([...tags, res.data])
+        })
+        .catch(() => {
+          createTagName()
+        })
+    }
+  }
+
+  const delTag = (tagId) => {
+    let res = tags.filter((tag) => tag.tagInfoId !== tagId)
+    setTags(res)
+  }
+
+  const createTagName = () => {
+    const data = {
+      tagInfoId: 0,
+      tagName: input,
+    }
+    createTag(data).then(() => {
+      fetchTagByNm(input).then((res) => {
+        setTags([...tags, res.data])
       })
-      setTags(cus_data)
     })
-  }, [])
+  }
+
+  useEffect(() => {
+    fetchClassByTags(tags).then((res) => setClasses(res.data))
+  }, [tags])
 
   const changeState = (item) => {
     if (item.state === false) {
@@ -50,15 +72,76 @@ const Search = (props) => {
   }
 
   return (
-    <div className={styles.container}>
-      {tags.map((tag) => (
-        <div className={styles.filterDiv} key={tag.tagInfoId}>
-          <div className={styles.filterTitle}>{tag.tagName}</div>
-          <div className={styles.filterGroup}>
-            {tag.items.map((item) => changeState(item))}
-          </div>
+    <div className={styles.classTagSection}>
+      <div className={styles.container}>
+        <div className={styles.classTagHeader}>
+          <dd>🏷️ 태그입력</dd>
+          <dd
+            className={`${styles.resetBtn} ${button.primary}`}
+            onClick={() => setTags([])}
+          >
+            초기화
+          </dd>
         </div>
-      ))}
+
+        <input
+          type='text'
+          className={styles.inputForm}
+          value={input}
+          onChange={onChange}
+          onKeyPress={handleKeyPress}
+        ></input>
+        <div className={styles.filterGroup}>
+          {tags.map((tag) => (
+            <li className={styles.item} key={tag.tagInfoId}>
+              <ol className={styles.tagNm}>{tag.tagName}</ol>
+              <ol
+                className={styles.tagDel}
+                onClick={() => delTag(tag.tagInfoId)}
+              >
+                X
+              </ol>
+            </li>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.tagClassContainer}>
+        {tags.length > 0 ? (
+          <>
+            <div className={styles.title}>🔍 태그 결과 클래스</div>
+
+            {classes.length > 0 ? (
+              <div className={styles.cardContainer}>
+                {classes.map((classes) => (
+                  <div
+                    className={styles.card}
+                    onClick={() => toClassInfo(classes.classId)}
+                    key={classes.classId}
+                  >
+                    <div className={styles.classTitle}>{classes.title}</div>
+                    <div className={styles.contents}>
+                      <div className={styles.etc}>
+                        {classes.startDate} ~ {classes.endDate}
+                      </div>
+                      <div className={styles.etc}>
+                        모집 인원
+                        <span className={styles.bold}>
+                          {classes.numberOfStudents}명
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className={styles.none}> 결과가 없습니다 :( </div>
+            )}
+          </>
+        ) : (
+          ''
+        )}
+      </div>
     </div>
   )
 }

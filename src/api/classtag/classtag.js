@@ -12,4 +12,16 @@ function createClassTag(form) {
   return classTag.post(`/classTag/new`, form)
 }
 
-export { fetchClassTagByClassId, deleteClassTag, createClassTag }
+function fetchClassByTags(tags) {
+  let tag_list = []
+  tags.forEach((tag) => tag_list.push(tag.tagInfoId))
+  const url = `/tagInfoIdList?tagInfoId=${tag_list.join('&tagInfoId=')}`
+  return classTag.get(url)
+}
+
+export {
+  fetchClassTagByClassId,
+  deleteClassTag,
+  createClassTag,
+  fetchClassByTags,
+}
