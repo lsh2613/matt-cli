@@ -43,76 +43,81 @@ const Header = () => {
   })
 
   return (
-    <header className={styles.header}>
-      <img
-        src={require('../../../utils/image/logo.png')}
-        alt='logo'
-        className={styles.logo}
-        onClick={() => {
-          navigate('/')
-        }}
-      />
-      <div className={styles.menu}>
-        <li className={styles.menuList} onClick={() => navigate('/class')}>
-          강좌조회
-        </li>
-        <li className={styles.menuList} onClick={() => navigate('/instructor')}>
-          멘토조회
-        </li>
-        <li
-          className={styles.menuList}
-          onClick={() => navigate('/community/board')}
-        >
-          커뮤니티
-        </li>
-      </div>
-      <div className={styles.searchForm}>
-        <input
-          placeholder='검색어를 입력하세요'
-          onChange={(e) => {
-            dispatch(onChangeKeyword(e.target.value))
+    <>
+      <header className={styles.header}>
+        <img
+          src={require('../../../utils/image/logo.png')}
+          alt='logo'
+          className={styles.logo}
+          onClick={() => {
+            navigate('/')
           }}
-          name={keyword}
-          value={keyword}
-          onKeyPress={handleKeyPress}
         />
-        <button
-          className={`${styles.fullPrimaryBtn} ${styles.searchBtn}`}
-          onClick={toSearch}
-        >
-          검색
-        </button>
-      </div>
-      {login ? (
-        <div className={styles.floatRight}>
-          <span className={styles.signUpBtn} onClick={toMypage}>
-            마이페이지
-          </span>
-          <button className={button.fullPrimaryBtn} onClick={onLogout}>
-            로그아웃
-          </button>
-        </div>
-      ) : (
-        <div className={styles.floatRight}>
-          <span
-            className={styles.signUpBtn}
-            onClick={() => {
-              navigate('/signup')
-            }}
+        <div className={styles.menu}>
+          <li className={styles.menuList} onClick={() => navigate('/class')}>
+            강좌조회
+          </li>
+          <li
+            className={styles.menuList}
+            onClick={() => navigate('/instructor')}
           >
-            회원가입
-          </span>
+            멘토조회
+          </li>
+          <li
+            className={styles.menuList}
+            onClick={() => navigate('/community/board')}
+          >
+            커뮤니티
+          </li>
+        </div>
+        <div className={styles.searchForm}>
+          <input
+            placeholder='검색어를 입력하세요'
+            onChange={(e) => {
+              dispatch(onChangeKeyword(e.target.value))
+            }}
+            name={keyword}
+            value={keyword}
+            onKeyPress={handleKeyPress}
+          />
           <button
-            className={button.fullPrimaryBtn}
-            onClick={() => {
-              navigate('/login')
-            }}
+            className={`${styles.fullPrimaryBtn} ${styles.searchBtn}`}
+            onClick={toSearch}
           >
-            로그인
+            검색
           </button>
         </div>
-      )}
-    </header>
+        {login ? (
+          <div className={styles.floatRight}>
+            <span className={styles.signUpBtn} onClick={toMypage}>
+              마이페이지
+            </span>
+            <button className={button.fullPrimaryBtn} onClick={onLogout}>
+              로그아웃
+            </button>
+          </div>
+        ) : (
+          <div className={styles.floatRight}>
+            <span
+              className={styles.signUpBtn}
+              onClick={() => {
+                navigate('/signup')
+              }}
+            >
+              회원가입
+            </span>
+            <button
+              className={button.fullPrimaryBtn}
+              onClick={() => {
+                navigate('/login')
+              }}
+            >
+              로그인
+            </button>
+          </div>
+        )}
+      </header>
+    </>
   )
 }
 

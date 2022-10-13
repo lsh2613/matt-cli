@@ -22,8 +22,9 @@
 }
 
 .infoGroup {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
+  margin-top: 50px;
 }
 .info {
   width: 40%;

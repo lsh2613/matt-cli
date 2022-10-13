@@ -82,7 +82,7 @@ const Search = (props) => {
     <div className={styles.classTagSection}>
       <div className={styles.container}>
         <div className={styles.classTagHeader}>
-          <dd>🏷️ 태그입력</dd>
+          <dd>🏷️ 태그로 클래스 검색하기</dd>
           <dd
             className={`${styles.resetBtn} ${button.borderGrayBtn}`}
             onClick={() => setTags([])}

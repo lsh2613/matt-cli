@@ -1,6 +1,7 @@
 .container {
   display: flex;
   width: 100%;
+  margin-top: 80px;
 }
 
 .section {
@@ -15,7 +16,7 @@ p {
   color: #bbb;
 }
 
-.class{
+.class {
   width: 100%;
 }
 
@@ -33,7 +34,7 @@ p {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  padding-right:  1rem;
+  padding-right: 1rem;
 }
 
 input[type='radio'] {

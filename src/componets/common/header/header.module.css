@@ -12,7 +12,6 @@
 }
 
 .app {
-  margin-top: 60px;
   background-color: #fff;
   width: 100%;
 }
@@ -23,14 +22,19 @@
 
 .header {
   height: 60px;
-  width: 100%;
+  z-index: 10000;
   display: flex;
   align-items: center;
   position: -webkit-sticky; /* 사파리 브라우저 지원 */
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   top: 4px;
   background: #fff;
   border-bottom: 1px solid var(--color-primary-bright);
+  z-index: 9998;
+  padding: 0 calc((100% - 1000px) / 2);
 }
 
 .logo {
@@ -81,7 +85,7 @@
 
 .floatRight {
   position: absolute;
-  right: 1rem;
+  right: calc((100% - 1000px) / 2);
 }
 
 .searchForm {

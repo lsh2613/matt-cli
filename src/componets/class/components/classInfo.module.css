@@ -2,11 +2,13 @@
   width: 100%;
   min-height: calc(100vh-50px);
   padding: 0 1rem;
+  position: relative;
+  margin-top: 50px;
 }
 .btnGroup {
   position: absolute;
   right: 1rem;
-  margin-top: 1rem;
+  margin-top: 50px;
 }
 .title {
   font-size: var(--font-lg);
