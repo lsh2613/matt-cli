@@ -1,44 +1,44 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { signin } from "../../api/login/login";
-import styles from "./login.module.css";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { signin } from '../../api/login/login'
+import styles from './login.module.css'
 
-import { useSelector, useDispatch } from "react-redux";
-import { setUserInfo } from "@/redux/reducers/user";
+import { useSelector, useDispatch } from 'react-redux'
+import { setUserInfo } from '@/redux/reducers/user'
 
 const Login = (props) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [user, setUser] = useState({
-    loginId: "",
-    password: "",
-  });
+    loginId: '',
+    password: '',
+  })
 
   const postUser = () => {
     signin(user)
       .then((res) => {
-        saveInLocalStorage(res.data);
-        dispatch(setUserInfo(res.data));
+        saveInLocalStorage(res.data)
+        dispatch(setUserInfo(res.data))
       })
-      .catch((e) => alert(e.response.data));
-  };
+      .catch((e) => alert(e.response.data))
+  }
 
   const saveInLocalStorage = (user) => {
     for (let [key, value] of Object.entries(user)) {
-      localStorage.setItem(key, value);
+      localStorage.setItem(key, value)
     }
-    navigate("/");
-  };
+    navigate('/')
+  }
 
-  const { loginId, password } = user;
+  const { loginId, password } = user
   const onChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setUser({
       ...user,
       [name]: value,
-    });
-  };
+    })
+  }
 
   return (
     <section className={styles.loginPage}>
@@ -48,16 +48,16 @@ const Login = (props) => {
         </div>
         <input
           className={styles.form}
-          placeholder="아이디"
+          placeholder='아이디'
           onChange={onChange}
-          name="loginId"
+          name='loginId'
           value={loginId}
         />
         <input
           className={styles.form}
-          placeholder="패스워드"
-          type="password"
-          name="password"
+          placeholder='패스워드'
+          type='password'
+          name='password'
           value={password}
           onChange={onChange}
         />
@@ -67,10 +67,12 @@ const Login = (props) => {
         >
           로그인
         </button>
-        <div className={styles.label}>비밀번호를 잊으셨나요?</div>
+        <div className={styles.label} onClick={() => navigate('/findpw')}>
+          비밀번호를 잊으셨나요?
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

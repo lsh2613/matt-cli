@@ -34,15 +34,17 @@ const FindPw = (props) => {
       <div className={styles.container}>
         <section className={styles.section}>
           {state ? (
-            <>
-              <h4>이메일로 전송된 비밀번호로 로그인을 진행하세요</h4>
+            <div className={styles.alert}>
+              <h4 className={styles.h4}>
+                이메일로 전송된 임시 패스워드로 로그인을 진행하세요 :)
+              </h4>
               <button
                 onClick={() => navigate('/login')}
                 className={`${button.fullPrimaryBtn} ${styles.loginBtn}`}
               >
                 로그인 하러가기
               </button>
-            </>
+            </div>
           ) : (
             <>
               <div className={styles.banner}>

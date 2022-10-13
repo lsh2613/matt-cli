@@ -28,22 +28,18 @@
   display: flex;
   cursor: pointer;
   flex-shrink: 0;
-  font-size: 13px;
+  color: #fff;
+  font-size: 0.8rem;
   list-style: none;
   border: 2px solid none;
   background-color: #a8a4ce;
-  color: #fff;
   border-radius: 10px;
   padding: 5px 10px;
   width: fit-content;
   text-align: center;
   margin-right: 8px;
   box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.3);
-  /* filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4)); */
-}
-
-.item:hover {
-  background-color: #9590bd;
+  filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4));
 }
 
 .tagNm,
@@ -59,22 +55,6 @@
 .tagDel:hover {
   cursor: pointer;
   color: black;
-}
-
-.clicked {
-  cursor: pointer;
-  flex-shrink: 0;
-  font-size: 13px;
-  list-style: none;
-  border: 2px solid none;
-  background-color: red;
-  color: #fff;
-  border-radius: 10px;
-  padding: 5px 10px;
-  min-width: 60px;
-  text-align: center;
-  margin-right: 8px;
-  box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.3);
 }
 
 .tagClassContainer {
@@ -116,8 +96,7 @@
 }
 
 .resetBtn {
-  font-size: 0.8rem;
-  color: #fff;
+  font-size: 0.7rem;
   padding: 0 0.5rem;
   display: flex;
   align-items: center;

@@ -1,76 +1,76 @@
-import React, { useEffect } from "react";
-import styles from "./header.module.css";
-import button from "../../../common/button.module.css";
-import { useNavigate } from "react-router-dom";
-import { log_out } from "../../../api/login/login";
-import { useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { onChangeKeyword, onSearch } from "../../../redux/reducers/search";
-import { initUser, fetchUser } from "../../../redux/reducers/user";
+import React, { useEffect } from 'react'
+import styles from './header.module.css'
+import button from '../../../common/button.module.css'
+import { useNavigate } from 'react-router-dom'
+import { log_out } from '../../../api/login/login'
+import { useLocation } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { onChangeKeyword, onSearch } from '../../../redux/reducers/search'
+import { initUser, fetchUser } from '../../../redux/reducers/user'
 
 const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const location = useLocation()
+  const dispatch = useDispatch()
 
-  const login = useSelector((state) => state.user.login);
-  const keyword = useSelector((state) => state.search.searchKey);
+  const login = useSelector((state) => state.user.login)
+  const keyword = useSelector((state) => state.search.searchKey)
 
   const onLogout = () => {
-    log_out().then(localStorage.clear());
-    dispatch(initUser());
-    navigate("/");
-  };
+    log_out().then(localStorage.clear())
+    dispatch(initUser())
+    navigate('/')
+  }
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") toSearch();
-  };
+    if (e.key === 'Enter') toSearch()
+  }
 
   /**
    * 검색어
    */
 
   const toSearch = () => {
-    dispatch(onSearch());
-    if (location.pathname !== "/search") navigate("/search");
-  };
+    dispatch(onSearch())
+    if (location.pathname !== '/search') navigate('/search')
+  }
   const toMypage = () => {
-    navigate("/mypage");
-  };
+    navigate('/mypage')
+  }
 
   useEffect(() => {
-    dispatch(fetchUser());
-  });
+    dispatch(fetchUser())
+  })
 
   return (
     <header className={styles.header}>
       <img
-        src={require("../../../utils/image/logo.png")}
-        alt="logo"
+        src={require('../../../utils/image/logo.png')}
+        alt='logo'
         className={styles.logo}
         onClick={() => {
-          navigate("/");
+          navigate('/')
         }}
       />
       <div className={styles.menu}>
-        <li className={styles.menuList} onClick={() => navigate("/class")}>
+        <li className={styles.menuList} onClick={() => navigate('/class')}>
           강좌조회
         </li>
-        <li className={styles.menuList} onClick={() => navigate("/instructor")}>
+        <li className={styles.menuList} onClick={() => navigate('/instructor')}>
           멘토조회
         </li>
         <li
           className={styles.menuList}
-          onClick={() => navigate("/community/board")}
+          onClick={() => navigate('/community/board')}
         >
           커뮤니티
         </li>
       </div>
       <div className={styles.searchForm}>
         <input
-          placeholder="검색어를 입력하세요"
+          placeholder='검색어를 입력하세요'
           onChange={(e) => {
-            dispatch(onChangeKeyword(e.target.value));
+            dispatch(onChangeKeyword(e.target.value))
           }}
           name={keyword}
           value={keyword}
@@ -97,15 +97,15 @@ const Header = () => {
           <span
             className={styles.signUpBtn}
             onClick={() => {
-              navigate("/signup");
+              navigate('/signup')
             }}
           >
             회원가입
           </span>
           <button
-            className={button.borderPrimaryBtn}
+            className={button.fullPrimaryBtn}
             onClick={() => {
-              navigate("/login");
+              navigate('/login')
             }}
           >
             로그인
@@ -113,7 +113,7 @@ const Header = () => {
         </div>
       )}
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

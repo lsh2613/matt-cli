@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './search.module.css'
 import button from '@/common/button.module.css'
+import { useNavigate } from 'react-router-dom'
 import { fetchTagByNm, createTag } from '@/api/tag/tag'
 import { fetchClassByTags } from '@/api/classtag/classtag'
 
 const Search = (props) => {
+  const navigate = useNavigate()
+
   const [tags, setTags] = useState([])
   const [input, setInput] = useState('')
 
@@ -25,6 +28,10 @@ const Search = (props) => {
           createTagName()
         })
     }
+  }
+
+  const toClassInfo = (classId) => {
+    navigate(`/class/${classId}`)
   }
 
   const delTag = (tagId) => {
@@ -77,7 +84,7 @@ const Search = (props) => {
         <div className={styles.classTagHeader}>
           <dd>🏷️ 태그입력</dd>
           <dd
-            className={`${styles.resetBtn} ${button.primary}`}
+            className={`${styles.resetBtn} ${button.borderGrayBtn}`}
             onClick={() => setTags([])}
           >
             초기화

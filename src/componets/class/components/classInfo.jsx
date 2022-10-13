@@ -24,7 +24,7 @@ const ClassInfo = (props) => {
   const [tags, setTags] = useState([])
   const instructorId = parseInt(localStorage.getItem('instructorId'))
   const location = useLocation()
-  const classStatus = location.state.classSt
+
   const classId = params.classId
   const login = useSelector((state) => state.user.login)
 
@@ -167,7 +167,7 @@ const ClassInfo = (props) => {
           <hr />
           {classes.descriptions}
         </section>
-        {classes.endDate < nowDate || classStatus ? (
+        {1 ? (
           <section className={styles.reviewContainer}>
             <h3>💬 클래스 리뷰</h3>
             <hr />

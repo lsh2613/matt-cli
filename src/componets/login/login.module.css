@@ -1,50 +1,52 @@
-.loginPage{
+.loginPage {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 100%;
 }
 .loginForm {
-  display:flex;
+  display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   width: 18em;
+  transform: translate(-50%, -70%);
   align-items: center;
 }
-.form{
-  border : 1px solid #eee;
-  padding : 13px 20px;
+.form {
+  border: 1px solid #eee;
+  padding: 13px 20px;
   border-radius: 10px;
   margin-top: 10px;
   width: 100%;
 }
 
-.form:focus{
-   outline:none;
- -webkit-box-shadow: 2px 2px 15px 2px rgba(179,156,208,0.16); 
-box-shadow: 2px 2px 15px 2px rgba(179,156,208,0.3);
+.form:focus {
+  outline: none;
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.16);
+  box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.3);
 }
-.loginBtn{
-  background-color:  var(--color-primary);
+.loginBtn {
+  background-color: var(--color-primary);
   opacity: 0.5;
   cursor: pointer;
 }
 
-
-.label{
+.label {
   margin-top: 1em;
   font-size: 12px;
   color: #999;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-.banner{
+.banner {
   margin-bottom: 2em;
 }
-.banner .gra{ 
+.banner .gra {
   font-size: 20px;
   background: linear-gradient(to right top, var(--color-primary), #ffa69e);
-    color: transparent;
-    -webkit-background-clip: text;
-  
-  }
+  color: transparent;
+  -webkit-background-clip: text;
+}
