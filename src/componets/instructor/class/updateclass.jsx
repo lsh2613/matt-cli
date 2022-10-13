@@ -4,8 +4,13 @@ import button from '../../../common/button.module.css'
 import float from '../../../common/float.module.css'
 import { updateClass } from '../../../api/class/class'
 import { useNavigate, useParams } from 'react-router-dom'
-
-import { fetchClass } from '../../../api/class/class'
+import { fetchClass } from '@api/class/class'
+import { fetchTagByNm, createTag } from '@/api/tag/tag'
+import {
+  createClassTag,
+  fetchClassTagByClassId,
+  deleteClassTag,
+} from '@api/classtag/classtag'
 
 const UpdateClass = (props) => {
   const navigate = useNavigate()
@@ -37,7 +42,58 @@ const UpdateClass = (props) => {
     })
   }
 
+  //태그 메소드
+  const onChangeTag = (e) => {
+    setInput(e.target.value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      setInput('')
+      fetchTagByNm(input)
+        .then((res) => {
+          const data = {
+            tagName: res.data.tagName,
+            tagId: res.data.tagInfoId,
+          }
+          setTags([...tags, data])
+        })
+        .catch(() => {
+          createTagName()
+        })
+    }
+  }
+
+  const createTagName = () => {
+    console.log('?')
+    const data = {
+      tagInfoId: 0,
+      tagName: input,
+    }
+    createTag(data).then(() => {
+      fetchTagByNm(input).then((res) => {
+        const newTag = {
+          tagName: res.data.tagName,
+          tagId: res.data.tagInfoId,
+        }
+        setTags([...tags, newTag])
+      })
+    })
+  }
+
   const patchData = () => {
+    tags.forEach((tag) => {
+      console.log(tag)
+      if (!tag?.classTagId) {
+        console.log(tag)
+        let form = {
+          classesCT: classId,
+          tagClId: 0,
+          tagInfo: tag.tagId,
+        }
+        createClassTag(form)
+      }
+    })
     updateClass(classInfo).then((res) => {
       if (res.status === 200) {
         alert('수정되었습니다 ')
@@ -46,8 +102,21 @@ const UpdateClass = (props) => {
     })
   }
 
+  const delTag = (classTagId, tagId) => {
+    if (classTagId) {
+      deleteClassTag(classTagId).then(() => {
+        let res = tags.filter((tag) => tag.tagId !== tagId)
+        setTags(res)
+      })
+    } else {
+      let res = tags.filter((tag) => tag.tagId !== tagId)
+      setTags(res)
+    }
+  }
+
   useEffect(() => {
     fetchClass(classId).then((res) => setClassInfo(res.data))
+    fetchClassTagByClassId(classId).then((res) => setTags(res.data))
   }, [])
 
   return (
@@ -146,6 +215,30 @@ const UpdateClass = (props) => {
             ></input>
           </div>
 
+          <div className={styles.form}>
+            <div className={styles.label}>태그</div>
+            <input
+              type='text'
+              className={styles.inputForm}
+              placeholder='생성하고 싶은 태그를 입력하세요'
+              onChange={onChangeTag}
+              onKeyPress={handleKeyPress}
+              value={input}
+            ></input>
+            <div className={styles.tagClassContainer}>
+              {tags.map((tag, index) => (
+                <li className={styles.item} key={index}>
+                  <ol className={styles.tagNm}>{tag.tagName}</ol>
+                  <ol
+                    className={styles.tagDel}
+                    onClick={() => delTag(tag.classTagId, tag.tagId)}
+                  >
+                    X
+                  </ol>
+                </li>
+              ))}
+            </div>
+          </div>
           <div className={styles.form}>
             <div className={styles.label}>설명</div>
             <textarea

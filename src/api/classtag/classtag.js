@@ -5,7 +5,7 @@ function fetchClassTagByClassId(id) {
 }
 
 function deleteClassTag(id) {
-  return classTag.delete(`/delete?classTgId=${id}`)
+  return classTag.delete(`/delete/${id}`, id)
 }
 
 function createClassTag(form) {
