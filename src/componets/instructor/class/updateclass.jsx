@@ -14,6 +14,8 @@ const UpdateClass = (props) => {
   const classId = params.classId
 
   const [classInfo, setClassInfo] = useState({})
+  const [input, setInput] = useState('')
+  const [tags, setTags] = useState([])
 
   const {
     category,
@@ -72,24 +74,7 @@ const UpdateClass = (props) => {
               value={category || ''}
             ></input>
           </div>
-          <div className={styles.form}>
-            <div className={styles.label}>수강인원</div>
-            <select
-              className={styles.inputForm}
-              onChange={onChange}
-              value={numberOfStudents || ''}
-              name='numberOfStudents'
-            >
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-              <option value='8'>8</option>
-            </select>
-          </div>
+
           <div className={styles.form}>
             <div className={styles.label}>시작 날짜</div>
             <input
@@ -108,17 +93,6 @@ const UpdateClass = (props) => {
               className={styles.inputForm}
               onChange={onChange}
               value={endDate || ''}
-            ></input>
-          </div>
-        </section>
-        <section className={styles.section2}>
-          <div className={styles.form}>
-            <div className={styles.label}>요일</div>
-            <input
-              type='text'
-              name='daysId'
-              className={styles.inputForm}
-              onChange={onChange}
             ></input>
           </div>
           <div className={styles.form}>
@@ -140,6 +114,26 @@ const UpdateClass = (props) => {
               onChange={onChange}
               value={endTime || ''}
             ></input>
+          </div>
+        </section>
+        <section className={styles.section2}>
+          <div className={styles.form}>
+            <div className={styles.label}>수강인원</div>
+            <select
+              className={styles.inputForm}
+              onChange={onChange}
+              value={numberOfStudents || ''}
+              name='numberOfStudents'
+            >
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+              <option value='7'>7</option>
+              <option value='8'>8</option>
+            </select>
           </div>
           <div className={styles.form}>
             <div className={styles.label}>장소</div>

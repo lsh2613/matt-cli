@@ -9,7 +9,7 @@ function deleteClassTag(id) {
 }
 
 function createClassTag(form) {
-  return classTag.post(`/classTag/new`, form)
+  return classTag.post(`/new`, form)
 }
 
 function fetchClassByTags(tags) {

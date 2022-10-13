@@ -8,21 +8,17 @@
 
 .container {
   height: fit-content;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
-.section1 {
-  flex: 1 1 50%;
-}
-.section2 {
-  flex: 1 1 50%;
-  height: fit-content;
-}
+
 .form {
   display: flex;
   flex-direction: column;
   align-content: center;
   margin-bottom: 1rem;
-  width: 95%;
+  width: 100%;
 }
 
 .label {
@@ -52,4 +48,50 @@ select {
 textarea {
   height: 250px;
   resize: none;
+}
+
+/* 태그 */
+.item {
+  display: flex;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 0.8rem;
+  list-style: none;
+  border: 2px solid none;
+  background-color: #a8a4ce;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: fit-content;
+  text-align: center;
+  margin-right: 8px;
+  box-shadow: inset 5px 5px 8px rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(5px 5px 4px rgba(174, 174, 192, 0.4));
+}
+
+.tagNm,
+.tagDel {
+  padding: 0 0.2rem;
+  margin: 0;
+}
+
+.tagDel {
+  color: #555;
+}
+
+.tagDel:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.tagClassContainer {
+  display: flex;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
 }

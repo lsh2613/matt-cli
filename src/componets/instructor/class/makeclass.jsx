@@ -5,6 +5,7 @@ import float from '../../../common/float.module.css'
 import { postClass } from '../../../api/class/class'
 import { useNavigate } from 'react-router-dom'
 import { fetchTagByNm, createTag } from '@/api/tag/tag'
+import { createClassTag } from '@api/classtag/classtag'
 
 const MakeClass = (props) => {
   const navigate = useNavigate()
@@ -21,6 +22,7 @@ const MakeClass = (props) => {
     startTime: '',
     title: '',
   })
+  const [loading, setLoading] = useState(false)
   const [input, setInput] = useState('')
   const [tags, setTags] = useState([])
 
@@ -46,7 +48,7 @@ const MakeClass = (props) => {
 
   //태그 메소드
   const onChangeTag = (e) => {
-    setTagInput(e.target.value)
+    setInput(e.target.value)
   }
 
   const handleKeyPress = (e) => {
@@ -62,9 +64,37 @@ const MakeClass = (props) => {
     }
   }
 
+  const createTagName = () => {
+    const data = {
+      tagInfoId: 0,
+      tagName: input,
+    }
+    createTag(data).then(() => {
+      fetchTagByNm(input).then((res) => {
+        setTags([...tags, res.data])
+      })
+    })
+  }
+
+  const delTag = (tagId) => {
+    let res = tags.filter((tag) => tag.tagInfoId !== tagId)
+    setTags(res)
+  }
+
   const postData = () => {
+    setLoading(true)
     postClass(classInfo).then((res) => {
-      if (res.status === 200) navigate('/mypage')
+      const classId = res.data.classId
+      tags.forEach((tag) => {
+        let form = {
+          classesCT: classId,
+          tagClId: 0,
+          tagInfo: tag.tagInfoId,
+        }
+        createClassTag(form)
+      })
+      setLoading(false)
+      navigate('/mypage')
     })
   }
 
@@ -169,21 +199,24 @@ const MakeClass = (props) => {
             <input
               type='text'
               className={styles.inputForm}
+              placeholder='생성하고 싶은 태그를 입력하세요'
               onChange={onChangeTag}
               onKeyPress={handleKeyPress}
-              value={tagInput}
+              value={input}
             ></input>
-            {tags.map((tag) => (
-              <li className={styles.item} key={tag.tagInfoId}>
-                <ol className={styles.tagNm}>{tag.tagName}</ol>
-                <ol
-                  className={styles.tagDel}
-                  onClick={() => delTag(tag.tagInfoId)}
-                >
-                  X
-                </ol>
-              </li>
-            ))}
+            <div className={styles.tagClassContainer}>
+              {tags.map((tag) => (
+                <li className={styles.item} key={tag.tagInfoId}>
+                  <ol className={styles.tagNm}>{tag.tagName}</ol>
+                  <ol
+                    className={styles.tagDel}
+                    onClick={() => delTag(tag.tagInfoId)}
+                  >
+                    X
+                  </ol>
+                </li>
+              ))}
+            </div>
           </div>
           <div className={styles.form}>
             <div className={styles.label}>설명</div>

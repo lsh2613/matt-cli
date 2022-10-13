@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: center;
   line-height: 1.5;
+  position: relative;
 }
 
 body::-webkit-scrollbar {

@@ -6,12 +6,30 @@
   font-style: normal;
 }
 
-.header {
+* {
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.app {
+  margin-top: 60px;
+  background-color: #fff;
   width: 100%;
+}
+
+*:hover {
+  transition: 0.3s;
+}
+
+.header {
   height: 60px;
+  width: 100%;
   display: flex;
   align-items: center;
-  position: fixed;
+  position: -webkit-sticky; /* 사파리 브라우저 지원 */
+  position: sticky;
+  top: 4px;
+  background: #fff;
   border-bottom: 1px solid var(--color-primary-bright);
 }
 
@@ -47,6 +65,7 @@
 .menuList {
   margin-right: 1.5em;
   cursor: pointer;
+  width: 60%;
 }
 
 .signUpBtn {
@@ -62,7 +81,7 @@
 
 .floatRight {
   position: absolute;
-  right: 1em;
+  right: 1rem;
 }
 
 .searchForm {
@@ -108,6 +127,13 @@ input:focus {
 
 @media (max-width: 768px) {
   .searchForm {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    list-style: none;
     display: none;
   }
 }
