@@ -39,7 +39,7 @@ const InsInfo = (props) => {
 
   useEffect(() => {
     fetchInstructorByInsId(insId).then((res) => setInsInfo(res.data[0]))
-  }, [])
+  }, [insInfo])
 
   return (
     <section className={styles.section}>

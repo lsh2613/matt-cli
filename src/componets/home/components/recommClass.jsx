@@ -6,6 +6,9 @@ import { fetchBeforClass } from '@api/class/class'
 const RecommClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
+  const left = '<'
+  const right = '>'
+  const [tran, setTran] = useState(0)
 
   useEffect(() => {
     fetchBeforClass().then((res) => {
@@ -17,6 +20,20 @@ const RecommClass = (props) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
   }
 
+  const galleryCell = {
+    transform: `translate(${tran}%)`,
+    transition: `.3s`,
+    duration: 300,
+  }
+
+  const animateClass = (dir) => {
+    if (dir === 'left') {
+      tran > -30 ? ' ' : setTran(tran + 60)
+    } else {
+      tran < 30 * classes.length - 100 ? setTran(tran - 60) : ''
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.back}></div>
@@ -24,31 +41,48 @@ const RecommClass = (props) => {
 
       <div className={styles.cardContainer}>
         {classes.map((classes) => (
-          <>
-            <div
-              className={`${styles.card} ${styles.galleryCell}`}
-              onClick={() => toClassInfo(classes.classId)}
-              key={classes.classId}
-            >
-              <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
-              <div className={styles.classTitle}>{classes.title}</div>
-              <div className={styles.contents}>
-                <div className={styles.etc}>
-                  {classes.instructorName} 멘토 ( {classes.instructorMajor} )
-                </div>
-                <div className={styles.etc}>
-                  {classes.startDate} ~ {classes.endDate}
-                </div>
-                <div className={styles.etc}>
-                  현재 지원 인원
-                  <span className={styles.bold}>
-                    {classes.totalCount} / {classes.numberOfStudents}명
-                  </span>
-                </div>
+          <div
+            className={`${styles.card} `}
+            style={galleryCell}
+            onClick={() => toClassInfo(classes.classId)}
+            key={classes.classId}
+          >
+            <div className={`${styles.classSt} ${styles.will}`}>N E W</div>
+            <div className={styles.classTitle}>{classes.title}</div>
+            <div className={styles.contents}>
+              <div className={styles.etc}>
+                {classes.instructorName} 멘토 ( {classes.instructorMajor} )
+              </div>
+              <div className={styles.etc}>
+                {classes.startDate} ~ {classes.endDate}
+              </div>
+              <div className={styles.etc}>
+                현재 지원 인원
+                <span className={styles.bold}>
+                  {classes.totalCount} / {classes.numberOfStudents}명
+                </span>
               </div>
             </div>
-          </>
+          </div>
         ))}
+        <div className={styles.btnGroup}>
+          <div
+            className={`${styles.btn} ${styles.left}`}
+            onClick={() => {
+              animateClass('left')
+            }}
+          >
+            {left}
+          </div>
+          <div
+            className={`${styles.btn} ${styles.right}`}
+            onClick={() => {
+              animateClass('right')
+            }}
+          >
+            {right}
+          </div>
+        </div>
       </div>
     </div>
   )

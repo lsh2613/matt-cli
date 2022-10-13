@@ -119,13 +119,11 @@
 }
 
 .card:hover {
-  background: var(--color-blue);
-  color: #fff;
+  bottom: 1px;
+  -webkit-box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
+  box-shadow: 1px 22px 36px -14px rgba(111, 111, 111, 0.41);
 }
 
-.card:hover .etc {
-  color: #fff;
-}
 .classTitle {
   width: calc(100% - 70px);
 }
