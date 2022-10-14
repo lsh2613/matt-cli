@@ -6,6 +6,7 @@ import App from './app'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import Header from './componets/common/header/header'
+import Footer from './componets/common/footer/footer'
 
 import store from '@/redux/store'
 
@@ -16,6 +17,7 @@ root.render(
       <BrowserRouter>
         <Header />
         <App />
+        <Footer />
       </BrowserRouter>
     </React.StrictMode>
   </Provider>
