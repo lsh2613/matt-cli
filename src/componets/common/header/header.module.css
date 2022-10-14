@@ -22,7 +22,7 @@
 
 .header {
   height: 60px;
-  z-index: 10000;
+  z-index: 100;
   display: flex;
   align-items: center;
   position: -webkit-sticky; /* 사파리 브라우저 지원 */
@@ -33,7 +33,6 @@
   top: 4px;
   background: #fff;
   border-bottom: 1px solid var(--color-primary-bright);
-  z-index: 9998;
   padding: 0 calc((100% - 1000px) / 2);
 }
 

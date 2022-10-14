@@ -10,7 +10,6 @@ import {
 } from '@api/community/community'
 const CommunityBoard = (props) => {
   const params = useParams()
-  const dispatch = useDispatch()
 
   const id = params.communityId
   const [data, setData] = useState({})

@@ -8,12 +8,12 @@ function postReveiw(form) {
   return insReview.post('', form)
 }
 
-function deleteReview(form) {
-  return insReview.delete('', form)
+function deleteReview(id) {
+  return insReview.delete(`/${id}`, '')
 }
 
-function patchReveiw(form) {
-  return insReview.patch('', form)
+function updateReview(form) {
+  return insReview.patch(`/${form.reviewId}`, form)
 }
 
 function fetchReviewByInsId(insId) {
@@ -21,23 +21,23 @@ function fetchReviewByInsId(insId) {
 }
 
 function makeLike(reviewId) {
-  return review.post(`/Like/${reviewId}`, '')
+  return insReview.post(`/Like/${reviewId}`, '')
 }
 function cancelLike(reviewId) {
-  return review.delete(`/Like/${reviewId}`, '')
+  return insReview.delete(`/Like/${reviewId}`, '')
 }
 function makeHate(reviewId) {
-  return review.post(`/Hate/${reviewId}`, '')
+  return insReview.post(`/Hate/${reviewId}`, '')
 }
 function cancelHate(reviewId) {
-  return review.delete(`/Hate/${reviewId}`, '')
+  return insReview.delete(`/Hate/${reviewId}`, '')
 }
 
 export {
   fetchReviewByClassId,
   postReveiw,
   deleteReview,
-  patchReveiw,
+  updateReview,
   fetchReviewByInsId,
   makeLike,
   cancelLike,

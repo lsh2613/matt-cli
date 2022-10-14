@@ -73,3 +73,63 @@ hr {
 .hate:hover {
   scale: 1.02;
 }
+
+.span {
+  padding: 0 0.5rem;
+  color: #555;
+}
+.span:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.starForm .fieldset {
+  display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+  direction: rtl; /* 이모지 순서 반전 */
+  border: 0; /* 필드셋 테두리 제거 */
+}
+
+.fieldset {
+  display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+  border: 0; /* 필드셋 테두리 제거 */
+  padding: 0 0;
+}
+
+input[type='radio'] + .radioForm {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0px 0px;
+  border-radius: 10px;
+}
+
+input[type='radio'] + .radioForm {
+  width: fit-content;
+  color: transparent;
+  text-shadow: 0 0 0 #b1b1b1;
+}
+
+input[type='radio']:hover ~ .radioForm {
+  text-shadow: 0 0 0 #ffc75f;
+}
+
+input[type='radio']:checked ~ .radioForm {
+  text-shadow: 0 0 0 #ffc75f;
+}
+
+input:focus {
+  outline: 2px solid var(--color-primary-bright);
+  border-radius: 10px;
+}
+
+.inputForm {
+  border: 1px solid #eee;
+  padding: 8px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.inputForm:focus {
+  outline: none;
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(179, 156, 208, 0.16);
+  box-shadow: 2px 2px 15px 2px rgba(156, 173, 208, 0.3);
+}

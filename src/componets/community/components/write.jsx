@@ -1,47 +1,49 @@
-import React, { useState, useEffect } from "react";
-import styles from "./write.module.css";
-import button from "@/common/button.module.css";
-import float from "@/common/float.module.css";
-import { useNavigate } from "react-router-dom";
-import { fetchCategory, createCommunity } from "@api/community/community";
+import React, { useState, useEffect } from 'react'
+import styles from './write.module.css'
+import button from '@/common/button.module.css'
+import float from '@/common/float.module.css'
+import { useNavigate } from 'react-router-dom'
+import { fetchCategory, createCommunity } from '@api/community/community'
 
 const CreateCommunity = (props) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [data, setData] = useState({
-    category: "",
-    content: "",
-    title: "",
-  });
+    category: '',
+    content: '',
+    title: '',
+  })
 
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState([])
 
-  const { category, content, title } = data;
+  const { category, content, title } = data
   const check = () => {
-    if (data.title === "") alert("제목에 공란이 올 수 없습니다 :(");
-    else if (data.content === "") alert("내용에 공란이 올 수 없습니다 :(");
-    else create();
-  };
+    if (data.title === '') alert('제목에 공란이 올 수 없습니다 :(')
+    else if (data.content === '') alert('내용에 공란이 올 수 없습니다 :(')
+    else create()
+  }
   const create = () => {
-    if (data.category === "") setData({ ...data, ["category"]: menu[0] });
     createCommunity(data)
       .then((res) => {
-        alert("작성 완료되었습니다 :)");
-        navigate(`/community/board/${res.data.communityId}`);
+        alert('작성 완료되었습니다 :)')
+        navigate(`/community/board/${res.data.communityId}`)
       })
-      .catch((e) => alert(e.response.data));
-  };
+      .catch((e) => alert(e.response.data))
+  }
 
   const onChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setData({
       ...data,
       [name]: value,
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    fetchCategory().then((res) => setMenu(res.data));
-  }, []);
+    fetchCategory().then((res) => {
+      setMenu(res.data)
+      setData({ ...data, ['category']: menu[0] })
+    })
+  }, [])
 
   return (
     <>
@@ -49,8 +51,8 @@ const CreateCommunity = (props) => {
         <div className={styles.form}>
           <div className={styles.label}>제목</div>
           <input
-            type="text"
-            name="title"
+            type='text'
+            name='title'
             className={styles.inputForm}
             onChange={onChange}
             value={title}
@@ -62,7 +64,7 @@ const CreateCommunity = (props) => {
             className={styles.inputForm}
             onChange={onChange}
             value={category}
-            name="category"
+            name='category'
           >
             {menu.map((data) => (
               <option value={data} key={data}>
@@ -74,8 +76,8 @@ const CreateCommunity = (props) => {
         <div className={styles.form}>
           <div className={styles.label}></div>
           <textarea
-            type="text"
-            name="content"
+            type='text'
+            name='content'
             className={`${styles.inputForm} ${styles.textarea}`}
             onChange={onChange}
             value={content}
@@ -89,7 +91,7 @@ const CreateCommunity = (props) => {
         </button>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CreateCommunity;
+export default CreateCommunity

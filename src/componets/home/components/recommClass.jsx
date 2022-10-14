@@ -21,16 +21,16 @@ const RecommClass = (props) => {
   }
 
   const galleryCell = {
-    transform: `translate(${tran}%)`,
+    transform: `translate(calc(${tran}% + 20px))`,
     transition: `.3s`,
     duration: 300,
   }
 
   const animateClass = (dir) => {
     if (dir === 'left') {
-      tran > -30 ? ' ' : setTran(tran + 60)
+      tran > -30 ? ' ' : setTran(tran + 100)
     } else {
-      tran < 30 * classes.length - 100 ? setTran(tran - 60) : ''
+      ;-100 * classes.length > tran - 300 ? '' : setTran(tran - 100)
     }
   }
 
