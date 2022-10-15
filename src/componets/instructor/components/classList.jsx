@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import styles from './classList.module.css'
-import { fetchClassByInsId } from '../../../api/class/class'
+import React, { useEffect, useState } from "react";
+import styles from "./classList.module.css";
+import { fetchClassByInsId } from "../../../api/class/class";
 
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from "react-router-dom";
 const ClassList = (props) => {
-  const navigate = useNavigate()
-  const [classes, setClasses] = useState([])
+  const navigate = useNavigate();
+  const [classes, setClasses] = useState([]);
   useEffect(() => {
-    const insId = props?.insId
+    const insId = props?.insId;
     fetchClassByInsId(insId).then((res) => {
-      setClasses(res.data)
-    })
-  }, [])
+      setClasses(res.data);
+    });
+  }, []);
 
   const onState = () => {
-    return <aside className={styles.state}>진행중</aside>
-  }
+    return;
+  };
 
   const toClassInfo = (classId) => {
-    navigate(`/class/${classId}`, { state: { classId: classId } })
-  }
+    navigate(`/class/${classId}`, { state: { classId: classId } });
+  };
   return (
     <section className={styles.classList}>
       <h3>📋 멘토가 개설한 강의 목록</h3>
@@ -29,12 +29,11 @@ const ClassList = (props) => {
             className={styles.class}
             key={classes.classId}
             onClick={() => {
-              toClassInfo(classes.classId)
+              toClassInfo(classes.classId);
             }}
           >
             <article className={styles.classNm}>{classes.title}</article>
-            {onState()}
-            <aside className={styles.days}>화, 목</aside>
+            <aside className={styles.state}>{classes.status}</aside>
             <aside className={styles.time}>
               {classes.startTime} ~ {classes.endTime}
             </aside>
@@ -43,7 +42,7 @@ const ClassList = (props) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ClassList
+export default ClassList;

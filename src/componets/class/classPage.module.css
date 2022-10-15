@@ -23,6 +23,7 @@ h3 {
   height: 150px;
   box-shadow: var(--box-shadow);
   position: relative;
+  min-width: 220px;
 }
 
 .class:hover {

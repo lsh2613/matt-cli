@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import styles from './createclass.module.css'
-import button from '../../../common/button.module.css'
-import float from '../../../common/float.module.css'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from "react"
+import styles from "./createclass.module.css"
+import button from "../../../common/button.module.css"
+import float from "../../../common/float.module.css"
+import { useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 import {
   fetchInstructorByInsId,
   updateInstructorInfo,
-} from '@api/instructor/instructor'
-import { useState } from 'react'
+} from "@api/instructor/instructor"
+import { useState } from "react"
 
 const InsInfo = (props) => {
   const navigate = useNavigate()
@@ -32,14 +32,14 @@ const InsInfo = (props) => {
     updateInstructorInfo(insInfo).then((res) => {
       if (res.status === 200) {
         setInsInfo(res.data)
-        alert('수정되었습니다 :)')
+        alert("수정되었습니다 :)")
       }
     })
   }
 
   useEffect(() => {
     fetchInstructorByInsId(insId).then((res) => setInsInfo(res.data[0]))
-  }, [insInfo])
+  }, [])
 
   return (
     <section className={styles.section}>
@@ -59,7 +59,7 @@ const InsInfo = (props) => {
       <textarea
         disabled={disabled}
         onChange={onChange}
-        name='introduction'
+        name="introduction"
         value={introduction}
         className={styles.description}
       ></textarea>

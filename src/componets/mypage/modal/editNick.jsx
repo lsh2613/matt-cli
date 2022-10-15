@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import button from '@/common/button.module.css'
-import modal from '@/common/modal.module.css'
-import styles from './editNick.module.css'
-import { editNickNm } from '../../../api/user/user'
+import React, { useState, useEffect } from "react"
+import button from "@/common/button.module.css"
+import modal from "@/common/modal.module.css"
+import styles from "./editNick.module.css"
+import { editNickNm } from "../../../api/user/user"
 const EditNick = (props) => {
   const [state, setState] = useState(props.visible)
-  const [newNick, setNewNick] = useState('')
+  const [newNick, setNewNick] = useState("")
 
   const { nick } = newNick
 
   const onChange = (e) => {
-    const { name, value } = e.target
-    setNewNick(value)
+    setNewNick(e.target.value)
   }
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') edit()
+    if (e.key === "Enter") edit()
   }
 
   useEffect(() => {
@@ -23,19 +22,19 @@ const EditNick = (props) => {
   }, [props.visible])
 
   const edit = () => {
-    if (newNick !== '') {
+    if (newNick !== "") {
       editNickNm(newNick)
         .then((res) => {
-          alert('변경되었습니다 :)')
-          localStorage.setItem('nickname', res.data.nickname)
+          alert("변경되었습니다 :)")
+          localStorage.setItem("nickname", res.data.nickname)
           props.updateVisible(true)
         })
         .catch((e) => {
-          alert('오류가 발생했습니다 :(')
+          alert("오류가 발생했습니다 :(")
           props.updateVisible(false)
         })
     } else {
-      alert('공란이 올 수 없습니다')
+      alert("공란이 올 수 없습니다")
     }
   }
   return (
@@ -54,20 +53,20 @@ const EditNick = (props) => {
               <div className={styles.before}>
                 <dd className={styles.label}>변경전</dd>
                 <input
-                  type='text'
+                  type="text"
                   disabled
                   className={styles.inputForm}
-                  placeholder={localStorage.getItem('nickname')}
+                  placeholder={localStorage.getItem("nickname")}
                 />
               </div>
               <div className={styles.arrow}>→</div>
               <div className={styles.after}>
                 <dd className={styles.label}>변경후</dd>
                 <input
-                  type='text'
+                  type="text"
                   className={styles.inputForm}
                   value={nick}
-                  name='nick'
+                  name="nick"
                   onChange={onChange}
                   onKeyPress={handleKeyPress}
                 />
@@ -83,7 +82,7 @@ const EditNick = (props) => {
           ></div>
         </>
       ) : (
-        ''
+        ""
       )}
     </>
   )
