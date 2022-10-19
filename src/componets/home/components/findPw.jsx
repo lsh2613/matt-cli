@@ -67,10 +67,7 @@ const FindPw = (props) => {
                 value={email}
                 onChange={onChange}
               />
-              <button
-                onClick={sendEmail}
-                className={`${button.fullPrimaryBtn} ${styles.loginBtn}`}
-              >
+              <button onClick={sendEmail} className={`${styles.loginBtn}`}>
                 이메일 전송하기
               </button>
             </>
