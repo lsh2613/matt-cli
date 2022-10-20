@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
-import styles from './userInfo.module.css'
-import button from '@/common/button.module.css'
-import EditNick from '../modal/editNick'
-import EditPw from '../modal/editPw'
-import { deleteUser } from '@api/user/user'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import styles from "./userInfo.module.css";
+import button from "@/common/button.module.css";
+import EditNick from "../modal/editNick";
+import EditPw from "../modal/editPw";
+import { deleteUser } from "@api/user/user";
+import { useNavigate } from "react-router-dom";
 
 const UserInfo = (props) => {
-  const navigate = useNavigate()
-  const [nickModal, setNickModal] = useState(false)
-  const [pwModal, setPwModal] = useState(false)
+  const navigate = useNavigate();
+  const [nickModal, setNickModal] = useState(false);
+  const [pwModal, setPwModal] = useState(false);
 
   const updateNickVisible = (state) => {
     if (state === true) {
       setUser({
         ...user,
-        nickname: localStorage.getItem('nickname'),
-      })
+        nickname: localStorage.getItem("nickname"),
+      });
     }
-    setNickModal(false)
-  }
+    setNickModal(false);
+  };
   const updatePwVisible = () => {
-    setPwModal(false)
-  }
+    setPwModal(false);
+  };
 
   const secession = () => {
     if (
@@ -30,25 +30,25 @@ const UserInfo = (props) => {
     회원탈퇴 하시겠습니까?`) === true
     ) {
       deleteUser().then(() => {
-        navigate('/')
-        localStorage.clear()
-      })
+        navigate("/");
+        localStorage.clear();
+      });
     }
-  }
+  };
   const [user, setUser] = useState({
-    nickname: localStorage.getItem('nickname'),
-    birthday: localStorage.getItem('birthDate'),
-    email: localStorage.getItem('email'),
-    phoneNumber: localStorage.getItem('phoneNumber'),
-  })
+    nickname: localStorage.getItem("nickname"),
+    birthday: localStorage.getItem("birthDate"),
+    email: localStorage.getItem("email"),
+    phoneNumber: localStorage.getItem("phoneNumber"),
+  });
   return (
     <>
       <div className={styles.profile}>
-        <img src='img/profile.png' alt='프로필' className={styles.profileImg} />
+        <img src="img/profile.png" alt="프로필" className={styles.profileImg} />
         <div className={styles.userInfo}>
           <div className={styles.nicknm}>👤 {user.nickname}</div>
           <div className={styles.birth}>🎂 {user.birthday}</div>
-          <div className={styles.email}>✉️ {user.email}</div>
+          <div className={styles.email}>✉️ {`${user.email}`}</div>
           <div className={styles.phonenb}>📞 {user.phoneNumber}</div>
         </div>
         <button
@@ -73,7 +73,7 @@ const UserInfo = (props) => {
       <EditNick visible={nickModal} updateVisible={updateNickVisible} />
       <EditPw visible={pwModal} updateVisible={updatePwVisible} />
     </>
-  )
-}
+  );
+};
 
-export default UserInfo
+export default UserInfo;

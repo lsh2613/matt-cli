@@ -44,16 +44,17 @@
   flex: 1 1 30%;
 }
 .state {
-  flex: 1 1 20%;
+  flex: 1 1 30%;
+  text-align:center;
 }
-.days {
-  flex: 1 1 20%;
-}
+
 .time {
   flex: 1 1 20%;
+  text-align:center;
 }
 .cnt {
   flex: 1 1 10%;
+  text-align:center;
 }
 .showDetails {
   flex: 1 1 10%;
