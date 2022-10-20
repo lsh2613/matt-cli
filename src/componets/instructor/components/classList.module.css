@@ -59,3 +59,31 @@
 .showDetails {
   flex: 1 1 10%;
 }
+
+.classSt {
+  width: 60px;
+  right: 20px;
+  padding: 4px 8px;
+  background-color: var(--color-blue);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.will {
+  background-color: var(--color-blue);
+}
+.ing {
+  background-color: var(--color-green);
+}
+.done {
+  background-color: var(--color-gray);
+}
+
+.days,
+.time,
+.cnt {
+  display: flex;
+  justify-content: center;
+}

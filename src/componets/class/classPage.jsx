@@ -24,6 +24,17 @@ const ClassPage = (props) => {
     navigate(`/class/${classId}`, { state: { classId: classId } })
   }
 
+  const classSt = (classSt) => {
+    if (classSt === 1)
+      return <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
+    else if (classSt === 3)
+      return <div className={`${styles.classSt} ${styles.will}`}>모집완료</div>
+    else if (classSt === 5)
+      return <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>
+    else if (classSt === 9)
+      return <div className={`${styles.classSt} ${styles.done}`}>종료</div>
+  }
+
   return (
     <div className={styles.container}>
       <h2>강좌조회</h2>
@@ -36,7 +47,7 @@ const ClassPage = (props) => {
               key={classes.classId}
               onClick={() => toClassInfo(classes.classId)}
             >
-              <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
+              {classSt(classes.classSt)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>
                 신청생 {classes.totalCount}명 /수강가능 인원
@@ -58,7 +69,7 @@ const ClassPage = (props) => {
               key={classes.classId}
               onClick={() => toClassInfo(classes.classId)}
             >
-              <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>
+              {classSt(classes.classSt)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>수강인원 {classes.countCS}명</dd>
               <dd className={styles.date}>
@@ -77,7 +88,7 @@ const ClassPage = (props) => {
               key={classes.classId}
               onClick={() => toClassInfo(classes.classId)}
             >
-              <div className={`${styles.classSt} ${styles.done}`}>종료</div>
+              {classSt(classes.classSt)}
               <dd className={styles.title}>{classes.title}</dd>
               <dd className={styles.number}>수강인원 {classes.countCS}명</dd>
               <dd className={styles.date}>

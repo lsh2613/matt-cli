@@ -1,24 +1,32 @@
-import styles from "./app.module.css"
-import Login from "./componets/login/login"
-import Signup from "./componets/signup/signup"
-import MyPage from "./componets/mypage/mypage"
-import Home from "./componets/home/home"
-import MakeClass from "./componets/instructor/class/makeclass"
-import UpdateClass from "./componets/instructor/class/updateclass"
-import Waiting from "./componets/instructor/class/wating"
-import ClassInfoPage from "./componets/class/classInfoPage"
-import AuthInstructor from "./componets/instructor/auth/authInstructor"
-import { Routes, Route, Navigate } from "react-router-dom"
-import SearchPage from "./componets/search/searchPage"
-import InstructorPage from "./componets/instructor/instructorPage"
-import InstructorInfo from "./componets/instructor/components/instructorInfo"
-import { useSelector } from "react-redux"
-import ClassPage from "./componets/class/classPage"
-import CommunityPage from "./componets/community/communityPage"
-import FindPw from "./componets/home/components/findPw"
-import StudentReview from "./componets/mypage/components/studentReview"
+
+import styles from './app.module.css'
+import Login from './componets/login/login'
+import Signup from './componets/signup/signup'
+import MyPage from './componets/mypage/mypage'
+import Home from './componets/home/home'
+import MakeClass from './componets/instructor/class/makeclass'
+import UpdateClass from './componets/instructor/class/updateclass'
+import Waiting from './componets/instructor/class/wating'
+import ClassInfoPage from './componets/class/classInfoPage'
+import AuthInstructor from './componets/instructor/auth/authInstructor'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import SearchPage from './componets/search/searchPage'
+import InstructorPage from './componets/instructor/instructorPage'
+import InstructorInfo from './componets/instructor/components/instructorInfo'
+import { useSelector } from 'react-redux'
+import ClassPage from './componets/class/classPage'
+import { useEffect } from 'react'
+import CommunityPage from './componets/community/communityPage'
+import FindPw from './componets/home/components/findPw'
+
 function App() {
   const login = useSelector((state) => state.user.login)
+
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
     <div className={styles.app}>

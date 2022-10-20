@@ -27,7 +27,16 @@ const ClassInfo = (props) => {
 
   const classId = params.classId
   const login = useSelector((state) => state.user.login)
-
+  const classSt = (classSt) => {
+    if (classSt === 1)
+      return <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
+    else if (classSt === 3)
+      return <div className={`${styles.classSt} ${styles.will}`}>모집완료</div>
+    else if (classSt === 5)
+      return <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>
+    else if (classSt === 9)
+      return <div className={`${styles.classSt} ${styles.done}`}>종료</div>
+  }
   const apply = () => {
     if (login) setVisible(true)
     else {
@@ -67,8 +76,8 @@ const ClassInfo = (props) => {
     })
   }
 
-  const showBtn = (insId, startDate) => {
-    if (insId !== instructorId && startDate > nowDate && classState)
+  const showBtn = (insId, classSt) => {
+    if (insId !== instructorId && classSt === 1)
       return (
         <div className={styles.btnGroup}>
           <button
@@ -82,8 +91,7 @@ const ClassInfo = (props) => {
           </button>
         </div>
       )
-
-    if (insId === instructorId && startDate > nowDate && classState)
+    if (insId === instructorId && classSt === 1)
       return (
         <div className={styles.btnGroup}>
           <button
@@ -92,6 +100,18 @@ const ClassInfo = (props) => {
           >
             클래스 수정
           </button>
+          <button
+            className={`${button.fullBtn} ${button.blue}`}
+            onClick={() => {}}
+          >
+            클래스 진행
+          </button>
+        </div>
+      )
+
+    if (insId === instructorId && classSt === 3)
+      return (
+        <div className={styles.btnGroup}>
           <button
             className={button.fullGrayBtn}
             onClick={() => setFinished(classes.classId)}
@@ -106,9 +126,10 @@ const ClassInfo = (props) => {
     <>
       <div className={styles.container}>
         <section className={styles.main}>
-          <div className={styles.title}>{classes.classes}</div>
+          {classSt(classes.classSt)}
+          <div className={styles.title}>{classes.title}</div>
 
-          {showBtn(classes.instructorId, classes.startDate)}
+          {showBtn(classes.instructorId, classes.classSt)}
         </section>
 
         <section className={styles.infoGroup}>
@@ -167,7 +188,7 @@ const ClassInfo = (props) => {
           <hr />
           {classes.descriptions}
         </section>
-        {1 ? (
+        {classes.classSt === 9 ? (
           <section className={styles.reviewContainer}>
             <h3>💬 클래스 리뷰</h3>
             <hr />

@@ -42,3 +42,7 @@ textarea {
   font-family: 'InfinitySans-RegularA1', source-code-pro, Menlo, Monaco,
     Consolas, 'Courier New', monospace;
 }
+
+input:active {
+  outline: 0;
+}
