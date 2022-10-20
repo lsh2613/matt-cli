@@ -5,6 +5,7 @@
   position: relative;
   margin-top: 50px;
 }
+
 .btnGroup {
   position: absolute;
   right: 1rem;
@@ -69,7 +70,6 @@ label {
 
 .main {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -85,4 +85,24 @@ h3 {
 hr {
   border: 1px solid #eee;
   margin-bottom: 1rem;
+}
+
+.classSt {
+  width: fit-content;
+  padding: 4px 8px;
+  background-color: var(--color-blue);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.will {
+  background-color: var(--color-blue);
+}
+.ing {
+  background-color: var(--color-green);
+}
+.done {
+  background-color: var(--color-gray);
 }

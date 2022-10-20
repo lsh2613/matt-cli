@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import styles from "./list.module.css";
-import { fetchaAllCommunity, fetchByCategory } from "@api/community/community";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import button from "@/common/button.module.css";
-import float from "@/common/float.module.css";
+import React, { useEffect, useState } from 'react'
+import styles from './list.module.css'
+import { fetchaAllCommunity, fetchByCategory } from '@api/community/community'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import button from '@/common/button.module.css'
+import float from '@/common/float.module.css'
 const CommunityList = (props) => {
-  const navigate = useNavigate();
-  const [community, setCommunity] = useState([]);
+  const navigate = useNavigate()
+  const [community, setCommunity] = useState([])
 
-  const menu = useSelector((state) => state.community.menu);
+  const menu = useSelector((state) => state.community.menu)
 
   useEffect(() => {
-    if (menu === "전체")
-      fetchaAllCommunity().then((res) => setCommunity(res.data));
-    else fetchByCategory(menu).then((res) => setCommunity(res.data));
-  }, [menu]);
+    if (menu === '전체')
+      fetchaAllCommunity().then((res) => setCommunity(res.data))
+    else fetchByCategory(menu).then((res) => setCommunity(res.data))
+  }, [menu])
   return (
     <>
       <section className={styles.communitySection}>
@@ -23,7 +23,7 @@ const CommunityList = (props) => {
           <h2>커뮤니티</h2>
           <button
             className={`${button.fullPrimaryBtn} ${float.floatRight} ${styles.bottom}`}
-            onClick={() => navigate("/community/create")}
+            onClick={() => navigate('/community/create')}
           >
             작성하기
           </button>
@@ -53,9 +53,15 @@ const CommunityList = (props) => {
             <div className={styles.none}>게시글이 없습니다 ❗</div>
           )}
         </div>
+        <button
+          className={`${button.fullPrimaryBtn} ${styles.absolute}`}
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          †
+        </button>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default CommunityList;
+export default CommunityList

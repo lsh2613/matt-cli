@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { fetchClassByInsId } from '../../../api/class/class'
 import { useEffect } from 'react'
 
-import { nowDate } from '@utils/index'
-
 const CreatedClass = (props) => {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([])
@@ -18,6 +16,40 @@ const CreatedClass = (props) => {
 
   const toWaiting = (classId) => {
     navigate(`/class/${classId}/waiting`, { state: { classId: classId } })
+  }
+
+  const classSt = (classSt, classId) => {
+    if (classSt === 1)
+      return (
+        <button
+          className={`${button.borderGrayBtn} ${styles.showDetails}`}
+          onClick={(e) => {
+            console.log(classes.classId)
+            e.stopPropagation()
+            toWaiting(classId)
+          }}
+        >
+          신청자 관리
+        </button>
+      )
+    else if (classSt === 3)
+      return (
+        <button className={`${button.borderGrayBtn} ${styles.showDetails}`}>
+          클래스 진행
+        </button>
+      )
+    else if (classSt === 5)
+      return (
+        <button className={`${button.borderGrayBtn} ${styles.showDetails}`}>
+          클래스 종료
+        </button>
+      )
+    else if (classSt === 9)
+      return (
+        <button disabled className={`${button.end} ${styles.showDetails}`}>
+          종료
+        </button>
+      )
   }
   useEffect(() => {
     fetchClassByInsId(localStorage.getItem('instructorId')).then((res) =>
@@ -43,29 +75,12 @@ const CreatedClass = (props) => {
             onClick={() => toClassInfo(classes.classId)}
           >
             <article className={styles.classNm}>{classes.title}</article>
-            <aside className={styles.days}>화, 목</aside>
+            <aside className={styles.category}>{classes.category}</aside>
             <aside className={styles.time}>
               {classes.startTime} ~ {classes.endTime}
             </aside>
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
-            {classes.endDate > nowDate ? (
-              <button
-                className={`${button.borderGrayBtn} ${styles.showDetails}`}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  toWaiting(classes.classId)
-                }}
-              >
-                신청자 관리
-              </button>
-            ) : (
-              <button
-                disabled
-                className={`${button.end} ${styles.showDetails}`}
-              >
-                종료
-              </button>
-            )}
+            {classSt(classes.classSt, classes.classId)}
           </div>
         ))}
       </div>

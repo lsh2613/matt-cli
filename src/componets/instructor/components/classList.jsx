@@ -13,8 +13,15 @@ const ClassList = (props) => {
     })
   }, [])
 
-  const onState = () => {
-    return <aside className={styles.state}>진행중</aside>
+  const classSt = (classSt) => {
+    if (classSt === 1)
+      return <div className={`${styles.classSt} ${styles.will}`}>진행예정</div>
+    else if (classSt === 3)
+      return <div className={`${styles.classSt} ${styles.will}`}>모집완료</div>
+    else if (classSt === 5)
+      return <div className={`${styles.classSt} ${styles.ing}`}>진행중</div>
+    else if (classSt === 9)
+      return <div className={`${styles.classSt} ${styles.done}`}>종료</div>
   }
 
   const toClassInfo = (classId) => {
@@ -33,8 +40,7 @@ const ClassList = (props) => {
             }}
           >
             <article className={styles.classNm}>{classes.title}</article>
-            {onState()}
-            <aside className={styles.days}>화, 목</aside>
+            <aside className={styles.days}>{classSt(classes.classSt)}</aside>
             <aside className={styles.time}>
               {classes.startTime} ~ {classes.endTime}
             </aside>

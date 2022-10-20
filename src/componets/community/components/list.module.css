@@ -1,4 +1,3 @@
-
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr 12fr;
@@ -6,8 +5,8 @@
 }
 
 .numOfLikes,
-.numOfComments{
-  min-width: 50px ;
+.numOfComments {
+  min-width: 50px;
 }
 .communitySection {
   padding: 0rem 3rem 0rem 3rem;
@@ -40,7 +39,7 @@
 }
 .hr {
   margin-top: 1rem;
-  border: 1px solid #f2f2f2
+  border: 1px solid #f2f2f2;
 }
 
 .content {
@@ -55,14 +54,19 @@
   max-height: 3.7rem;
 }
 
-.none{
+.absolute {
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+}
+
+.none {
   padding: 3rem 0rem;
   text-align: center;
 }
 
-.menu{
+.menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
