@@ -1,3 +1,4 @@
+
 import styles from './app.module.css'
 import Login from './componets/login/login'
 import Signup from './componets/signup/signup'
@@ -30,43 +31,48 @@ function App() {
   return (
     <div className={styles.app}>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='login' element={<Login />} />
-        <Route path='findpw' element={<FindPw />} />
-        <Route path='signup' element={<Signup />} />
-        <Route path='/class' element={<ClassPage />} />
-        <Route exact path='/class/:classId' element={<ClassInfoPage />} />
-        <Route exact path='/instructor' element={<InstructorPage />} />
-        <Route exact path='/instructor/:insId' element={<InstructorInfo />} />
-        <Route path='/search' element={<SearchPage />} />
-        <Route path='/community/*' element={<CommunityPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="findpw" element={<FindPw />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="/class" element={<ClassPage />} />
+        <Route exact path="/class/:classId" element={<ClassInfoPage />} />
+        <Route exact path="/instructor" element={<InstructorPage />} />
+        <Route exact path="/instructor/:insId" element={<InstructorInfo />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/community/*" element={<CommunityPage />} />
         {login ? (
           <>
-            <Route path='mypage' element={<MyPage />} />
-            <Route path='/makeclass' element={<MakeClass />} />
-            <Route path='/updateclass/:classId' element={<UpdateClass />} />
-            <Route exact path='/class/:classId/waiting' element={<Waiting />} />
-            <Route path='/instructor/auth' element={<AuthInstructor />} />
+            <Route path="mypage" element={<MyPage />} />
+            <Route path="/makeclass" element={<MakeClass />} />
+            <Route path="/updateclass/:classId" element={<UpdateClass />} />
+            <Route exact path="/class/:classId/waiting" element={<Waiting />} />
+            <Route
+              exact
+              path="/class/:classId/student"
+              element={<StudentReview />}
+            />
+            <Route path="/instructor/auth" element={<AuthInstructor />} />
           </>
         ) : (
           <>
-            <Route path='/mypage' element={<Navigate replace to='/login' />} />
+            <Route path="/mypage" element={<Navigate replace to="/login" />} />
             <Route
-              path='/makeclass'
-              element={<Navigate replace to='/login' />}
+              path="/makeclass"
+              element={<Navigate replace to="/login" />}
             />
             <Route
-              path='/updateclass/:classId'
-              element={<Navigate replace to='/login' />}
+              path="/updateclass/:classId"
+              element={<Navigate replace to="/login" />}
             />
             <Route
               exact
-              path='/class/:classId/waiting'
-              element={<Navigate replace to='/login' />}
+              path="/class/:classId/waiting"
+              element={<Navigate replace to="/login" />}
             />
             <Route
-              path='/instructor/auth'
-              element={<Navigate replace to='/login' />}
+              path="/instructor/auth"
+              element={<Navigate replace to="/login" />}
             />
           </>
         )}

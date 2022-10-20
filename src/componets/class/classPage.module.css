@@ -24,6 +24,7 @@ h3 {
   box-shadow: var(--box-shadow);
   position: relative;
   min-width: 260px;
+
 }
 
 .class:hover {

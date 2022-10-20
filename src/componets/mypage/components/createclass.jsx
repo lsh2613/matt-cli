@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import styles from './createclass.module.css'
-import button from '../../../common/button.module.css'
-import float from '../../../common/float.module.css'
-import { useNavigate } from 'react-router-dom'
-import { fetchClassByInsId } from '../../../api/class/class'
-import { useEffect } from 'react'
+import React, { useState } from "react"
+import styles from "./createclass.module.css"
+import button from "../../../common/button.module.css"
+import float from "../../../common/float.module.css"
+import { useNavigate } from "react-router-dom"
+import { fetchClassByInsId } from "../../../api/class/class"
+import { useEffect } from "react"
 
 const CreatedClass = (props) => {
   const navigate = useNavigate()
@@ -17,6 +17,7 @@ const CreatedClass = (props) => {
   const toWaiting = (classId) => {
     navigate(`/class/${classId}/waiting`, { state: { classId: classId } })
   }
+
 
   const classSt = (classSt, classId) => {
     if (classSt === 1)
@@ -51,9 +52,10 @@ const CreatedClass = (props) => {
         </button>
       )
   }
+
   useEffect(() => {
-    fetchClassByInsId(localStorage.getItem('instructorId')).then((res) =>
-      setClasses(res.data)
+    fetchClassByInsId(localStorage.getItem("instructorId")).then(
+      (res) => setClasses(res.data)````
     )
   }, [])
   return (
@@ -62,7 +64,7 @@ const CreatedClass = (props) => {
       <button
         className={`${button.fullPrimaryBtn} ${float.floatRight}`}
         onClick={() => {
-          navigate('/makeclass')
+          navigate("/makeclass")
         }}
       >
         창설하기
@@ -81,6 +83,8 @@ const CreatedClass = (props) => {
             </aside>
             <aside className={styles.cnt}>{classes.numberOfStudents}명</aside>
             {classSt(classes.classSt, classes.classId)}
+
+          
           </div>
         ))}
       </div>
