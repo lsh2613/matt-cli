@@ -1,5 +1,5 @@
 <h2>Description 📑</h2>
-![matt](https://user-images.githubusercontent.com/57476918/197125422-b50ff263-458d-4db6-a675-454f31baed76.png)
+<img src="https://user-images.githubusercontent.com/57476918/197125422-b50ff263-458d-4db6-a675-454f31baed76.png" >
 <hr />
 
 매티(MATT)는 멘토와 멘티의 매칭을 위한 중개 웹사이트 입니다.
