@@ -1,5 +1,5 @@
 <h2>Description 📑</h2>
-https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8fe5b05f-d762-4e15-9987-afee036cced6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221021%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221021T061259Z&X-Amz-Expires=86400&X-Amz-Signature=3cb134016ee940ab72d9c6026e876af42bbe349d646fb0b6c7e0c32b65012b50&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject
+![matt](https://user-images.githubusercontent.com/57476918/197125422-b50ff263-458d-4db6-a675-454f31baed76.png)
 <hr />
 
 매티(MATT)는 멘토와 멘티의 매칭을 위한 중개 웹사이트 입니다.
